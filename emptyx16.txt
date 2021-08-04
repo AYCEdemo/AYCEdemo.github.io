@@ -94,38 +94,49 @@ For below ports, x = Device number 0..1
 
 VERA Versatile Embedded Retro Adapter (R/W)
 
-9F20h - ADDR_L       - VRAM Address (lower 8 bits)
-9F21h - ADDR_M       - VRAM Address (middle 8 bits)
-9F22h - ADDR_H       - VRAM Address (upper 1 bit) and Increment Mode
-9F23h - DATA0        - VRAM Data Port 0
-9F24h - DATA1        - VRAM Data Port 1
-9F25h - CTRL         - Control
-9F26h - IEN          - Interrupt Enable / Line Compare (upper 1 bit)
-9F27h - ISR          - Interrupt / Status Register
-9F28h - IRQLINE_L    - Interrupt Line Compare (lower 8 bits)
-9F29h - DC_VIDEO     - Active Display Control / H-Start      DC_HSTART
-9F2Ah - DC_HSCALE    - Active Display H-Scale / H-Stop       DC_HSTOP
-9F2Bh - DC_VSCALE    - Active Display V-Scale / V-Start      DC_VSTART
-9F2Ch - DC_BORDER    - Border Color / Active Display V-Stop  DC_VSTOP
-9F2Dh - L0_CONFIG    - L0 Mode and Map Size
-9F2Eh - L0_MAPBASE   - L0 Map Base
-9F2Fh - L0_TILEBASE  - L0 Tile Base and Tile Size
-9F30h - L0_HSCROLL_L - L0 Horizontal Scroll (lower 8 bits)
-9F31h - L0_HSCROLL_H - L0 Horizontal Scroll (upper 4 bits) / L0 Bitmap Color
-9F32h - L0_VSCROLL_L - L0 Vertical Scroll (lower 8 bits)
-9F33h - L0_VSCROLL_H - L0 Vertical Scroll (upper 4 bits)
-9F34h - L1_CONFIG    - L1 Mode and Map Size
-9F35h - L1_MAPBASE   - L1 Map Base
-9F36h - L1_TILEBASE  - L1 Tile Base and Tile Size
-9F37h - L1_HSCROLL_L - L1 Horizontal Scroll (lower 8 bits)
-9F38h - L1_HSCROLL_H - L1 Horizontal Scroll (upper 4 bits) / L1 Bitmap Color
-9F39h - L1_VSCROLL_L - L1 Vertical Scroll (lower 8 bits)
-9F3Ah - L1_VSCROLL_H - L1 Vertical Scroll (upper 4 bits)
-9F3Bh - AUDIO_CTRL   - Audio FIFO Control
-9F3Ch - AUDIO_RATE   - Audio FIFO Sample Rate
-9F3Dh - AUDIO_DATA   - Audio FIFO Data (W)
-9F3Eh - SPI_DATA     - SPI Data
-9F3Fh - SPI_CTRL     - SPI Control
+Note: The rightmost column shows the initial value on Reset
+
+9F20h - ADDR_L       - VRAM Address (lower 8 bits)                    00h
+9F21h - ADDR_M       - VRAM Address (middle 8 bits)                   00h
+9F22h - ADDR_H       - VRAM Address (upper 1 bit) / Increment Mode    00h
+9F23h - DATA0        - VRAM Data Port 0                               00h
+9F24h - DATA1        - VRAM Data Port 1                               00h
+9F25h - CTRL         - Control                                        00h
+9F26h - IEN          - Interrupt Enable / Line Compare (upper 1 bit)  00h
+9F27h - ISR          - Interrupt / Status Register                    00h
+9F28h - IRQLINE_L    - Interrupt Line Compare (lower 8 bits)          00h
+
+        (DCSEL=0)
+9F29h - DC_VIDEO     - Active Display Control                         00h
+9F2Ah - DC_HSCALE    - Active Display H-Scale                         80h
+9F2Bh - DC_VSCALE    - Active Display V-Scale                         80h
+9F2Ch - DC_BORDER    - Border Color                                   00h
+
+        (DCSEL=1)
+9F29h - DC_HSTART    - Active Display H-Start                         00h
+9F2Ah - DC_HSTOP     - Active Display H-Stop                          A0h
+9F2Bh - DC_VSTART    - Active Display V-Start                         00h
+9F2Ch - DC_VSTOP     - Active Display V-Stop                          F0h
+
+9F2Dh - L0_CONFIG    - L0 Mode and Map Size                           00h
+9F2Eh - L0_MAPBASE   - L0 Map Base                                    00h
+9F2Fh - L0_TILEBASE  - L0 Tile Base and Tile Size                     00h
+9F30h - L0_HSCROLL_L - L0 H-Scroll (lower 8 bits)                     00h
+9F31h - L0_HSCROLL_H - L0 H-Scroll (upper 4 bits) / Bitmap Color      00h
+9F32h - L0_VSCROLL_L - L0 V-Scroll (lower 8 bits)                     00h
+9F33h - L0_VSCROLL_H - L0 V-Scroll (upper 4 bits)                     00h
+9F34h - L1_CONFIG    - L1 Mode and Map Size                           00h
+9F35h - L1_MAPBASE   - L1 Map Base                                    00h
+9F36h - L1_TILEBASE  - L1 Tile Base and Tile Size                     00h
+9F37h - L1_HSCROLL_L - L1 H-Scroll (lower 8 bits)                     00h
+9F38h - L1_HSCROLL_H - L1 H-Scroll (upper 4 bits) / Bitmap Color      00h
+9F39h - L1_VSCROLL_L - L1 V-Scroll (lower 8 bits)                     00h
+9F3Ah - L1_VSCROLL_H - L1 V-Scroll (upper 4 bits)                     00h
+9F3Bh - AUDIO_CTRL   - Audio FIFO Control                             00h
+9F3Ch - AUDIO_RATE   - Audio FIFO Sample Rate                         00h
+9F3Dh - AUDIO_DATA   - Audio FIFO Data (W)                            -
+9F3Eh - SPI_DATA     - SPI Data                                       -
+9F3Fh - SPI_CTRL     - SPI Control                                    00h (?)
 
 YM2151 I/O Ports
 
@@ -397,9 +408,8 @@ integer part of this virtual screen position is then used for the rest of the
 composition logic. This puts the scaling center at the top-left corner of an
 active display area.
 
-NOTE: Setting H-Scale above 1.0 (80h) has a glitchy result when the line draws
-beyond 640th pixel in the official emulator. It's not known if the real hardware
-also has this behavior. (?)
+NOTE: Setting H-Scale or V-Scale above 1.0 (80h) will skip some pixels while
+rendering, potentially causing inaccurate collision detection (?)
 
 9F2Ch (DCSEL=0) - DC_BORDER - Border Color (R/W)
 
@@ -425,8 +435,8 @@ Sets the stopping point of an active display area in native display coordinates
 and vertical value is in steps of 2. The stopping point is not inclusive.
 
 These four register values are analogous to a display window in many consoles.
-The width of an active display is (DC_HSTOP-DC_HSTART)* 4 pixels and the height
-of an active display is (DC_VSTOP-DC_VSTART)* 2 pixels. For example, a screen
+The width of an active display is (DC_HSTOP-DC_HSTART)*4 pixels and the height
+of an active display is (DC_VSTOP-DC_VSTART)*2 pixels. For example, a screen
 that starts at (64,50) with an active display size of 320x200 pixels will have
 9F29h-9F2Ch values of 10h, 19h, 60h, 7Dh in order.
 
@@ -558,7 +568,7 @@ the official emulator source code and are not confirmed on real hardware (?)
 
 9F3Ch - AUDIO_RATE - Audio FIFO Sample Rate (R/W)
 
-Specifies the playback rate of the FIFO in 25000*n/512 KHz. A value of 0 or
+Specifies the playback rate of the FIFO in 25000*n/65536 KHz. A value of 0 or
 anything greater than 128 will stop playback.
 
 9F3Dh - AUDIO_DATA - Audio FIFO Data (W)
@@ -591,8 +601,8 @@ only interface with automatic clocking and transfer in X16.
 9F3Eh - SPI_DATA - SPI Data (R/W)
 
 Reads from this register returns the last received byte. Writes to this register
-will start transferring one byte of the written data to the device and receiving
-the data from the device at the same time. The busy flag in SPI_CTRL is set
+will start transferring one byte of written data to the device and receiving one
+byte of data from the device at the same time. The busy flag in SPI_CTRL is set
 during the transfer period. Once the transfer completes, the busy flag is
 cleared and the new received byte is latched to this register. Since the VERA is
 on the controller side and due to how SPI works, it's usually required to write
@@ -603,13 +613,18 @@ from the device is received and latched.
 
 Bit
 7       Busy Flag (1=Busy) (Read-only)
-6-2     Not Used
+6-4     Not Used
+3       Auto Transfer (0=Off, 1=On) (undocumented)
+2       Not Used
 1       Shift Clock Speed (0=12.5MHz, 1=391KHz)
 0       Chip Select (0=Release, 1=Select)
 
 A shift clock speed of 391KHz was implemented because some memory cards require
 it to be lower than 400KHz during an initialization process. A chip select is
 required in order to activate the memory card.
+
+When Auto Transfer is on, any reads from SPI_DATA will also transfer FFh to the
+device and receive one byte of data from it at the same time.
 
 Memory Card Commands
 
@@ -830,7 +845,7 @@ Bit
 Tile Data (Layers and OBJ)
 
 VERA strictly uses packed pixel format in every color depth setting. Its
-smallest 8x1 "lines" unit can be described as follows:
+smallest 8x1 "bars" unit can be described as follows:
 
    Byte 0        1        2        3        4        5        6        7
     Bit 76543210 76543210 76543210 76543210 76543210 76543210 76543210 76543210
@@ -840,21 +855,21 @@ smallest 8x1 "lines" unit can be described as follows:
 8bpp    aaaaaaaa bbbbbbbb cccccccc dddddddd eeeeeeee ffffffff gggggggg hhhhhhhh
 Depth
 
-For each line, the color ID for each pixel A to H from left to right are packed
+For each bar, the color ID for each pixel A to H from left to right are packed
 together from left to right. The bit length of each color ID depends on the
-color depth setting. Making each line occupy 1, 2, 4 or 8 bytes total. A color
-ID of 0 always mean transparent except in a certain 1bpp tile mode.
+color depth setting. Making each bar occupy 1, 2, 4 or 8 bytes total. A color ID
+of 0 always mean transparent except in a certain 1bpp tile mode.
 
 To make up tiles which can be up to 16x16 pixels in size for Layers, and up to
-64x64 for OBJs, each lines are combined as follows. With X being a tile width in
+64x64 for OBJs, each bars are combined as follows. With X being a tile width in
 pixels divided by 8 and Y being a tile height in pixels. For example, a tile
 size of 32x16 pixels has X=4 and Y=16.
 
-Vertical Rows        Left-most    ...     Right-most
-Upper Row   in lines    0,      1,      2, ...,  X-1
-2nd Row     in lines    X,    X+1,    X+2, ..., 2X-1
+Vertical Rows       Left-most    ...     Right-most
+Upper Row   in bars    0,      1,      2, ...,  X-1
+2nd Row     in bars    X,    X+1,    X+2, ..., 2X-1
 ...
-Yth Row     in lines XY-X, XY-X+1, XY-X+2, ..., XY-1
+Yth Row     in bars XY-X, XY-X+1, XY-X+2, ..., XY-1
 
 Bitmap Data
 
@@ -938,6 +953,32 @@ Color Palette Indices
 NOTE: Due to a hardware quirk, a palette number entry will also modify the first
 16 colors mapping in 8bpp mode as if it was 4bpp mode. So it is recommended to
 set the palette number to 0 to still have access to all 256 colors.
+
+Initial Palette
+
+On reset (by either on hardware or a write to CTRL), the internal palette memory
+is initialized to these values. It consists of 16 pre-defined colors, 16 gray
+ramp colors and 224 8x4x7 HSL ramp colors:
+
+    x0h x1h x2h x3h x4h x5h x6h x7h x8h x9h xAh xBh xCh xDh xEh xFh
+0xh 000 FFF 800 AFE C4C 0C5 00A EE7 D85 640 F77 333 777 AF6 08F BBB
+1xh 000 111 222 333 444 555 666 777 888 999 AAA BBB CCC DDD EEE FFF
+2xh 211 433 644 866 A88 C99 FBB 211 422 633 844 A55 C66 F77 200 411
+3xh 611 822 A22 C33 F33 200 400 600 800 A00 C00 F00 221 443 664 886
+4xh AA8 CC9 FEB 211 432 653 874 A95 CB6 FD7 210 431 651 862 A82 CA3
+5xh FC3 210 430 640 860 A80 C90 FB0 121 343 564 786 9A8 BC9 DFB 121
+6xh 342 463 684 8A5 9C6 BF7 120 241 461 582 6A2 8C3 9F3 120 240 360
+7xh 480 5A0 6C0 7F0 121 343 465 686 8A8 9CA BFC 121 242 364 485 5A6
+8xh 6C8 7F9 020 141 162 283 2A4 3C5 3F6 020 041 061 082 0A2 0C3 0F3
+9xh 122 344 466 688 8AA 9CC BFF 122 244 366 488 5AA 6CC 7FF 022 144
+Axh 166 288 2AA 3CC 3FF 022 044 066 088 0AA 0CC 0FF 112 334 456 668
+Bxh 88A 9AC BCF 112 224 346 458 56A 68C 79F 002 114 126 238 24A 35C
+Cxh 36F 002 014 016 028 02A 03C 03F 112 334 546 768 98A B9C DBF 112
+Dxh 324 436 648 85A 96C B7F 102 214 416 528 62A 83C 93F 102 204 306
+Exh 408 50A 60C 70F 212 434 646 868 A8A C9C FBE 211 423 635 847 A59
+Fxh C6B F7D 201 413 615 826 A28 C3A F3C 201 403 604 806 A08 C09 F0B
+
+
 
 Screen Border Color
 
@@ -2025,7 +2066,7 @@ Timer 1 is a 16-bit counter which counts down at a rate of PHI2. When the
 counter reaches 0, IFR bit 6 is set and generate an interrupt if it's enabled.
 After this, it will either not generate any more interrupts or reload the
 counter with a latched value depending on the modes described below. Timer 1 can
-also be configured to output on PB7 pin with ACR bit 7 setting.
+also be configured to toggle output on PB7 pin with ACR bit 7 setting.
 
 4h/5h - T1L/T1H - T1 Counter (R/W)
 
@@ -2410,7 +2451,7 @@ KC, KF-------+---------->|  DT1  |                       v
        | Envelope  |                         |    _______v______
 Keyon->| Generator |->(+)->(+)---------------+   |  Att. dB To  |
        |___________|   ^    ^                |   | Linear Table |
-AR, D1R,     ^         |    | AMS En.        |   |______________|   
+AR, D1R,     ^         |    | AMS En.        |   |______________|
 D1L, D2R,----'         |    '----:----[AMS]  |           |
 RR, KS                 TL                    |           o
 .............................................|............\
@@ -2443,9 +2484,9 @@ CON = 2
 
       .-----------.
       v    .----. |
-PG-->(+)-->| M1 |-+---.  PG         PG
-           '----'     | /            |
-           .----.     vL   .----.    v    .----.
+PG-->(+)-->| M1 |-+------------------.  PG
+           '----'    PG              | /
+           .----.     v    .----.    vL   .----.
 PG-------->| C1 |----(+)-->| M2 |-->(+)-->| C2 |-->OUT
            '----'          '----'         '----'
 
@@ -2918,17 +2959,17 @@ LFSR generator state.
 
 Waveform    Phase Modulation        Amplitude Modulation
 
-Sawtooth    +  .|    .|    .|       0 `.   |`.   |`.   |
-(W=0)       0 ' |  .' |  .' |  .        `. |  `. |  `. |
-            -   |.'   |.'   |.'     +     `|    `|    `|
-              __       _____          __       _____    
+Sawtooth    +  .|    .|    .|       0     .|    .|    .|
+(W=0)       0 ' |  .' |  .' |  .        .' |  .' |  .' |
+            -   |.'   |.'   |.'     + .'   |.'   |.'   |
+              __       _____             _____       ___
 Square      +   |     |     |       0   |     |     |   
 (W=1)       0   |     |     |           |     |     |   
-            -   |_____|     |___    +   |_____|     |___
+            -   |_____|     |___    + __|     |_____|   
 
-Triangle    +  /\    /\    /\       0 \    /\    /\    /
-(W=2)       0 /  \  /  \  /  \         \  /  \  /  \  /
-            -     \/    \/    \/    +   \/    \/    \/
+Triangle    +  /\    /\    /\       0   /\    /\    /\  
+(W=2)       0 /  \  /  \  /  \         /  \  /  \  /  \ 
+            -     \/    \/    \/    + /    \/    \/    \
 
 Noise       + \ ! / ! \ ! / ! \     0 \ ! / ! \ ! / ! \
 (W=3)       0 - + - + - + - + -       - + - + - + - + -

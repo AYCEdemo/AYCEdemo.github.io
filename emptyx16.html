@@ -199,6 +199,7 @@ h3:hover .header-link {
     <li class="sidebar-header-2"><a href="#x16-vera-color-palette">X16 VERA Color Palette</a></li>
     <li class="sidebar-header-3"><a href="#color-palette-entries">Color Palette Entries</a></li>
     <li class="sidebar-header-3"><a href="#color-palette-indices">Color Palette Indices</a></li>
+    <li class="sidebar-header-3"><a href="#initial-palette">Initial Palette</a></li>
     <li class="sidebar-header-3"><a href="#screen-border-color">Screen Border Color</a></li>
     <li class="sidebar-header-2"><a href="#x16-vera-sprites-objs">X16 VERA Sprites (OBJs)</a></li>
     <li class="sidebar-header-3"><a href="#oam-object-attribute-memory">OAM (Object Attribute Memory)</a></li>
@@ -453,38 +454,48 @@ Memory card <span class="hljs-built_in">SPI</span> mode MMC interface</code></pr
 <span class="hljs-attribute">9FxDh</span> - IFR  - Interrupt Flags Register
 <span class="hljs-attribute">9FxEh</span> - IER  - Interrupt Enable Register
 <span class="hljs-attribute">9FxFh</span> - PRA<span class="hljs-number">2</span> - Port A Input/Output Without Handshaking</code></pre><h3 id="vera-versatile-embedded-retro-adapter-rw"><a class="header-link" href="#vera-versatile-embedded-retro-adapter-rw"></a>VERA Versatile Embedded Retro Adapter (R/W)</h3>
-<pre class="hljs"><code><span class="hljs-attribute">9F20h</span> - ADDR_L       - VRAM Address (lower <span class="hljs-number">8</span> bits)
-<span class="hljs-attribute">9F21h</span> - ADDR_M       - VRAM Address (middle <span class="hljs-number">8</span> bits)
-<span class="hljs-attribute">9F22h</span> - ADDR_H       - VRAM Address (upper <span class="hljs-number">1</span> bit) and Increment Mode
-<span class="hljs-attribute">9F23h</span> - DATA<span class="hljs-number">0</span>        - VRAM Data Port <span class="hljs-number">0</span>
-<span class="hljs-attribute">9F24h</span> - DATA<span class="hljs-number">1</span>        - VRAM Data Port <span class="hljs-number">1</span>
-<span class="hljs-attribute">9F25h</span> - CTRL         - Control
-<span class="hljs-attribute">9F26h</span> - IEN          - Interrupt Enable / Line Compare (upper <span class="hljs-number">1</span> bit)
-<span class="hljs-attribute">9F27h</span> - ISR          - Interrupt / Status Register
-<span class="hljs-attribute">9F28h</span> - IRQLINE_L    - Interrupt Line Compare (lower <span class="hljs-number">8</span> bits)
-<span class="hljs-attribute">9F29h</span> - DC_VIDEO     - Active Display Control / H-Start      DC_HSTART
-<span class="hljs-attribute">9F2Ah</span> - DC_HSCALE    - Active Display H-Scale / H-Stop       DC_HSTOP
-<span class="hljs-attribute">9F2Bh</span> - DC_VSCALE    - Active Display V-Scale / V-Start      DC_VSTART
-<span class="hljs-attribute">9F2Ch</span> - DC_BORDER    - Border Color / Active Display V-Stop  DC_VSTOP
-<span class="hljs-attribute">9F2Dh</span> - L<span class="hljs-number">0</span>_CONFIG    - L<span class="hljs-number">0</span> Mode and Map Size
-<span class="hljs-attribute">9F2Eh</span> - L<span class="hljs-number">0</span>_MAPBASE   - L<span class="hljs-number">0</span> Map Base
-<span class="hljs-attribute">9F2Fh</span> - L<span class="hljs-number">0</span>_TILEBASE  - L<span class="hljs-number">0</span> Tile Base and Tile Size
-<span class="hljs-attribute">9F30h</span> - L<span class="hljs-number">0</span>_HSCROLL_L - L<span class="hljs-number">0</span> Horizontal Scroll (lower <span class="hljs-number">8</span> bits)
-<span class="hljs-attribute">9F31h</span> - L<span class="hljs-number">0</span>_HSCROLL_H - L<span class="hljs-number">0</span> Horizontal Scroll (upper <span class="hljs-number">4</span> bits) / L<span class="hljs-number">0</span> Bitmap Color
-<span class="hljs-attribute">9F32h</span> - L<span class="hljs-number">0</span>_VSCROLL_L - L<span class="hljs-number">0</span> Vertical Scroll (lower <span class="hljs-number">8</span> bits)
-<span class="hljs-attribute">9F33h</span> - L<span class="hljs-number">0</span>_VSCROLL_H - L<span class="hljs-number">0</span> Vertical Scroll (upper <span class="hljs-number">4</span> bits)
-<span class="hljs-attribute">9F34h</span> - L<span class="hljs-number">1</span>_CONFIG    - L<span class="hljs-number">1</span> Mode and Map Size
-<span class="hljs-attribute">9F35h</span> - L<span class="hljs-number">1</span>_MAPBASE   - L<span class="hljs-number">1</span> Map Base
-<span class="hljs-attribute">9F36h</span> - L<span class="hljs-number">1</span>_TILEBASE  - L<span class="hljs-number">1</span> Tile Base and Tile Size
-<span class="hljs-attribute">9F37h</span> - L<span class="hljs-number">1</span>_HSCROLL_L - L<span class="hljs-number">1</span> Horizontal Scroll (lower <span class="hljs-number">8</span> bits)
-<span class="hljs-attribute">9F38h</span> - L<span class="hljs-number">1</span>_HSCROLL_H - L<span class="hljs-number">1</span> Horizontal Scroll (upper <span class="hljs-number">4</span> bits) / L<span class="hljs-number">1</span> Bitmap Color
-<span class="hljs-attribute">9F39h</span> - L<span class="hljs-number">1</span>_VSCROLL_L - L<span class="hljs-number">1</span> Vertical Scroll (lower <span class="hljs-number">8</span> bits)
-<span class="hljs-attribute">9F3Ah</span> - L<span class="hljs-number">1</span>_VSCROLL_H - L<span class="hljs-number">1</span> Vertical Scroll (upper <span class="hljs-number">4</span> bits)
-<span class="hljs-attribute">9F3Bh</span> - AUDIO_CTRL   - Audio FIFO Control
-<span class="hljs-attribute">9F3Ch</span> - AUDIO_RATE   - Audio FIFO Sample Rate
-<span class="hljs-attribute">9F3Dh</span> - AUDIO_DATA   - Audio FIFO Data (W)
-<span class="hljs-attribute">9F3Eh</span> - SPI_DATA     - SPI Data
-<span class="hljs-attribute">9F3Fh</span> - SPI_CTRL     - SPI Control</code></pre><h3 id="ym2151-io-ports"><a class="header-link" href="#ym2151-io-ports"></a>YM2151 I/O Ports</h3>
+<p>Note: The rightmost column shows the initial value on Reset</p>
+<pre class="hljs"><code><span class="hljs-number">9F20h</span> - ADDR_L       - VRAM Address (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)                    <span class="hljs-number">00h</span>
+<span class="hljs-number">9F21h</span> - ADDR_M       - VRAM Address (middle <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)                   <span class="hljs-number">00h</span>
+<span class="hljs-number">9F22h</span> - ADDR_H       - VRAM Address (upper <span class="hljs-number">1</span> bit) / Increment Mode    <span class="hljs-number">00h</span>
+<span class="hljs-number">9F23h</span> - DATA0        - VRAM Data Port <span class="hljs-number">0</span>                               <span class="hljs-number">00h</span>
+<span class="hljs-number">9F24h</span> - DATA1        - VRAM Data Port <span class="hljs-number">1</span>                               <span class="hljs-number">00h</span>
+<span class="hljs-number">9F25h</span> - CTRL         - Control                                        <span class="hljs-number">00h</span>
+<span class="hljs-number">9F26h</span> - IEN          - Interrupt Enable / Line Compare (upper <span class="hljs-number">1</span> bit)  <span class="hljs-number">00h</span>
+<span class="hljs-number">9F27h</span> - ISR          - Interrupt / Status Register                    <span class="hljs-number">00h</span>
+<span class="hljs-number">9F28h</span> - IRQLINE_L    - Interrupt Line Compare (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)          <span class="hljs-number">00h</span>
+
+        (DCSEL=<span class="hljs-number">0</span>)
+<span class="hljs-number">9F29h</span> - DC_VIDEO     - Active Display Control                         <span class="hljs-number">00h</span>
+<span class="hljs-number">9F2Ah</span> - DC_HSCALE    - Active Display H-Scale                         <span class="hljs-number">80h</span>
+<span class="hljs-number">9F2Bh</span> - DC_VSCALE    - Active Display V-Scale                         <span class="hljs-number">80h</span>
+<span class="hljs-number">9F2Ch</span> - DC_BORDER    - Border Color                                   <span class="hljs-number">00h</span>
+
+        (DCSEL=<span class="hljs-number">1</span>)
+<span class="hljs-number">9F29h</span> - DC_HSTART    - Active Display H-Start                         <span class="hljs-number">00h</span>
+<span class="hljs-number">9F2Ah</span> - DC_HSTOP     - Active Display H-Stop                          <span class="hljs-number">A0h</span>
+<span class="hljs-number">9F2Bh</span> - DC_VSTART    - Active Display V-Start                         <span class="hljs-number">00h</span>
+<span class="hljs-number">9F2Ch</span> - DC_VSTOP     - Active Display V-Stop                          <span class="hljs-number">F0h</span>
+
+<span class="hljs-number">9F2Dh</span> - L0_CONFIG    - L0 Mode <span class="hljs-keyword">and</span> Map Size                           <span class="hljs-number">00h</span>
+<span class="hljs-number">9F2Eh</span> - L0_MAPBASE   - L0 Map Base                                    <span class="hljs-number">00h</span>
+<span class="hljs-number">9F2Fh</span> - L0_TILEBASE  - L0 Tile Base <span class="hljs-keyword">and</span> Tile Size                     <span class="hljs-number">00h</span>
+<span class="hljs-number">9F30h</span> - L0_HSCROLL_L - L0 H-Scroll (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)                     <span class="hljs-number">00h</span>
+<span class="hljs-number">9F31h</span> - L0_HSCROLL_H - L0 H-Scroll (upper <span class="hljs-number">4</span> <span class="hljs-meta">bits</span>) / Bitmap Color      <span class="hljs-number">00h</span>
+<span class="hljs-number">9F32h</span> - L0_VSCROLL_L - L0 V-Scroll (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)                     <span class="hljs-number">00h</span>
+<span class="hljs-number">9F33h</span> - L0_VSCROLL_H - L0 V-Scroll (upper <span class="hljs-number">4</span> <span class="hljs-meta">bits</span>)                     <span class="hljs-number">00h</span>
+<span class="hljs-number">9F34h</span> - L1_CONFIG    - L1 Mode <span class="hljs-keyword">and</span> Map Size                           <span class="hljs-number">00h</span>
+<span class="hljs-number">9F35h</span> - L1_MAPBASE   - L1 Map Base                                    <span class="hljs-number">00h</span>
+<span class="hljs-number">9F36h</span> - L1_TILEBASE  - L1 Tile Base <span class="hljs-keyword">and</span> Tile Size                     <span class="hljs-number">00h</span>
+<span class="hljs-number">9F37h</span> - L1_HSCROLL_L - L1 H-Scroll (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)                     <span class="hljs-number">00h</span>
+<span class="hljs-number">9F38h</span> - L1_HSCROLL_H - L1 H-Scroll (upper <span class="hljs-number">4</span> <span class="hljs-meta">bits</span>) / Bitmap Color      <span class="hljs-number">00h</span>
+<span class="hljs-number">9F39h</span> - L1_VSCROLL_L - L1 V-Scroll (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)                     <span class="hljs-number">00h</span>
+<span class="hljs-number">9F3Ah</span> - L1_VSCROLL_H - L1 V-Scroll (upper <span class="hljs-number">4</span> <span class="hljs-meta">bits</span>)                     <span class="hljs-number">00h</span>
+<span class="hljs-number">9F3Bh</span> - AUDIO_CTRL   - Audio FIFO Control                             <span class="hljs-number">00h</span>
+<span class="hljs-number">9F3Ch</span> - AUDIO_RATE   - Audio FIFO Sample Rate                         <span class="hljs-number">00h</span>
+<span class="hljs-number">9F3Dh</span> - AUDIO_DATA   - Audio FIFO Data (W)                            -
+<span class="hljs-number">9F3Eh</span> - SPI_DATA     - SPI Data                                       -
+<span class="hljs-number">9F3Fh</span> - SPI_CTRL     - SPI Control                                    <span class="hljs-number">00h</span> (?)</code></pre><h3 id="ym2151-io-ports"><a class="header-link" href="#ym2151-io-ports"></a>YM2151 I/O Ports</h3>
 <pre class="hljs"><code><span class="hljs-number">9</span>F<span class="hljs-number">40</span>h - Y<span class="hljs-name">M2151</span> Register Address <span class="hljs-comment">(W)</span>
 <span class="hljs-number">9</span>F<span class="hljs-number">41</span>h - Y<span class="hljs-name">M2151</span> Register Data <span class="hljs-comment">(W)</span> / Status <span class="hljs-comment">(R)</span></code></pre><h3 id="further-memory"><a class="header-link" href="#further-memory"></a>Further Memory</h3>
 <pre class="hljs"><code><span class="hljs-number">9F42h</span>..<span class="hljs-number">9F5Fh</span> - Reserved
@@ -642,9 +653,8 @@ pixel and V-Scale value each drawn line to the virtual screen position. Then
 the integer part of this virtual screen position is then used for the rest of
 the composition logic. This puts the scaling center at the top-left corner of
 an active display area.</p>
-<p>NOTE: Setting H-Scale above 1.0 (80h) has a glitchy result when the line draws
-beyond 640th pixel in the official emulator. It&#39;s not known if the real
-hardware also has this behavior. (?)</p>
+<p>NOTE: Setting H-Scale or V-Scale above 1.0 (80h) will skip some pixels while
+rendering, potentially causing inaccurate collision detection (?)</p>
 <h3 id="9f2ch-dcsel0---dc_border---border-color-rw"><a class="header-link" href="#9f2ch-dcsel0---dc_border---border-color-rw"></a>9F2Ch (DCSEL=0) - DC_BORDER - Border Color (R/W)</h3>
 <p>When the drawing pixel is outside the active display area defined by start and
 stop registers, it will be set to a solid color at the index of this register&#39;s
@@ -662,8 +672,8 @@ coordinates (they are not scaled to the DC_xSCALE values). Horizontal value is
 in steps of 4 and vertical value is in steps of 2. The stopping point is not
 inclusive.</p>
 <p>These four register values are analogous to a display window in many consoles.
-The width of an active display is (DC_HSTOP-DC_HSTART)*4 pixels and the height
-of an active display is (DC_VSTOP-DC_VSTART)*2 pixels. For example, a screen
+The width of an active display is <code>(DC_HSTOP-DC_HSTART)*4</code> pixels and the height
+of an active display is <code>(DC_VSTOP-DC_VSTART)*2</code> pixels. For example, a screen
 that starts at (64,50) with an active display size of 320x200 pixels will
 have 9F29h-9F2Ch values of 10h, 19h, 60h, 7Dh in order.</p>
 <h2 id="x16-vera-layer-control"><a class="header-link" href="#x16-vera-layer-control"></a>X16 VERA Layer Control</h2>
@@ -744,7 +754,7 @@ volume is not linear and has the meaning as follows:</p>
 from the official emulator source code and are not confirmed on real hardware
 (?)</p>
 <h3 id="9f3ch---audio_rate---audio-fifo-sample-rate-rw"><a class="header-link" href="#9f3ch---audio_rate---audio-fifo-sample-rate-rw"></a>9F3Ch - AUDIO_RATE - Audio FIFO Sample Rate (R/W)</h3>
-<p>Specifies the playback rate of the FIFO in <code>25000*n/512</code> KHz.
+<p>Specifies the playback rate of the FIFO in <code>25000*n/65536</code> KHz.
 A value of 0 or anything greater than 128 will stop playback.</p>
 <h3 id="9f3dh---audio_data---audio-fifo-data-w"><a class="header-link" href="#9f3dh---audio_data---audio-fifo-data-w"></a>9F3Dh - AUDIO_DATA - Audio FIFO Data (W)</h3>
 <p>Writes one byte to the FIFO and increases the current buffer size by one. Any
@@ -767,21 +777,25 @@ Its interface is quite bare and can be adapted to any SPI device. This is the
 only interface with automatic clocking and transfer in X16.</p>
 <h3 id="9f3eh---spi_data---spi-data-rw"><a class="header-link" href="#9f3eh---spi_data---spi-data-rw"></a>9F3Eh - SPI_DATA - SPI Data (R/W)</h3>
 <p>Reads from this register returns the last received byte. Writes to this
-register will start transferring one byte of the written data to the device and
-receiving the data from the device at the same time. The busy flag in SPI_CTRL
-is set during the transfer period. Once the transfer completes, the busy flag
-is cleared and the new received byte is latched to this register. Since the
-VERA is on the controller side and due to how SPI works, it&#39;s usually required
-to write to this register many times to shift out dummy clocks until the
-desired data from the device is received and latched.</p>
+register will start transferring one byte of written data to the device and
+receiving one byte of data from the device at the same time. The busy flag in
+SPI_CTRL is set during the transfer period. Once the transfer completes, the
+busy flag is cleared and the new received byte is latched to this register.
+Since the VERA is on the controller side and due to how SPI works, it&#39;s usually
+required to write to this register many times to shift out dummy clocks until
+the desired data from the device is received and latched.</p>
 <h3 id="9f3fh---spi_ctrl---spi-control-rw"><a class="header-link" href="#9f3fh---spi_ctrl---spi-control-rw"></a>9F3Fh - SPI_CTRL - SPI Control (R/W)</h3>
 <pre class="hljs"><code>Bit
 7       Busy Flag (<span class="hljs-attribute">1</span>=Busy) (Read-only)
-6-2     <span class="hljs-keyword">Not</span> Used
+6-4     <span class="hljs-keyword">Not</span> Used
+3       Auto Transfer (<span class="hljs-attribute">0</span>=Off, <span class="hljs-attribute">1</span>=On) (undocumented)
+2       <span class="hljs-keyword">Not</span> Used
 1       Shift<span class="hljs-built_in"> Clock </span>Speed (<span class="hljs-attribute">0</span>=12.5MHz, <span class="hljs-attribute">1</span>=391KHz)
 0       Chip Select (<span class="hljs-attribute">0</span>=Release, <span class="hljs-attribute">1</span>=Select)</code></pre><p>A shift clock speed of 391KHz was implemented because some memory cards require
 it to be lower than 400KHz during an initialization process. A chip select is
 required in order to activate the memory card.</p>
+<p>When Auto Transfer is on, any reads from SPI_DATA will also transfer FFh to the
+device and receive one byte of data from it at the same time.</p>
 <h3 id="memory-card-commands"><a class="header-link" href="#memory-card-commands"></a>Memory Card Commands</h3>
 <p>The memory card takes a 6-byte command and arguments as shown below:</p>
 <pre class="hljs"><code><span class="hljs-attribute">Byte</span> <span class="hljs-number">0</span>
@@ -936,26 +950,26 @@ If it is set to 0:</p>
 <span class="hljs-attribute">15</span>-<span class="hljs-number">8</span>    Foreground Color (<span class="hljs-number">0</span>-<span class="hljs-number">255</span>)
 <span class="hljs-attribute">7</span>-<span class="hljs-number">0</span>     Character Number (<span class="hljs-number">00</span>h-FFh)</code></pre><h3 id="tile-data-layers-and-obj"><a class="header-link" href="#tile-data-layers-and-obj"></a>Tile Data (Layers and OBJ)</h3>
 <p>VERA strictly uses packed pixel format in every color depth setting. Its
-smallest 8x1 &quot;lines&quot; unit can be described as follows:</p>
+smallest 8x1 &quot;bars&quot; unit can be described as follows:</p>
 <pre class="hljs"><code>   <span class="hljs-attribute">Byte</span> <span class="hljs-number">0</span>        <span class="hljs-number">1</span>        <span class="hljs-number">2</span>        <span class="hljs-number">3</span>        <span class="hljs-number">4</span>        <span class="hljs-number">5</span>        <span class="hljs-number">6</span>        <span class="hljs-number">7</span>
     <span class="hljs-attribute">Bit</span> <span class="hljs-number">76543210</span> <span class="hljs-number">76543210</span> <span class="hljs-number">76543210</span> <span class="hljs-number">76543210</span> <span class="hljs-number">76543210</span> <span class="hljs-number">76543210</span> <span class="hljs-number">76543210</span> <span class="hljs-number">76543210</span>
 <span class="hljs-attribute">1bpp</span>    abcdefgh
 <span class="hljs-attribute">2bpp</span>    aabbccdd eeffgghh
 <span class="hljs-attribute">4bpp</span>    aaaabbbb ccccdddd eeeeffff gggghhhh
 <span class="hljs-attribute">8bpp</span>    aaaaaaaa bbbbbbbb cccccccc dddddddd eeeeeeee ffffffff gggggggg hhhhhhhh
-<span class="hljs-attribute">Depth</span></code></pre><p>For each line, the color ID for each pixel A to H from left to right are packed
+<span class="hljs-attribute">Depth</span></code></pre><p>For each bar, the color ID for each pixel A to H from left to right are packed
 together from left to right. The bit length of each color ID depends on the
-color depth setting. Making each line occupy 1, 2, 4 or 8 bytes total. A color
+color depth setting. Making each bar occupy 1, 2, 4 or 8 bytes total. A color
 ID of 0 always mean transparent except in a certain 1bpp tile mode.</p>
 <p>To make up tiles which can be up to 16x16 pixels in size for Layers, and up to
-64x64 for OBJs, each lines are combined as follows. With X being a tile width
-in pixels divided by 8 and Y being a tile height in pixels. For example, a tile
+64x64 for OBJs, each bars are combined as follows. With X being a tile width in
+pixels divided by 8 and Y being a tile height in pixels. For example, a tile
 size of 32x16 pixels has X=4 and Y=16.</p>
-<pre class="hljs"><code>Vertical Rows        Left-most    ...     Right-most
-Upper Row   in lines    <span class="hljs-number">0</span>,      <span class="hljs-number">1</span>,      <span class="hljs-number">2</span>, ...,  <span class="hljs-keyword">X</span><span class="hljs-number">-1</span>
-<span class="hljs-number">2</span>nd Row     in lines    <span class="hljs-keyword">X</span>,    <span class="hljs-keyword">X</span>+<span class="hljs-number">1</span>,    <span class="hljs-keyword">X</span>+<span class="hljs-number">2</span>, ..., <span class="hljs-number">2</span><span class="hljs-keyword">X</span><span class="hljs-number">-1</span>
+<pre class="hljs"><code>Vertical Rows       Left-most    ...     Right-most
+Upper Row   in bars    <span class="hljs-number">0</span>,      <span class="hljs-number">1</span>,      <span class="hljs-number">2</span>, ...,  <span class="hljs-keyword">X</span><span class="hljs-number">-1</span>
+<span class="hljs-number">2</span>nd Row     in bars    <span class="hljs-keyword">X</span>,    <span class="hljs-keyword">X</span>+<span class="hljs-number">1</span>,    <span class="hljs-keyword">X</span>+<span class="hljs-number">2</span>, ..., <span class="hljs-number">2</span><span class="hljs-keyword">X</span><span class="hljs-number">-1</span>
 ...
-Yth Row     in lines XY-<span class="hljs-keyword">X</span>, XY-<span class="hljs-keyword">X</span>+<span class="hljs-number">1</span>, XY-<span class="hljs-keyword">X</span>+<span class="hljs-number">2</span>, ..., XY<span class="hljs-number">-1</span></code></pre><h3 id="bitmap-data"><a class="header-link" href="#bitmap-data"></a>Bitmap Data</h3>
+Yth Row     in bars XY-<span class="hljs-keyword">X</span>, XY-<span class="hljs-keyword">X</span>+<span class="hljs-number">1</span>, XY-<span class="hljs-keyword">X</span>+<span class="hljs-number">2</span>, ..., XY<span class="hljs-number">-1</span></code></pre><h3 id="bitmap-data"><a class="header-link" href="#bitmap-data"></a>Bitmap Data</h3>
 <p>In bitmap mode, the bitmap data format is the same as the tile data format with
 a tile width of 320 or 640 pixels (depending on bit 0 of Lx_TILEBASE register)
 and a tile height of 480 pixels.</p>
@@ -1010,6 +1024,27 @@ It contains a 2-byte entry for each of 256 colors:</p>
 first 16 colors mapping in 8bpp mode as if it was 4bpp mode. So it is
 recommended to set the palette number to 0 to still have access to all 256
 colors.</p>
+<h3 id="initial-palette"><a class="header-link" href="#initial-palette"></a>Initial Palette</h3>
+<p>On reset (by either on hardware or a write to CTRL), the internal palette
+memory is initialized to these values. It consists of 16 pre-defined colors,
+16 gray ramp colors and 224 8x4x7 HSL ramp colors:</p>
+<pre class="hljs"><code>    <span class="hljs-attribute">x0h</span> x<span class="hljs-number">1</span>h x<span class="hljs-number">2</span>h x<span class="hljs-number">3</span>h x<span class="hljs-number">4</span>h x<span class="hljs-number">5</span>h x<span class="hljs-number">6</span>h x<span class="hljs-number">7</span>h x<span class="hljs-number">8</span>h x<span class="hljs-number">9</span>h xAh xBh xCh xDh xEh xFh
+<span class="hljs-attribute">0xh</span> <span class="hljs-number">000</span> FFF <span class="hljs-number">800</span> AFE C<span class="hljs-number">4</span>C <span class="hljs-number">0</span>C<span class="hljs-number">5</span> <span class="hljs-number">00</span>A EE<span class="hljs-number">7</span> D<span class="hljs-number">85</span> <span class="hljs-number">640</span> F<span class="hljs-number">77</span> <span class="hljs-number">333</span> <span class="hljs-number">777</span> AF<span class="hljs-number">6</span> <span class="hljs-number">08</span>F BBB
+<span class="hljs-attribute">1xh</span> <span class="hljs-number">000</span> <span class="hljs-number">111</span> <span class="hljs-number">222</span> <span class="hljs-number">333</span> <span class="hljs-number">444</span> <span class="hljs-number">555</span> <span class="hljs-number">666</span> <span class="hljs-number">777</span> <span class="hljs-number">888</span> <span class="hljs-number">999</span> AAA BBB CCC DDD EEE FFF
+<span class="hljs-attribute">2xh</span> <span class="hljs-number">211</span> <span class="hljs-number">433</span> <span class="hljs-number">644</span> <span class="hljs-number">866</span> A<span class="hljs-number">88</span> C<span class="hljs-number">99</span> FBB <span class="hljs-number">211</span> <span class="hljs-number">422</span> <span class="hljs-number">633</span> <span class="hljs-number">844</span> A<span class="hljs-number">55</span> C<span class="hljs-number">66</span> F<span class="hljs-number">77</span> <span class="hljs-number">200</span> <span class="hljs-number">411</span>
+<span class="hljs-attribute">3xh</span> <span class="hljs-number">611</span> <span class="hljs-number">822</span> A<span class="hljs-number">22</span> C<span class="hljs-number">33</span> F<span class="hljs-number">33</span> <span class="hljs-number">200</span> <span class="hljs-number">400</span> <span class="hljs-number">600</span> <span class="hljs-number">800</span> A<span class="hljs-number">00</span> C<span class="hljs-number">00</span> F<span class="hljs-number">00</span> <span class="hljs-number">221</span> <span class="hljs-number">443</span> <span class="hljs-number">664</span> <span class="hljs-number">886</span>
+<span class="hljs-attribute">4xh</span> AA<span class="hljs-number">8</span> CC<span class="hljs-number">9</span> FEB <span class="hljs-number">211</span> <span class="hljs-number">432</span> <span class="hljs-number">653</span> <span class="hljs-number">874</span> A<span class="hljs-number">95</span> CB<span class="hljs-number">6</span> FD<span class="hljs-number">7</span> <span class="hljs-number">210</span> <span class="hljs-number">431</span> <span class="hljs-number">651</span> <span class="hljs-number">862</span> A<span class="hljs-number">82</span> CA<span class="hljs-number">3</span>
+<span class="hljs-attribute">5xh</span> FC<span class="hljs-number">3</span> <span class="hljs-number">210</span> <span class="hljs-number">430</span> <span class="hljs-number">640</span> <span class="hljs-number">860</span> A<span class="hljs-number">80</span> C<span class="hljs-number">90</span> FB<span class="hljs-number">0</span> <span class="hljs-number">121</span> <span class="hljs-number">343</span> <span class="hljs-number">564</span> <span class="hljs-number">786</span> <span class="hljs-number">9</span>A<span class="hljs-number">8</span> BC<span class="hljs-number">9</span> DFB <span class="hljs-number">121</span>
+<span class="hljs-attribute">6xh</span> <span class="hljs-number">342</span> <span class="hljs-number">463</span> <span class="hljs-number">684</span> <span class="hljs-number">8</span>A<span class="hljs-number">5</span> <span class="hljs-number">9</span>C<span class="hljs-number">6</span> BF<span class="hljs-number">7</span> <span class="hljs-number">120</span> <span class="hljs-number">241</span> <span class="hljs-number">461</span> <span class="hljs-number">582</span> <span class="hljs-number">6</span>A<span class="hljs-number">2</span> <span class="hljs-number">8</span>C<span class="hljs-number">3</span> <span class="hljs-number">9</span>F<span class="hljs-number">3</span> <span class="hljs-number">120</span> <span class="hljs-number">240</span> <span class="hljs-number">360</span>
+<span class="hljs-attribute">7xh</span> <span class="hljs-number">480</span> <span class="hljs-number">5</span>A<span class="hljs-number">0</span> <span class="hljs-number">6</span>C<span class="hljs-number">0</span> <span class="hljs-number">7</span>F<span class="hljs-number">0</span> <span class="hljs-number">121</span> <span class="hljs-number">343</span> <span class="hljs-number">465</span> <span class="hljs-number">686</span> <span class="hljs-number">8</span>A<span class="hljs-number">8</span> <span class="hljs-number">9</span>CA BFC <span class="hljs-number">121</span> <span class="hljs-number">242</span> <span class="hljs-number">364</span> <span class="hljs-number">485</span> <span class="hljs-number">5</span>A<span class="hljs-number">6</span>
+<span class="hljs-attribute">8xh</span> <span class="hljs-number">6</span>C<span class="hljs-number">8</span> <span class="hljs-number">7</span>F<span class="hljs-number">9</span> <span class="hljs-number">020</span> <span class="hljs-number">141</span> <span class="hljs-number">162</span> <span class="hljs-number">283</span> <span class="hljs-number">2</span>A<span class="hljs-number">4</span> <span class="hljs-number">3</span>C<span class="hljs-number">5</span> <span class="hljs-number">3</span>F<span class="hljs-number">6</span> <span class="hljs-number">020</span> <span class="hljs-number">041</span> <span class="hljs-number">061</span> <span class="hljs-number">082</span> <span class="hljs-number">0</span>A<span class="hljs-number">2</span> <span class="hljs-number">0</span>C<span class="hljs-number">3</span> <span class="hljs-number">0</span>F<span class="hljs-number">3</span>
+<span class="hljs-attribute">9xh</span> <span class="hljs-number">122</span> <span class="hljs-number">344</span> <span class="hljs-number">466</span> <span class="hljs-number">688</span> <span class="hljs-number">8</span>AA <span class="hljs-number">9</span>CC BFF <span class="hljs-number">122</span> <span class="hljs-number">244</span> <span class="hljs-number">366</span> <span class="hljs-number">488</span> <span class="hljs-number">5</span>AA <span class="hljs-number">6</span>CC <span class="hljs-number">7</span>FF <span class="hljs-number">022</span> <span class="hljs-number">144</span>
+<span class="hljs-attribute">Axh</span> <span class="hljs-number">166</span> <span class="hljs-number">288</span> <span class="hljs-number">2</span>AA <span class="hljs-number">3</span>CC <span class="hljs-number">3</span>FF <span class="hljs-number">022</span> <span class="hljs-number">044</span> <span class="hljs-number">066</span> <span class="hljs-number">088</span> <span class="hljs-number">0</span>AA <span class="hljs-number">0</span>CC <span class="hljs-number">0</span>FF <span class="hljs-number">112</span> <span class="hljs-number">334</span> <span class="hljs-number">456</span> <span class="hljs-number">668</span>
+<span class="hljs-attribute">Bxh</span> <span class="hljs-number">88</span>A <span class="hljs-number">9</span>AC BCF <span class="hljs-number">112</span> <span class="hljs-number">224</span> <span class="hljs-number">346</span> <span class="hljs-number">458</span> <span class="hljs-number">56</span>A <span class="hljs-number">68</span>C <span class="hljs-number">79</span>F <span class="hljs-number">002</span> <span class="hljs-number">114</span> <span class="hljs-number">126</span> <span class="hljs-number">238</span> <span class="hljs-number">24</span>A <span class="hljs-number">35</span>C
+<span class="hljs-attribute">Cxh</span> <span class="hljs-number">36</span>F <span class="hljs-number">002</span> <span class="hljs-number">014</span> <span class="hljs-number">016</span> <span class="hljs-number">028</span> <span class="hljs-number">02</span>A <span class="hljs-number">03</span>C <span class="hljs-number">03</span>F <span class="hljs-number">112</span> <span class="hljs-number">334</span> <span class="hljs-number">546</span> <span class="hljs-number">768</span> <span class="hljs-number">98</span>A B<span class="hljs-number">9</span>C DBF <span class="hljs-number">112</span>
+<span class="hljs-attribute">Dxh</span> <span class="hljs-number">324</span> <span class="hljs-number">436</span> <span class="hljs-number">648</span> <span class="hljs-number">85</span>A <span class="hljs-number">96</span>C B<span class="hljs-number">7</span>F <span class="hljs-number">102</span> <span class="hljs-number">214</span> <span class="hljs-number">416</span> <span class="hljs-number">528</span> <span class="hljs-number">62</span>A <span class="hljs-number">83</span>C <span class="hljs-number">93</span>F <span class="hljs-number">102</span> <span class="hljs-number">204</span> <span class="hljs-number">306</span>
+<span class="hljs-attribute">Exh</span> <span class="hljs-number">408</span> <span class="hljs-number">50</span>A <span class="hljs-number">60</span>C <span class="hljs-number">70</span>F <span class="hljs-number">212</span> <span class="hljs-number">434</span> <span class="hljs-number">646</span> <span class="hljs-number">868</span> A<span class="hljs-number">8</span>A C<span class="hljs-number">9</span>C FBE <span class="hljs-number">211</span> <span class="hljs-number">423</span> <span class="hljs-number">635</span> <span class="hljs-number">847</span> A<span class="hljs-number">59</span>
+<span class="hljs-attribute">Fxh</span> C<span class="hljs-number">6</span>B F<span class="hljs-number">7</span>D <span class="hljs-number">201</span> <span class="hljs-number">413</span> <span class="hljs-number">615</span> <span class="hljs-number">826</span> A<span class="hljs-number">28</span> C<span class="hljs-number">3</span>A F<span class="hljs-number">3</span>C <span class="hljs-number">201</span> <span class="hljs-number">403</span> <span class="hljs-number">604</span> <span class="hljs-number">806</span> A<span class="hljs-number">08</span> C<span class="hljs-number">09</span> F<span class="hljs-number">0</span>B</code></pre><p class="img-container"><img src="data:image/png;base64,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" alt="Initial palette colors arranged in a 16x16 grid as an above table"></p>
 <h3 id="screen-border-color"><a class="header-link" href="#screen-border-color"></a>Screen Border Color</h3>
 <p><a href="#x16-vera-display-composer">X16 VERA Display Composer</a>  </p>
 <h2 id="x16-vera-sprites-objs"><a class="header-link" href="#x16-vera-sprites-objs"></a>X16 VERA Sprites (OBJs)</h2>
@@ -1800,7 +1835,7 @@ CA2                                    |<span class="hljs-string">___</span>|
 counter reaches 0, IFR bit 6 is set and generate an interrupt if it&#39;s enabled.
 After this, it will either not generate any more interrupts or reload the
 counter with a latched value depending on the modes described below. Timer 1
-can also be configured to output on PB7 pin with ACR bit 7 setting.</p>
+can also be configured to toggle output on PB7 pin with ACR bit 7 setting.</p>
 <h3 id="4h5h---t1lt1h---t1-counter-rw"><a class="header-link" href="#4h5h---t1lt1h---t1-counter-rw"></a>4h/5h - T1L/T1H - T1 Counter (R/W)</h3>
 <p>Reads will return the current counter value and clear IFR bit 6 if the lower 8
 bits are read. Writes will set the latch (reload) value. If the upper 8 bits
@@ -2090,8 +2125,8 @@ KC, KF-------+----------&gt;|<span class="hljs-string">  DT1  </span>|<span clas
        |<span class="hljs-string"> Envelope  </span>|<span class="hljs-string">                         </span>|<span class="hljs-string">    _______v______
 Keyon-&gt;</span>|<span class="hljs-string"> Generator </span>|<span class="hljs-string">-&gt;(+)-&gt;(+)---------------+   </span>|<span class="hljs-string">  Att. dB To  </span>|
        |<span class="hljs-string">___________</span>|<span class="hljs-string">   ^    ^                </span>|<span class="hljs-string">   </span>|<span class="hljs-string"> Linear Table </span>|
-AR, D1R,     ^         |<span class="hljs-string">    </span>|<span class="hljs-string"> AMS En.        </span>|<span class="hljs-string">   </span>|<span class="hljs-string">______________</span>|<span class="hljs-string">   
-D1L, D2R,----&#x27;         </span>|<span class="hljs-string">    &#x27;----:----[AMS]  </span>|<span class="hljs-string">           </span>|
+AR, D1R,     ^         |<span class="hljs-string">    </span>|<span class="hljs-string"> AMS En.        </span>|<span class="hljs-string">   </span>|<span class="hljs-string">______________</span>|
+D1L, D2R,----&#x27;         |<span class="hljs-string">    &#x27;----:----[AMS]  </span>|<span class="hljs-string">           </span>|
 RR, KS                 TL                    |<span class="hljs-string">           o
 .............................................</span>|<span class="hljs-string">............\
 : Slot 31 Only            _______            </span>|<span class="hljs-string">         NE :o--&gt;[Output]
@@ -2113,9 +2148,9 @@ PG--------&gt;| C1 |-----<span class="hljs-string">&#x27;
            &#x27;</span>----<span class="hljs-string">&#x27;</span></code></pre><p>CON = 2</p>
 <pre class="hljs"><code>      <span class="hljs-string">.</span>--<span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-string">.</span>
       <span class="hljs-comment">v</span>    <span class="hljs-string">.</span>--<span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-string">.</span> <span class="hljs-comment">|</span>
-<span class="hljs-comment">PG</span>--&gt;<span class="hljs-comment">(</span><span class="hljs-literal">+</span><span class="hljs-comment">)</span>--&gt;<span class="hljs-comment">|</span> <span class="hljs-comment">M1</span> <span class="hljs-comment">|</span><span class="hljs-literal">-</span><span class="hljs-literal">+</span>--<span class="hljs-literal">-</span><span class="hljs-string">.</span>  <span class="hljs-comment">PG</span>         <span class="hljs-comment">PG</span>
-           <span class="hljs-comment">&#x27;</span>--<span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">&#x27;</span>     <span class="hljs-comment">|</span> <span class="hljs-comment">/</span>            <span class="hljs-comment">|</span>
-           <span class="hljs-string">.</span>--<span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-string">.</span>     <span class="hljs-comment">vL</span>   <span class="hljs-string">.</span>--<span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-string">.</span>    <span class="hljs-comment">v</span>    <span class="hljs-string">.</span>--<span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-string">.</span>
+<span class="hljs-comment">PG</span>--&gt;<span class="hljs-comment">(</span><span class="hljs-literal">+</span><span class="hljs-comment">)</span>--&gt;<span class="hljs-comment">|</span> <span class="hljs-comment">M1</span> <span class="hljs-comment">|</span><span class="hljs-literal">-</span><span class="hljs-literal">+</span>--<span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-string">.</span>  <span class="hljs-comment">PG</span>
+           <span class="hljs-comment">&#x27;</span>--<span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">&#x27;</span>    <span class="hljs-comment">PG</span>              <span class="hljs-comment">|</span> <span class="hljs-comment">/</span>
+           <span class="hljs-string">.</span>--<span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-string">.</span>     <span class="hljs-comment">v</span>    <span class="hljs-string">.</span>--<span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-string">.</span>    <span class="hljs-comment">vL</span>   <span class="hljs-string">.</span>--<span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-string">.</span>
 <span class="hljs-comment">PG</span>--<span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-literal">-</span>&gt;<span class="hljs-comment">|</span> <span class="hljs-comment">C1</span> <span class="hljs-comment">|</span>--<span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">(</span><span class="hljs-literal">+</span><span class="hljs-comment">)</span>--&gt;<span class="hljs-comment">|</span> <span class="hljs-comment">M2</span> <span class="hljs-comment">|</span>--&gt;<span class="hljs-comment">(</span><span class="hljs-literal">+</span><span class="hljs-comment">)</span>--&gt;<span class="hljs-comment">|</span> <span class="hljs-comment">C2</span> <span class="hljs-comment">|</span>--&gt;<span class="hljs-comment">OUT</span>
            <span class="hljs-comment">&#x27;</span>--<span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">&#x27;</span>          <span class="hljs-comment">&#x27;</span>--<span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">&#x27;</span>         <span class="hljs-comment">&#x27;</span>--<span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">&#x27;</span></code></pre><p>CON = 3</p>
 <pre class="hljs"><code>      .-----------.  PG             PG
@@ -2458,21 +2493,21 @@ sensitivity table below.</p>
 LFSR generator state.</p>
 <pre class="hljs"><code>Waveform    Phase Modulation        Amplitude Modulation
 
-Sawtooth    +  .|<span class="hljs-string">    .</span>|<span class="hljs-string">    .</span>|<span class="hljs-string">       0 `.   </span>|<span class="hljs-string">`.   </span>|<span class="hljs-string">`.   </span>|
-(W=0)       0 &#x27; |<span class="hljs-string">  .&#x27; </span>|<span class="hljs-string">  .&#x27; </span>|<span class="hljs-string">  .        `. </span>|<span class="hljs-string">  `. </span>|<span class="hljs-string">  `. </span>|
-            -   |<span class="hljs-string">.&#x27;   </span>|<span class="hljs-string">.&#x27;   </span>|<span class="hljs-string">.&#x27;     +     `</span>|<span class="hljs-string">    `</span>|<span class="hljs-string">    `</span>|
-              __       _____          __       _____    
+Sawtooth    +  .|<span class="hljs-string">    .</span>|<span class="hljs-string">    .</span>|<span class="hljs-string">       0     .</span>|<span class="hljs-string">    .</span>|<span class="hljs-string">    .</span>|
+(W=0)       0 &#x27; |<span class="hljs-string">  .&#x27; </span>|<span class="hljs-string">  .&#x27; </span>|<span class="hljs-string">  .        .&#x27; </span>|<span class="hljs-string">  .&#x27; </span>|<span class="hljs-string">  .&#x27; </span>|
+            -   |<span class="hljs-string">.&#x27;   </span>|<span class="hljs-string">.&#x27;   </span>|<span class="hljs-string">.&#x27;     + .&#x27;   </span>|<span class="hljs-string">.&#x27;   </span>|<span class="hljs-string">.&#x27;   </span>|
+              __       _____             _____       ___
 Square      +   |<span class="hljs-string">     </span>|<span class="hljs-string">     </span>|<span class="hljs-string">       0   </span>|<span class="hljs-string">     </span>|<span class="hljs-string">     </span>|<span class="hljs-string">   
 (W=1)       0   </span>|<span class="hljs-string">     </span>|<span class="hljs-string">     </span>|<span class="hljs-string">           </span>|<span class="hljs-string">     </span>|<span class="hljs-string">     </span>|<span class="hljs-string">   
-            -   </span>|<span class="hljs-string">_____</span>|<span class="hljs-string">     </span>|<span class="hljs-string">___    +   </span>|<span class="hljs-string">_____</span>|<span class="hljs-string">     </span>|___
+            -   </span>|<span class="hljs-string">_____</span>|<span class="hljs-string">     </span>|<span class="hljs-string">___    + __</span>|<span class="hljs-string">     </span>|<span class="hljs-string">_____</span>|<span class="hljs-string">   
 
-Triangle    +  /\    /\    /\       0 \    /\    /\    /
-(W=2)       0 /  \  /  \  /  \         \  /  \  /  \  /
-            -     \/    \/    \/    +   \/    \/    \/
+Triangle    +  /\    /\    /\       0   /\    /\    /\  
+(W=2)       0 /  \  /  \  /  \         /  \  /  \  /  \ 
+            -     \/    \/    \/    + /    \/    \/    \
 
 Noise       + \ ! / ! \ ! / ! \     0 \ ! / ! \ ! / ! \
 (W=3)       0 - + - + - + - + -       - + - + - + - + -
-            - / ! \ ! / ! \ ! /     + / ! \ ! / ! \ ! /</code></pre><h3 id="38h3fh---channel-07-phase--amplitude-modulation-sensitivity"><a class="header-link" href="#38h3fh---channel-07-phase--amplitude-modulation-sensitivity"></a>38h..3Fh - Channel 0..7 Phase / Amplitude Modulation Sensitivity</h3>
+            - / ! \ ! / ! \ ! /     + / ! \ ! / ! \ ! /</span></code></pre><h3 id="38h3fh---channel-07-phase--amplitude-modulation-sensitivity"><a class="header-link" href="#38h3fh---channel-07-phase--amplitude-modulation-sensitivity"></a>38h..3Fh - Channel 0..7 Phase / Amplitude Modulation Sensitivity</h3>
 <pre class="hljs"><code><span class="hljs-attribute">Bit</span>
 <span class="hljs-attribute">7</span>       Not Used
 <span class="hljs-attribute">6</span>-<span class="hljs-number">4</span>     Phase Modulation Sensitivity (PMS) (<span class="hljs-number">0</span>-<span class="hljs-number">7</span>)
