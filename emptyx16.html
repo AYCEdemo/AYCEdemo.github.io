@@ -273,7 +273,7 @@ h3:hover .header-link {
     <li class="sidebar-header-3"><a href="#ym2151-timings">YM2151 Timings</a></li>
     <li class="sidebar-header-2"><a href="#x16-video-timings">X16 Video Timings</a></li>
     <li class="sidebar-header-3"><a href="#horizontal-timings">Horizontal Timings</a></li>
-    <li class="sidebar-header-3"><a href="#vertical-timings">Vertical Timings</a></li>
+    <li class="sidebar-header-3"><a href="#detailed-timings">Detailed Timings</a></li>
     <li class="sidebar-header-1"><a href="#via-versatile-interface-adapter">VIA Versatile Interface Adapter</a></li>
     <li class="sidebar-header-2"><a href="#via-peripheral-data-ports">VIA Peripheral Data Ports</a></li>
     <li class="sidebar-header-3"><a href="#0h---prb---port-b-inputoutput-rw">0h - PRB - Port B Input/Output (R/W)</a></li>
@@ -1487,7 +1487,7 @@ read/write a data for this bus:</p>
 SCL      |<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">/ /</span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|
     __     ___ ___ ___ ___ ___ ___ ___ ___     ___ ___/ /_ ___ ___         ___
 SDA   |<span class="hljs-string">___</span>|<span class="hljs-string">___</span>|<span class="hljs-string">___</span>|<span class="hljs-string">___</span>|<span class="hljs-string">___</span>|<span class="hljs-string">___</span>|<span class="hljs-string">___</span>|<span class="hljs-string">___</span>|<span class="hljs-string">___</span>|<span class="hljs-string">___</span>|<span class="hljs-string">___</span>|<span class="hljs-string">___/ /_</span>|<span class="hljs-string">___</span>|<span class="hljs-string">___</span>|<span class="hljs-string">_______</span>|
-     START  7   6   5   4   3   2   1   0  ACK  7   6 ...   1   0  ACK  STOP</code></pre><p>Data transfer starts with pulling the clock line low to signal the start
+     START  7   6   5   4   3   2   1   0  ACK  7   6 ...   1   0  ACK  STOP</code></pre><p>Data transfer starts with pulling the data line low to signal the start
 condition to every devices in the bus. Then begin writing a data every
 falling edge of the clock (the device will read it at the rising edge). After
 each byte transferred, the device will send acknowledge bit back. Read this at
@@ -1706,17 +1706,20 @@ to generate NTSC video signals (?)</p>
 <h3 id="horizontal-timings"><a class="header-link" href="#horizontal-timings"></a>Horizontal Timings</h3>
 <pre class="hljs"><code>Scanline Length    <span class="hljs-number"> 800 </span>dot cycles
                     =<span class="hljs-number"> 256 </span>CPU cycles (progressive)
-                    =<span class="hljs-number"> 512 </span>CPU cycles (interlaced)</code></pre><h3 id="vertical-timings"><a class="header-link" href="#vertical-timings"></a>Vertical Timings</h3>
+                    =<span class="hljs-number"> 512 </span>CPU cycles (interlaced)</code></pre><h3 id="detailed-timings"><a class="header-link" href="#detailed-timings"></a>Detailed Timings</h3>
+<p>(H=Horizontal, V=Vertical, F=Field)</p>
 <p>Progressive Output</p>
-<pre class="hljs"><code><span class="hljs-attr">V</span>=<span class="hljs-number">0</span>         End of VBlank, toggle field (?), begin of drawing
-<span class="hljs-attr">V</span>=<span class="hljs-number">480</span>       Begin of VBlank (VBlank IRQ, collision latch)
-<span class="hljs-attr">V</span>=<span class="hljs-number">524</span>       Last Line
-<span class="hljs-attr">V</span>=IRQLINE   Generate Line IRQ</code></pre><p>Interlaced Output</p>
-<pre class="hljs"><code><span class="hljs-attr">V</span>=<span class="hljs-number">0</span>         End of VBlank, toggle field (?), begin of drawing
-<span class="hljs-attr">V</span>=<span class="hljs-number">240</span>       Begin of VBlank (VBlank IRQ, collision latch)
-<span class="hljs-attr">V</span>=<span class="hljs-number">261</span>       Last Line
-<span class="hljs-attr">V</span>=<span class="hljs-number">262</span>       Extra Line (<span class="hljs-literal">on</span>ly occur in even fields)
-<span class="hljs-attr">V</span>=IRQLINE/<span class="hljs-number">2</span> Generate Line IRQ</code></pre><h1 id="via-versatile-interface-adapter"><a class="header-link" href="#via-versatile-interface-adapter"></a>VIA Versatile Interface Adapter</h1>
+<pre class="hljs"><code><span class="hljs-attribute">H</span>=0 <span class="hljs-attribute">V</span>=0             End of VBlank
+<span class="hljs-attribute">H</span>=0..639  <span class="hljs-attribute">V</span>=0..479  Draw Picture
+<span class="hljs-attribute">H</span>=0 <span class="hljs-attribute">V</span>=480           Begin of VBlank (VBlank IRQ, collision latch)
+    <span class="hljs-attribute">V</span>=524           Last Line
+<span class="hljs-attribute">H</span>=0 <span class="hljs-attribute">V</span>=IRQLINE       Generate Line IRQ</code></pre><p>Interlaced Output</p>
+<pre class="hljs"><code><span class="hljs-attribute">H</span>=0 <span class="hljs-attribute">V</span>=0             End of VBlank, toggle field (?)
+<span class="hljs-attribute">H</span>=0..639  <span class="hljs-attribute">V</span>=0..239  Draw Picture
+<span class="hljs-attribute">H</span>=0 <span class="hljs-attribute">V</span>=240           Begin of VBlank (VBlank IRQ, collision latch)
+    <span class="hljs-attribute">V</span>=261           Last Line
+    <span class="hljs-attribute">V</span>=262 <span class="hljs-attribute">F</span>=1       Extra Line
+<span class="hljs-attribute">H</span>=0 <span class="hljs-attribute">V</span>=IRQLINE/2     Generate Line IRQ</code></pre><h1 id="via-versatile-interface-adapter"><a class="header-link" href="#via-versatile-interface-adapter"></a>VIA Versatile Interface Adapter</h1>
 <p>I/O port addresses below are 4-bit RSx address line values. For X16, which uses
 two VIAs, these addresses are mapped directly to 9F0xh for the first one and
 9F1xh for the second one.</p>
@@ -1736,14 +1739,14 @@ DDRx        Disabled    Only output <span class="hljs-keyword">register</span> <
 <span class="hljs-built_in">bit</span> n = <span class="hljs-number">0</span>               set. Pxn pin remain Hi-Z    <span class="hljs-built_in">bit</span> n
 (Input)     <span class="hljs-comment">-------------------------------------------------------------------</span>
             Enabled     Only output <span class="hljs-keyword">register</span> <span class="hljs-keyword">is</span>     Input <span class="hljs-keyword">register</span> <span class="hljs-built_in">bit</span> n which
-                        set. Pxn pin remain Hi-Z    <span class="hljs-keyword">is</span> latched at last CA1
+                        set. Pxn pin remain Hi-Z    <span class="hljs-keyword">is</span> latched at last Cx1
                                                     transition <span class="hljs-keyword">is</span> read
 <span class="hljs-comment">-------------------------------------------------------------------------------</span>
 DDRx        Disabled    Pxn pin<span class="hljs-symbol">&#x27;s</span> output level <span class="hljs-keyword">is</span>   Pxn pin<span class="hljs-symbol">&#x27;s</span> level <span class="hljs-keyword">is</span> read <span class="hljs-keyword">to</span>
 <span class="hljs-built_in">bit</span> n = <span class="hljs-number">1</span>               set <span class="hljs-keyword">to</span> <span class="hljs-built_in">bit</span> n<span class="hljs-symbol">&#x27;s</span> value        <span class="hljs-built_in">bit</span> n
 (Output)    <span class="hljs-comment">-------------------------------------------------------------------</span>
             Enabled     Pxn pin<span class="hljs-symbol">&#x27;s</span> output level <span class="hljs-keyword">is</span>   Input <span class="hljs-keyword">register</span> <span class="hljs-built_in">bit</span> n which
-                        set <span class="hljs-keyword">to</span> <span class="hljs-built_in">bit</span> n<span class="hljs-symbol">&#x27;s</span> value        <span class="hljs-keyword">is</span> latched at last CA1
+                        set <span class="hljs-keyword">to</span> <span class="hljs-built_in">bit</span> n<span class="hljs-symbol">&#x27;s</span> value        <span class="hljs-keyword">is</span> latched at last Cx1
                                                     transition <span class="hljs-keyword">is</span> read</code></pre><p>Latching is controlled by ACR bit 0-1&#39;s value (for Port A and B respectively).</p>
 <h3 id="2h---ddrb---port-b-data-direction-rw"><a class="header-link" href="#2h---ddrb---port-b-data-direction-rw"></a>2h - DDRB - Port B Data Direction (R/W)</h3>
 <h3 id="3h---ddra---port-a-data-direction-rw"><a class="header-link" href="#3h---ddra---port-a-data-direction-rw"></a>3h - DDRA - Port A Data Direction (R/W)</h3>
@@ -1843,9 +1846,9 @@ are written, also reload the counter with a new value, start the counting and
 clear IFR bit 6. When restarting the counter with a new reload value, it&#39;s
 recommended to write to 4h first then write to 5h.</p>
 <h3 id="6h7h---t1llt1lh---t1-latch-rw"><a class="header-link" href="#6h7h---t1llt1lh---t1-latch-rw"></a>6h/7h - T1LL/T1LH - T1 Latch (R/W)</h3>
-<p>Reads will return the current counter value but doesn&#39;t clear IFR bit 6. Writes
-will set the latch (reload) value. If the upper 8 bits are written, clear IFR
-bit 6 only (no counter reload like in T1H).</p>
+<p>Reads will return the latch (reload) value but doesn&#39;t clear IFR bit 6. Writes
+will set the latch value. If the upper 8 bits are written, clear IFR bit 6 only
+(no counter reload like in T1H).</p>
 <h3 id="timer-1-one-shot-mode-acr-bit-6--0"><a class="header-link" href="#timer-1-one-shot-mode-acr-bit-6--0"></a>Timer 1 One-shot Mode (ACR bit 6 = 0)</h3>
 <pre class="hljs"><code>              _   _   _   _   _   _   _   _    _    _    _
 PHI2        _|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> / / </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">_</span>|<span class="hljs-string"> </span>|<span class="hljs-string">__</span>|<span class="hljs-string"> </span>|<span class="hljs-string">__</span>|<span class="hljs-string"> </span>|<span class="hljs-string">__</span>|
@@ -1868,7 +1871,7 @@ T1H Write   ___|<span class="hljs-string">   </span>|<span class="hljs-string">_
 IRQB               :                 </span>|<span class="hljs-string">_____/ /         </span>|___
 (IER.6=1)   _______:                 :_____/ /_________:
 PB7 Out            |<span class="hljs-string">_______/ /_______</span>|<span class="hljs-string">                 </span>|___
-(ACR.7=1)          <span class="hljs-variable">&lt;--N+1.5 cycles--&gt;</span><span class="hljs-variable">&lt;--N+1.5 cycles--&gt;</span></code></pre><h2 id="via-timer-2"><a class="header-link" href="#via-timer-2"></a>VIA Timer 2</h2>
+(ACR.7=1)          <span class="hljs-variable">&lt;--N+1.5 cycles--&gt;</span><span class="hljs-variable">&lt;--N+2.5 cycles--&gt;</span></code></pre><h2 id="via-timer-2"><a class="header-link" href="#via-timer-2"></a>VIA Timer 2</h2>
 <p>Timer 2 is also a 16-bit counter which counts down at a rate of PHI2 or PB6
 input. When the counter reaches 0, IFR bit 5 is set and generate an interrupt
 if it&#39;s enabled. Timer 2 is one-shot mode only and works the same as Timer 1
@@ -2020,7 +2023,7 @@ IRQB                                                         |_<span class="hljs
 check if this chip is the one generating an interrupt. It can only be cleared
 when all enabled and active interrupt flags are cleared. The other flags can
 only be cleared by:</p>
-<pre class="hljs"><code>Timer <span class="hljs-number">1</span> Timeout:    <span class="hljs-keyword">Read</span> T1L <span class="hljs-keyword">or</span> <span class="hljs-keyword">write</span> T1LH
+<pre class="hljs"><code>Timer <span class="hljs-number">1</span> Timeout:    <span class="hljs-keyword">Read</span> T1L <span class="hljs-keyword">or</span> <span class="hljs-keyword">write</span> T1H <span class="hljs-keyword">or</span> <span class="hljs-keyword">write</span> T1LH
 Timer <span class="hljs-number">2</span> Timeout:    <span class="hljs-keyword">Read</span> T2L <span class="hljs-keyword">or</span> <span class="hljs-keyword">write</span> T2H
 Cx1 Transition:     <span class="hljs-keyword">Read</span> <span class="hljs-keyword">or</span> <span class="hljs-keyword">write</span> PRx
 Cx2 Transition:     <span class="hljs-keyword">Read</span> <span class="hljs-keyword">or</span> <span class="hljs-keyword">write</span> PRx (Dependent) / <span class="hljs-keyword">Write</span> <span class="hljs-keyword">to</span> IFR (Independent)
@@ -2035,7 +2038,7 @@ Byte Shifted:       <span class="hljs-keyword">Read</span> <span class="hljs-key
 1       CA1 Transition Interrupt (<span class="hljs-attribute">0</span>=Unselect, <span class="hljs-attribute">1</span>=Select)
 0       CA2 Transition Interrupt (<span class="hljs-attribute">0</span>=Unselect, <span class="hljs-attribute">1</span>=Select)</code></pre><p>Enable/Disable is only applied to selected bits of that write data. For
 example, writing E0h will enable Timer 1 and 2 interrupts and leave the
-rest unchanged.</p>
+rest unchanged. On read, Enable/Disable bit will always be 1.</p>
 <h1 id="ym2151-fm-operator-type-m-opm"><a class="header-link" href="#ym2151-fm-operator-type-m-opm"></a>YM2151 FM Operator Type-M (OPM)</h1>
 <h3 id="overview"><a class="header-link" href="#overview"></a>Overview</h3>
 <p><a href="#ym2151-address-map">YM2151 Address Map</a><br><a href="#ym2151-block-diagram">YM2151 Block Diagram</a>  </p>
@@ -2496,10 +2499,10 @@ LFSR generator state.</p>
 Sawtooth    +  .|<span class="hljs-string">    .</span>|<span class="hljs-string">    .</span>|<span class="hljs-string">       0     .</span>|<span class="hljs-string">    .</span>|<span class="hljs-string">    .</span>|
 (W=0)       0 &#x27; |<span class="hljs-string">  .&#x27; </span>|<span class="hljs-string">  .&#x27; </span>|<span class="hljs-string">  .        .&#x27; </span>|<span class="hljs-string">  .&#x27; </span>|<span class="hljs-string">  .&#x27; </span>|
             -   |<span class="hljs-string">.&#x27;   </span>|<span class="hljs-string">.&#x27;   </span>|<span class="hljs-string">.&#x27;     + .&#x27;   </span>|<span class="hljs-string">.&#x27;   </span>|<span class="hljs-string">.&#x27;   </span>|
-              __       _____             _____       ___
-Square      +   |<span class="hljs-string">     </span>|<span class="hljs-string">     </span>|<span class="hljs-string">       0   </span>|<span class="hljs-string">     </span>|<span class="hljs-string">     </span>|<span class="hljs-string">   
-(W=1)       0   </span>|<span class="hljs-string">     </span>|<span class="hljs-string">     </span>|<span class="hljs-string">           </span>|<span class="hljs-string">     </span>|<span class="hljs-string">     </span>|<span class="hljs-string">   
-            -   </span>|<span class="hljs-string">_____</span>|<span class="hljs-string">     </span>|<span class="hljs-string">___    + __</span>|<span class="hljs-string">     </span>|<span class="hljs-string">_____</span>|<span class="hljs-string">   
+              __    __    __             __    __    __
+Square      +   |<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|<span class="hljs-string">    0   </span>|<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|
+(W=1)       0   |<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|<span class="hljs-string">        </span>|<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|<span class="hljs-string">  </span>|
+            -   |<span class="hljs-string">__</span>|<span class="hljs-string">  </span>|<span class="hljs-string">__</span>|<span class="hljs-string">  </span>|<span class="hljs-string">__</span>|<span class="hljs-string">    + __</span>|<span class="hljs-string">  </span>|<span class="hljs-string">__</span>|<span class="hljs-string">  </span>|<span class="hljs-string">__</span>|<span class="hljs-string">  </span>|
 
 Triangle    +  /\    /\    /\       0   /\    /\    /\  
 (W=2)       0 /  \  /  \  /  \         /  \  /  \  /  \ 
@@ -2507,7 +2510,7 @@ Triangle    +  /\    /\    /\       0   /\    /\    /\
 
 Noise       + \ ! / ! \ ! / ! \     0 \ ! / ! \ ! / ! \
 (W=3)       0 - + - + - + - + -       - + - + - + - + -
-            - / ! \ ! / ! \ ! /     + / ! \ ! / ! \ ! /</span></code></pre><h3 id="38h3fh---channel-07-phase--amplitude-modulation-sensitivity"><a class="header-link" href="#38h3fh---channel-07-phase--amplitude-modulation-sensitivity"></a>38h..3Fh - Channel 0..7 Phase / Amplitude Modulation Sensitivity</h3>
+            - / ! \ ! / ! \ ! /     + / ! \ ! / ! \ ! /</code></pre><h3 id="38h3fh---channel-07-phase--amplitude-modulation-sensitivity"><a class="header-link" href="#38h3fh---channel-07-phase--amplitude-modulation-sensitivity"></a>38h..3Fh - Channel 0..7 Phase / Amplitude Modulation Sensitivity</h3>
 <pre class="hljs"><code><span class="hljs-attribute">Bit</span>
 <span class="hljs-attribute">7</span>       Not Used
 <span class="hljs-attribute">6</span>-<span class="hljs-number">4</span>     Phase Modulation Sensitivity (PMS) (<span class="hljs-number">0</span>-<span class="hljs-number">7</span>)
@@ -2756,10 +2759,10 @@ Base+<span class="hljs-number">00</span> <span class="hljs-keyword">nn</span>   
 Base+<span class="hljs-number">04</span> <span class="hljs-keyword">nn</span>          <span class="hljs-number">3</span>   <span class="hljs-keyword">nn</span>          op=[<span class="hljs-keyword">nn</span>]
 Base+<span class="hljs-number">0</span>C <span class="hljs-keyword">nn</span> <span class="hljs-keyword">nn</span>       <span class="hljs-number">4</span>   nnnn        op=[nnnn]</code></pre><h3 id="bit-test"><a class="header-link" href="#bit-test"></a>Bit Test</h3>
 <pre class="hljs"><code>Opcode      Flags Clks  Syntax
-<span class="hljs-number">24</span> <span class="hljs-keyword">nn</span>       xx--<span class="hljs-keyword">z</span>-  <span class="hljs-number">3</span>   BIT <span class="hljs-keyword">nn</span>
-<span class="hljs-number">2</span>C <span class="hljs-keyword">nn</span> <span class="hljs-keyword">nn</span>    xx--<span class="hljs-keyword">z</span>-  <span class="hljs-number">4</span>   BIT nnnn
-<span class="hljs-number">34</span> <span class="hljs-keyword">nn</span>       xx--<span class="hljs-keyword">z</span>-  <span class="hljs-number">4</span>   BIT <span class="hljs-keyword">nn</span>,<span class="hljs-keyword">X</span>
-<span class="hljs-number">3</span>C <span class="hljs-keyword">nn</span> <span class="hljs-keyword">nn</span>    xx--<span class="hljs-keyword">z</span>-  <span class="hljs-number">4</span>*  BIT nnnn,<span class="hljs-keyword">X</span>
+<span class="hljs-number">24</span> <span class="hljs-keyword">nn</span>       nv--<span class="hljs-keyword">z</span>-  <span class="hljs-number">3</span>   BIT <span class="hljs-keyword">nn</span>
+<span class="hljs-number">2</span>C <span class="hljs-keyword">nn</span> <span class="hljs-keyword">nn</span>    nv--<span class="hljs-keyword">z</span>-  <span class="hljs-number">4</span>   BIT nnnn
+<span class="hljs-number">34</span> <span class="hljs-keyword">nn</span>       nv--<span class="hljs-keyword">z</span>-  <span class="hljs-number">4</span>   BIT <span class="hljs-keyword">nn</span>,<span class="hljs-keyword">X</span>
+<span class="hljs-number">3</span>C <span class="hljs-keyword">nn</span> <span class="hljs-keyword">nn</span>    nv--<span class="hljs-keyword">z</span>-  <span class="hljs-number">4</span>*  BIT nnnn,<span class="hljs-keyword">X</span>
 <span class="hljs-number">89</span> <span class="hljs-keyword">nn</span>       ----<span class="hljs-keyword">z</span>-  <span class="hljs-number">2</span>   BIT #nn</code></pre><p><small>* Add one cycle if indexing crosses a page boundary</small></p>
 <p>Flags are set as follows: <code>Z=((A AND op)==0)</code>, <code>N=op.Bit(7)</code> and <code>V=op.Bit(6)</code>.
 Note that N and V rely only on op&#39;s value instead of the result.</p>

@@ -1549,7 +1549,7 @@ SCL      |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |_| |/ /|_| |_| |_| |_|
 SDA   |___|___|___|___|___|___|___|___|___|___|___|___/ /_|___|___|_______|
      START  7   6   5   4   3   2   1   0  ACK  7   6 ...   1   0  ACK  STOP
 
-Data transfer starts with pulling the clock line low to signal the start
+Data transfer starts with pulling the data line low to signal the start
 condition to every devices in the bus. Then begin writing a data every falling
 edge of the clock (the device will read it at the rising edge). After each byte
 transferred, the device will send acknowledge bit back. Read this at the rising
@@ -1887,22 +1887,26 @@ Scanline Length     800 dot cycles
                     = 256 CPU cycles (progressive)
                     = 512 CPU cycles (interlaced)
 
-Vertical Timings
+Detailed Timings
+
+(H=Horizontal, V=Vertical, F=Field)
 
 Progressive Output
 
-V=0         End of VBlank, toggle field (?), begin of drawing
-V=480       Begin of VBlank (VBlank IRQ, collision latch)
-V=524       Last Line
-V=IRQLINE   Generate Line IRQ
+H=0 V=0             End of VBlank
+H=0..639  V=0..479  Draw Picture
+H=0 V=480           Begin of VBlank (VBlank IRQ, collision latch)
+    V=524           Last Line
+H=0 V=IRQLINE       Generate Line IRQ
 
 Interlaced Output
 
-V=0         End of VBlank, toggle field (?), begin of drawing
-V=240       Begin of VBlank (VBlank IRQ, collision latch)
-V=261       Last Line
-V=262       Extra Line (only occur in even fields)
-V=IRQLINE/2 Generate Line IRQ
+H=0 V=0             End of VBlank, toggle field (?)
+H=0..639  V=0..239  Draw Picture
+H=0 V=240           Begin of VBlank (VBlank IRQ, collision latch)
+    V=261           Last Line
+    V=262 F=1       Extra Line
+H=0 V=IRQLINE/2     Generate Line IRQ
 
 
 VIA Versatile Interface Adapter
@@ -1940,14 +1944,14 @@ DDRx        Disabled    Only output register is     Pxn pin's level is read to
 bit n = 0               set. Pxn pin remain Hi-Z    bit n
 (Input)     -------------------------------------------------------------------
             Enabled     Only output register is     Input register bit n which
-                        set. Pxn pin remain Hi-Z    is latched at last CA1
+                        set. Pxn pin remain Hi-Z    is latched at last Cx1
                                                     transition is read
 -------------------------------------------------------------------------------
 DDRx        Disabled    Pxn pin's output level is   Pxn pin's level is read to
 bit n = 1               set to bit n's value        bit n
 (Output)    -------------------------------------------------------------------
             Enabled     Pxn pin's output level is   Input register bit n which
-                        set to bit n's value        is latched at last CA1
+                        set to bit n's value        is latched at last Cx1
                                                     transition is read
 
 Latching is controlled by ACR bit 0-1's value (for Port A and B respectively).
@@ -2078,9 +2082,9 @@ to write to 4h first then write to 5h.
 
 6h/7h - T1LL/T1LH - T1 Latch (R/W)
 
-Reads will return the current counter value but doesn't clear IFR bit 6. Writes
-will set the latch (reload) value. If the upper 8 bits are written, clear IFR
-bit 6 only (no counter reload like in T1H).
+Reads will return the latch (reload) value but doesn't clear IFR bit 6. Writes
+will set the latch value. If the upper 8 bits are written, clear IFR bit 6 only
+(no counter reload like in T1H).
 
 Timer 1 One-shot Mode (ACR bit 6 = 0)
 
@@ -2108,7 +2112,7 @@ T1H Write   ___|   |_______/ /_____________/ /_____________
 IRQB               :                 |_____/ /         |___
 (IER.6=1)   _______:                 :_____/ /_________:
 PB7 Out            |_______/ /_______|                 |___
-(ACR.7=1)          <--N+1.5 cycles--><--N+1.5 cycles-->
+(ACR.7=1)          <--N+1.5 cycles--><--N+2.5 cycles-->
 
 VIA Timer 2
 -----------
@@ -2311,7 +2315,7 @@ check if this chip is the one generating an interrupt. It can only be cleared
 when all enabled and active interrupt flags are cleared. The other flags can
 only be cleared by:
 
-Timer 1 Timeout:    Read T1L or write T1LH
+Timer 1 Timeout:    Read T1L or write T1H or write T1LH
 Timer 2 Timeout:    Read T2L or write T2H
 Cx1 Transition:     Read or write PRx
 Cx2 Transition:     Read or write PRx (Dependent) / Write to IFR (Independent)
@@ -2331,6 +2335,7 @@ Bit
 
 Enable/Disable is only applied to selected bits of that write data. For example,
 writing E0h will enable Timer 1 and 2 interrupts and leave the rest unchanged.
+On read, Enable/Disable bit will always be 1.
 
 
 YM2151 FM Operator Type-M (OPM)
@@ -2962,10 +2967,10 @@ Waveform    Phase Modulation        Amplitude Modulation
 Sawtooth    +  .|    .|    .|       0     .|    .|    .|
 (W=0)       0 ' |  .' |  .' |  .        .' |  .' |  .' |
             -   |.'   |.'   |.'     + .'   |.'   |.'   |
-              __       _____             _____       ___
-Square      +   |     |     |       0   |     |     |   
-(W=1)       0   |     |     |           |     |     |   
-            -   |_____|     |___    + __|     |_____|   
+              __    __    __             __    __    __
+Square      +   |  |  |  |  |  |    0   |  |  |  |  |  |
+(W=1)       0   |  |  |  |  |  |        |  |  |  |  |  |
+            -   |__|  |__|  |__|    + __|  |__|  |__|  |
 
 Triangle    +  /\    /\    /\       0   /\    /\    /\  
 (W=2)       0 /  \  /  \  /  \         /  \  /  \  /  \ 
@@ -3335,10 +3340,10 @@ Base+0C nn nn       4   nnnn        op=[nnnn]
 Bit Test
 
 Opcode      Flags Clks  Syntax
-24 nn       xx--z-  3   BIT nn
-2C nn nn    xx--z-  4   BIT nnnn
-34 nn       xx--z-  4   BIT nn,X
-3C nn nn    xx--z-  4*  BIT nnnn,X
+24 nn       nv--z-  3   BIT nn
+2C nn nn    nv--z-  4   BIT nnnn
+34 nn       nv--z-  4   BIT nn,X
+3C nn nn    nv--z-  4*  BIT nnnn,X
 89 nn       ----z-  2   BIT #nn
 
 * Add one cycle if indexing crosses a page boundary
