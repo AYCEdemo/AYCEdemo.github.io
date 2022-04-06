@@ -1,7 +1,7 @@
 Emptyx16 - X16 Hardware Specs
 =============================
 
-nocash-style Commander X16 hardware specifications
+Commander X16 hardware specifications
 
 X16 Hardware Specifications
 
@@ -12,6 +12,7 @@ X16 Hardware Specifications
 --> X16 Peripherals
 --> X16 I2C Bus
 --> X16 Timings
+--> X16 Pinouts
 --> VIA Versatile Interface Adapter
 --> YM2151 FM Operator Type-M (OPM)
 --> CPU 65C02 Microprocessor 
@@ -43,10 +44,10 @@ Display     640x480 pixels with 4096 colors
 BG layers   2 background layers
 BG types    Tile/map-based or bitmap-based
 BG colors   256 colors, or 2/4/16 colors/16 palettes
-OBJ colors  256 colors, or 16 colors/16 palettes
-OBJ size    16 types (in range of 8x8 up to 64x64)
-OBJs/Screen max. 128 OBJs of any size (up to 64x64 each)
-OBJs/Line   max. 80 OBJs of 8x8 size (under best circumstances)
+Spr colors  256 colors, or 16 colors/16 palettes
+Spr size    16 types (in range of 8x8 up to 64x64)
+Sprs/Screen max. 128 sprites of any size (up to 64x64 each)
+Sprs/Line   max. 80 sprites of 8x8 size (under best circumstances)
 
 Sound
 
@@ -136,7 +137,7 @@ Note: The rightmost column shows the initial value on Reset
 9F3Ch - AUDIO_RATE   - Audio FIFO Sample Rate                         00h
 9F3Dh - AUDIO_DATA   - Audio FIFO Data (W)                            -
 9F3Eh - SPI_DATA     - SPI Data                                       -
-9F3Fh - SPI_CTRL     - SPI Control                                    00h (?)
+9F3Fh - SPI_CTRL     - SPI Control                                    00h
 
 YM2151 I/O Ports
 
@@ -342,9 +343,15 @@ Embedded Memory
 --> X16 VERA Memory and I/O Map (VRAM)
 --> X16 VERA Programmable Sound Generator (PSG)
 --> X16 VERA Color Palette
---> X16 VERA Sprites (OBJs)
+--> X16 VERA Sprites
 VERA memory isn't mapped to the CPU bus, and can be accessed only via I/O ports.
 --> X16 VERA Memory Access
+
+Pinouts
+
+--> X16 Audio/Video Connector Pinouts
+--> X16 Pinouts VERA Module
+--> X16 Pinouts VERA Chips 
 
 X16 VERA Control
 ----------------
@@ -408,15 +415,19 @@ integer part of this virtual screen position is then used for the rest of the
 composition logic. This puts the scaling center at the top-left corner of an
 active display area.
 
-NOTE: Setting H-Scale or V-Scale above 1.0 (80h) will skip some pixels while
-rendering, potentially causing inaccurate collision detection (?)
+CAUTION: Virtual screens larger than 640x480 is not possible as the rendering
+will stop if the virtual screen position is either above it horizontally or
+vertically. Also, setting V-Scale above 1.0 (80h) will skip some pixels while
+rendering, potentially causing inaccurate collision detection. Although this is
+not a case for setting H-Scale above 1.0 (80h) as the line rendering always runs
+at a native horizontal resolution.
 
 9F2Ch (DCSEL=0) - DC_BORDER - Border Color (R/W)
 
 When the drawing pixel is outside the active display area defined by start and
 stop registers, it will be set to a solid color at the index of this register's
-value in the palette memory. Please note that this is different from a backdrop
-color which is always color index 0.
+value in the palette memory. Please note that this is different from a
+background color which is always color index 0.
 
 9F29h (DCSEL=1) - DC_HSTART - Active Display H-Start (R/W)
 
@@ -431,8 +442,8 @@ virtual screen will always start from this point.
 9F2Ch (DCSEL=1) - DC_VSTOP - Active Display V-Stop (R/W)
 
 Sets the stopping point of an active display area in native display coordinates
-(they are not scaled to the DC_xSCALE values). Horizontal value is in steps of 4
-and vertical value is in steps of 2. The stopping point is not inclusive.
+(they are not scaled to DC_xSCALE values). Horizontal value is in steps of 4 and
+vertical value is in steps of 2. The stopping point is not inclusive.
 
 These four register values are analogous to a display window in many consoles.
 The width of an active display is (DC_HSTOP-DC_HSTART)*4 pixels and the height
@@ -525,7 +536,7 @@ its flags remain set until the buffer is larger than or equal to 1024 bytes.
 Sprite Collide IRQ is generated at VBlank when a sprite collision occurs. Its
 flags and Sprite Collisions field remain set until the next VBlank. For details
 about sprite collision bits, see:
---> X16 VERA Sprites (OBJs)
+--> X16 VERA Sprites
 
 Line IRQ is generated at the beginning of the display line that matches the line
 compare value. Its flags are not automatically cleared.
@@ -560,11 +571,10 @@ Bit
 Writing reset bit to this register will empty the current buffer. The output
 volume is not linear and has the meaning as follows:
 
-0h=0    2h=2    4h=4    6h=6    8h=11   Ah=18   Ch=30   Eh=49
-1h=1    3h=3    5h=5    7h=8    9h=14   Bh=23   Dh=38   Fh=64
+0h=0    1h=1    2h=2    3h=3    4h=4    5h=5    6h=6    7h=8
+8h=11   9h=14   Ah=18   Bh=23   Ch=30   Dh=38   Eh=49   Fh=64
 
-NOTE: All values can be approximated as 2 dB steps. Volume values are taken from
-the official emulator source code and are not confirmed on real hardware (?)
+NOTE: All values can be approximated as 2 dB steps.
 
 9F3Ch - AUDIO_RATE - Audio FIFO Sample Rate (R/W)
 
@@ -594,9 +604,9 @@ X16 VERA Memory Card Interface
 ------------------------------
 
 VERA uses an SPI bus, which is a 4-wire serial bus to communicate and transfer
-data with the memory card. It uses SPI Mode 0 (?) for clock and data signals.
-Its interface is quite bare and can be adapted to any SPI device. This is the
-only interface with automatic clocking and transfer in X16.
+data with the memory card. It uses SPI Mode 0 for clock and data signals. Its
+interface is quite bare and can be adapted to any SPI device. This is the only
+interface with automatic clocking and transfer in X16.
 
 9F3Eh - SPI_DATA - SPI Data (R/W)
 
@@ -806,7 +816,7 @@ Offset          Content
 00000h-1F9BFh   Video RAM
 1F9C0h-1F9FFh   PSG Registers
 1FA00h-1FBFFh   Color Palette
-1FC00h-1FFFFh   Object Attributes
+1FC00h-1FFFFh   Sprite Attributes
 
 All of VERA I/O registers at 1F9C0h-1FFFFh are write-only and external to the
 VRAM. Any writes will set both it and the VRAM at that location but reads will
@@ -842,7 +852,7 @@ Bit
 15-8    Foreground Color (0-255)
 7-0     Character Number (00h-FFh)
 
-Tile Data (Layers and OBJ)
+Tile Data (Layers and Sprites)
 
 VERA strictly uses packed pixel format in every color depth setting. Its
 smallest 8x1 "bars" unit can be described as follows:
@@ -861,8 +871,8 @@ color depth setting. Making each bar occupy 1, 2, 4 or 8 bytes total. A color ID
 of 0 always mean transparent except in a certain 1bpp tile mode.
 
 To make up tiles which can be up to 16x16 pixels in size for Layers, and up to
-64x64 for OBJs, each bars are combined as follows. With X being a tile width in
-pixels divided by 8 and Y being a tile height in pixels. For example, a tile
+64x64 for sprites, each bars are combined as follows. With X being a tile width
+in pixels divided by 8 and Y being a tile height in pixels. For example, a tile
 size of 32x16 pixels has X=4 and Y=16.
 
 Vertical Rows       Left-most    ...     Right-most
@@ -910,9 +920,7 @@ The output volume is not linear and has the meaning as follows:
 06h=2   0Eh=3   16h=5   1Eh=9   26h=14  2Eh=23  36h=37  3Eh=59
 07h=2   0Fh=3   17h=6   1Fh=9   27h=15  2Fh=25  37h=39  3Fh=63
 
-NOTE: All values can be approximated as 0.5 dB steps. Volume values are taken
-from the official emulator source code and are not confirmed on real hardware
-(?)
+NOTE: All values can be approximated as 0.5 dB steps.
 
 Waveform
 
@@ -927,8 +935,13 @@ __|       |_________|
  7 000       7777777 0
  F 012...w...9ABCDEF 0  Pulse cycle#
 
-Noise uses some kind of LFSR (?) Official emulator implemented it with
-std::rand() .
+Noise generation uses a 16-bit LFSR which runs at every master clock cycle. The
+output of this is then shifted into a 6-bit buffer which will be latched onto
+each channel on its frequency cycle and used as an output. The LFSR and buffer
+are updated as follows:
+
+buffer = (buffer SHL 1) OR (lfsr.Bit0)
+lfsr = (lfsr SHL 1) OR (lfsr.Bit1 XOR lfsr.Bit2 XOR lfsr.Bit4 XOR lfsr.Bit15)
 
 X16 VERA Color Palette
 ----------------------
@@ -946,7 +959,7 @@ Bit
 
 Color Palette Indices
 
-00h      Backdrop Color (used when all Layer/OBJ pixels are transparent)
+00h      Background Color (used when all Layer/Sprite pixels are transparent)
 01h-FFh  256-color Palette (1bpp mode and 8bpp mode)
 01h-FFh  Sixteen 16-color Palettes (2bpp mode uses first four colors each)
 
@@ -984,14 +997,14 @@ Screen Border Color
 
 --> X16 VERA Display Composer 
 
-X16 VERA Sprites (OBJs)
------------------------
+X16 VERA Sprites
+----------------
 
-OAM (Object Attribute Memory)
+Sprite Attributes
 
-VERA contains the data for 128 OBJs mapped to the location of 1FC00h in VRAM.
-OAM size is 1024 bytes which extends to the end of VRAM at 1FFFFh. It contains
-an 8-byte entry for each of 128 OBJs:
+VERA contains the data for 128 sprites mapped to the location of 1FC00h in VRAM.
+The total size is 1024 bytes which extends to the end of VRAM at 1FFFFh. It
+contains an 8-byte entry for each of 128 sprites:
 
 Byte 0-1
   Bit 15    Color Depth (0=4bpp, 1=8bpp)
@@ -1002,10 +1015,10 @@ Byte 4-5    Y-Coordinate (upper 6 bits are ignored) (-512..511)
 Byte 6
   Bit 7-4   Collision Mask
   Bit 3-2   Enable / Priority Relative to Layers
-              0 = OBJ disabled
-              1 = OBJ between backdrop and layer 0
-              2 = OBJ between layer 0 and layer 1
-              3 = OBJ in front of layer 1
+              0 = Sprite disabled
+              1 = Sprite between background and layer 0
+              2 = Sprite between layer 0 and layer 1
+              3 = Sprite in front of layer 1
   Bit 1     V-flip (0=Normal, 1=Mirror vertically)
   Bit 0     H-flip (0=Normal, 1=Mirror horizontally)
 Byte 7
@@ -1015,59 +1028,89 @@ Byte 7
 
 Sprite Collision
 
-NOTE: All of the description in this section is purely based on the official
-emulator source code and has not been confirmed on real hardware (?)
-
 VERA has a feature where sprite collisions can be detected automatically on
 hardware while rendering. It does this by having a collision buffer in addition
-to a render buffer in a line. Each time a non-transparent pixel of an OBJ is
+to a render buffer in a line. Each time a non-transparent pixel of a sprite is
 being drawn to the buffer, it will compare the collision mask bit field between
-of that OBJ and the buffer. A collision is marked if one of bit positions match.
-The implementation pseudocode is as follows:
+of that sprite and the buffer. A collision is marked if one of bit positions
+match. The implementation pseudocode is as follows:
 
 For each frame:
     cflag := 0
     Set all Collision buffer to 0
-    For each OBJ:
+    For each sprite:
         If a non-transparent pixel is being drawn:
-            cflag |= Collision buffer at target pixel & OBJ's collision mask
-            Collision buffer at target pixel |= OBJ's collision mask
+            cflag |= Collision buffer at target pixel & sprite's collision mask
+            Collision buffer at target pixel |= sprite's collision mask
     ISR[7:4] = cflag
     If cflag != 0 and Sprite Collide IRQ is enabled:
         Generate Sprite Collide IRQ
 
 Note that the effect of sprites per line limit still applies here and enabled
-OBJs that are on the line but are never displayed (off-screen) still adds to
-this logic. Bits 4-7 of ISR and the Sprite Collide IRQ is only updated and
+sprites that are rendered to the line buffer but are never displayed still add
+to this logic. Bits 4-7 of ISR and the Sprite Collide IRQ is only updated and
 generated once per frame at the beginning of the VBlank.
 
 CAUTION: Collisions are only detected on lines that are actually rendered. This
-can be problematic in interlaced mode where some lines are skipped per frame and
-potentially missing the collision.
+can be problematic when V-Scale is more than 1.0 or the video output is in
+interlaced mode where some lines are skipped per frame. Which will potentially
+missing the collision.
 
-OBJ Priority to Other OBJs
+Sprite Priority to Other Sprites
 
-The OAM location dictates the order in which OBJs to be displayed on top. An OBJ
-will always display on top of the other OBJs that have their OAM entries
-following its. Thus making OBJ0 has the highest priority and OBJ127 has the
-lowest priority.
+The sprite attribute memory location dictates the order in which sprites to be
+displayed on top. A sprite will always display on top of the other sprites that
+have their attribute entries following its. Thus making sprite #0 has the
+highest priority and sprite #127 has the lowest priority.
 
 Maximum Number of Sprites per Line
 
-The total available OBJ rendering cycles per line are 801. The required
-rendering cycles per OBJ are as follows:
+The total available sprite rendering cycles per line are 798,
+*regardless of
+any video mode* , as sprite lookup will not continue after this
+amount of cycles has been elapsed since the start of the line. If the lookup
+succeeds and there are enough cycles left in the line, the sprite can be fully
+drawn.
 
-Depth       OBJ Width
-            8px   16px  32px  64px
-4bpp        10    19    37    73    ; 9X+1
-8bpp        11    21    41    81    ; 10X+1
+The required rendering cycles and VRAM accesses per sprite are as follows:
+
+Depth       Cycles                    VRAM accesses
+            8px   16px  32px  64px    8px   16px  32px  64px    Sprite Width
+4bpp        10    19    37    73      1     2     3     4
+8bpp        11    21    41    81      2     4     6     8
 <disabled/
-not on line>          1             ; OAM lookup cost
+not on line>          1                        0
 
-Under best circumstances, up to 80 OBJs (with all of them being 4bpp 8x8) can be
-displayed per screen line. The maximum number of OBJs per line is also affected
-by off-screen OBJs. To avoid this, either move displayed OBJs to the beginning
-of the OAM or set a priority of 0 (disabled) to undisplayed OBJs.
+Under best circumstances, up to 80 sprites (with no other layers displayed and
+all of sprites are 4bpp 8x8) can be displayed per screen line. The maximum
+number of sprites per line is also affected by off-screen sprites. To avoid
+this, either move displayed sprites to the beginning of the attribute memory or
+set a priority of 0 (disabled) to undisplayed sprites.
+
+Additionally, it is also depends on how the video is currently displayed and if
+the CPU is causing reads/writes to VRAM. As the VRAM runs at the same master
+clock frequency and has only one 32-bit bus which is arbitrated by a 4:1 bus
+multiplexer. Since sprites have the least priority in accessing VRAM, CPU
+accesses and Layer rendering can stall their VRAM accesses during rendering and
+further increase rendering cycles amount.
+
+The required VRAM accesses per CPU accesses are as follows:
+
+Register    Read  Write
+ADDR_x      0     1
+DATAx       1     2
+Others      0     0
+
+The required VRAM accesses per layer are as follows:
+
+Depth       Tile Width /  Bitmap Width
+            8px   16px    320px 640px
+1bpp        160   80      20    20
+2bpp        160   80      40    40
+4bpp        160   120     80    80
+8bpp        240   200     160   160
+
+NOTE: Layer rendering is always active even if it's disabled in DC_VIDEO
 
 
 X16 Peripherals
@@ -1861,11 +1904,11 @@ VERA Timings
 VERA Oscillator         25.00000MHz
 Progressive Dot Clock   25.00000MHz (25MHz/1)
 Interlaced Dot Clock    12.50000MHz (25MHz/2)
-L/C Color Clock         3.571429MHz (25MHz/7) (?)
+L/C Color Clock         3.579545MHz (25MHz*150137/2^20)
 Progressive Line Rate   31.25000kHz (25MHz/800)
-Interlaced Line Rate    15.62500kHz (25MHz/(800*2))
+Interlaced Line Rate    15.74307kHz (25MHz/(794*2))
 Progressive Frame Rate  59.523810Hz (25MHz/(525*800))
-Interlaced Frame Rate   29.761905Hz (25MHz/(525*800*2))
+Interlaced Frame Rate   29.986805Hz (25MHz/(525*794*2))
 PSG+FIFO Sample Rate    48.82813kHz (25MHz/512)
 SPI Fast Clock          12.50000MHz (25MHz/2)
 SPI Slow Clock          390.6250kHz (25MHz/64)
@@ -1876,16 +1919,15 @@ YM2151 Oscillator       3.579545MHz
 YM2151 Sample Rate      55.93039kHz (3.58MHz/64)
 
 NOTE: Although it's exactly NTSC color clock, it's actually never used by VERA
-to generate NTSC video signals (?)
+to generate NTSC video signals. VERA internally has a counter for this.
 
 X16 Video Timings
 -----------------
 
 Horizontal Timings
 
-Scanline Length     800 dot cycles
-                    = 256 CPU cycles (progressive)
-                    = 512 CPU cycles (interlaced)
+Progressive Scanline Length     800 dot cycles = 256.00 CPU cycles
+Interlaced Scanline Length      794 dot cycles = 508.16 CPU cycles
 
 Detailed Timings
 
@@ -1893,20 +1935,264 @@ Detailed Timings
 
 Progressive Output
 
-H=0 V=0             End of VBlank
-H=0..639  V=0..479  Draw Picture
-H=0 V=480           Begin of VBlank (VBlank IRQ, collision latch)
-    V=524           Last Line
-H=0 V=IRQLINE       Generate Line IRQ
+H=0        V=0          VERA starts at this time after /RES
+H=0        V=0          End of VBlank
+H=0        V=480        Begin of VBlank, set VBlank flag and collision latch
+           V=524        Last line, begin of rendering
+H=0        V=IRQLINE    Generate line IRQ
+H=0..639   V=0..479     Draw picture
+H=799                   Last dot in the line
 
 Interlaced Output
 
-H=0 V=0             End of VBlank, toggle field (?)
-H=0..639  V=0..239  Draw Picture
-H=0 V=240           Begin of VBlank (VBlank IRQ, collision latch)
-    V=261           Last Line
-    V=262 F=1       Extra Line
-H=0 V=IRQLINE/2     Generate Line IRQ
+H=0        V=0      F=0 VERA starts at this time after /RES
+H=0        V=0          End of VBlank, toggle field
+H=0        V=240        Begin of VBlank, set VBlank flag and collision latch
+           V=262    F=1 Last line, begin of rendering (Odd Frames)
+           V=263    F=0 Last line, begin of rendering (Even Frames)
+H=135      V=IRQLINE/2  Generate line IRQ
+H=135..774 V=0..239     Draw picture
+H=793                   Last dot in the line
+
+
+X16 Pinouts
+===========
+
+External Connectors
+
+--> X16 Power Supply
+--> X16 PS/2 Connector Pinouts
+--> X16 IEC Connector Pinouts
+--> X16 Joypad Connector Pinouts
+--> X16 Audio/Video Connector Pinouts
+--> X16 Memory Card Pinouts X16 Expansion Port Pinouts 
+
+Internal Connectors
+
+--> X16 Pinouts VERA Module 
+
+Chips
+
+--> X16 Pinouts SMC Chip
+--> X16 Pinouts VERA Chips 
+
+X16 Power Supply
+----------------
+
+X16p: ATX (20-pin socket)
+
+         _____
+  +3.3V |1  13| +3.3V
+  +3.3V |2  14| -12V
+    GND |3  15| GND
+    +5V |4  16| /PWR_ON
+    GND |5  17||GND
+    +5V |6  18||GND
+    GND |7  19| GND
+ PWR_OK |8  20| NC
+ +5V_SB |9  21| +5V
+   +12V |10 22| +5V
+        '-----'
+
+X16 PS/2 Connector Pinouts
+--------------------------
+
+    Keyboard Port   Mouse Port
+1   Keyboard Data   Mouse Data              _ _
+2   Not Connected   Not Connected         .' - '.
+3   Ground          Ground           NC  / 6 . 5 \  CLK
+4   VCC +5V         VCC +5V         VCC | 4  '  3 | GND
+5   Keyboard Clock  Mouse Clock      NC  \  2 1  /  DAT
+6   Not Connected   Not Connected         '.___.'
+
+X16 IEC Connector Pinouts
+-------------------------
+
+1   Service Request                         _ _
+2   Ground                                .' - '.
+3   Attention                      DATA  / 5   1 \  SRQ
+4   Clock                               |    6    | RESET
+5   Data                            CLK  \ 4   2 /  GND
+6   Reset                                 '._3_.'   ATN
+
+X16 Joypad Connector Pinouts
+----------------------------
+
+    Port 1          Port 2           ______________________________
+1   VCC +5V         VCC +5V         |  1   2   3   4  |  5   6   7 \
+2   JOY-1/3 Clock   JOY-2/4 Clock   | VCC CK1 STB IN1 | IN3 IO6 GND | 1
+3   JOY Strobe      JOY Strobe      |_________________|____________/
+4   JOY-1 Data      JOY-2 Data       ______________________________
+5   JOY-3 Data      JOY-4 Data      |  1   2   3   4  |  5   6   7 \
+6   I/O bit 6 (NC)  I/O bit 7 (NC)  | VCC CK2 STB IN2 | IN4 IO7 GND | 2
+7   Ground          Ground          |_________________|____________/
+
+X16 Audio/Video Connector Pinouts
+---------------------------------
+
+RGB Out (VGA Connector)
+
+1   Red     6   R Rtn.  11  ID0/RES      ______________________
+2   Green   7   G Rtn.  12  ID1/SDA     /  5   4   3   2   1   \
+3   Blue    8   B Rtn.  13  HSync       |    10  9   8   7   6 |
+4   ID2/RES 9   Key/+5V 14  VSync        | 15  14  13  12  11 |
+5   Ground  10  Ground  15  ID3/SCL       --------------------
+
+NOTE: In interlaced RGB mode, only composite sync signal is output in pin 13;
+pin 14 will always output ground.
+
+Composite Out (Yellow RCA Connector)
+
+Tip     Video            .--.
+Ring    Ground          | ()-|--COMP
+                        '.__.'--GND
+
+Luma/Chroma Out (S-Video Connector)
+
+                            _ _
+1   Ground                .' - '.
+2   Ground            C  / 4   3 \  Y
+3   Luminance       GND | 2     1 | GND
+4   Chrominance          \  [_]  /
+                          '.___.'
+
+Audio Out (3.5mm Phone Connector)
+
+Tip     Audio Left       ___ ___ _____.-----------.
+Ring    Audio Right     (___|___|_____|           |
+Sleeve  Ground            L   R   GND '-----------'
+
+X16 Memory Card Pinouts
+-----------------------
+
+    SPI Mode    Native Mode                        ________________
+                1-bit Bus   4-bit Bus             / _ _,-,-._ _ _ _|
+1   /CS         CD          DAT3                 /_|1|2|3|4|5|6|7|8|
+2   DI          CMD         CMD                 ||9|-'-'-'-'-'-'- -|  WP Tab
+3   GND         GND         GND                 |'-'              || <-Unlock
+4   VDD         VDD         VDD                  ]                |  <-Lock
+5   CLK         CLK         CLK                 |                  |
+6   GND         GND         GND                 |                  |
+7   DO          DAT0        DAT0                |                  |
+8   /IRQ (SDIO) /IRQ (SDIO) DAT1 /IRQ (SDIO)    |                  |
+9   NC          NC          DAT2                |                  |
+CD  Card detect (slot only)                     |                  |
+WP  Write protect (slot only)                   '------------------'
+
+X16 Expansion Port Pinouts
+--------------------------
+
+X16p has 4 identical expansion ports located at where ATX expansion slots would
+be. Physically, they are 60-pin PCB edge connectors with a 2.54mm pitch (?). The
+following pinouts are viewed from the component side.
+
+     ^^^ To I/O side ^^^
+    -12V - 1     2 - +12V
+     GND - 3     4 - +5V
+   +3.3V - 5     6 - GND
+     GND - 7     8 - /IO3
+ AUDIO_L - 9    10 - /IO4
+     GND - 11   12 - /IO5
+ AUDIO_R - 13   14 - /IO6
+     GND - 15   16 - /IO7
+     /VP - 17   18 - /RES
+     RDY - 19   20 - GND
+    /IRQ - 21   22 - PHI2
+      BE - 23   24 - /ML
+    /NMI - 25   26 - GND
+    SYNC - 27   28 - R/W
+     GND - 29   30 - D0
+      A0 - 31   32 - D1
+      A1 - 33   34 - D2
+      A2 - 35   36 - D3
+      A3 - 37   38 - D4
+      A4 - 39   40 - D5
+      A5 - 41   42 - D6
+      A6 - 43   44 - D7
+      A7 - 45   46 - A15
+      A8 - 47   48 - A14
+      A9 - 49   50 - A13
+     A10 - 51   52 - A12
+     A11 - 53   54 - GND
+     GND - 55   56 - +3.3V
+     +5V - 57   58 - GND
+    +12V - 59   60 - -12V
+
+X16 Pinouts VERA Module
+-----------------------
+
+Viewed from component side, the connector is a 2x12 pin header with a 2.54mm
+pitch.
+
+     VCC - 1     2 - GND
+      D7 - 3     4 - D6
+      D5 - 5     6 - D4
+      D3 - 7     8 - D2
+      D1 - 9    10 - D0
+     /CS - 11   12 - /RES
+     /WR - 13   14 - /IRQ
+      A4 - 15   16 - /RD
+      A2 - 17   18 - A3
+      A0 - 19   20 - A1
+     GND - 21   22 - GND
+ AUDIO_L - 23   24 - AUDIO_R
+
+X16 Pinouts SMC Chip
+--------------------
+
+              .---_---. 
+      I2C_SDA |1    20| /RES
+      HDD_LED |2  T 19| /NMI
+      I2C_SCL |3  I 18| RESET_BTN
+   KB_DAT (?) |4  N 17| NMI_BTN
+          VCC |5  Y 16| AGND
+          GND |6  8 15| AVCC
+   KB_CLK (?) |7  6 14| PWR_BTN
+MOUSE_DAT (?) |8  1 13| /PWR_ON
+MOUSE_CLK (?) |9    12| PWR_OK
+   /SMC_RESET |10   11| (?)
+              '-------' 
+
+X16 Pinouts VERA Chips
+----------------------
+
+Module (rev4)
+
+Board:      COMMANDER X16p VERA module rev4 by Frank van den Hoef (c) 2020
+U1  48-pin  ICE40UP5K-SG48ITR50         ; VERA FPGA
+U2  14-pin  74AHC00PW                   ; Quad NAND gate (for U4 enable pins)
+U3  24-pin  SN74CBTD3861PWR             ; Address bus switch + level shifter
+U4  14-pin  74CBTLV3126PW,118           ; Memory card buffer
+U5  24-pin  74LVC4245APW                ; Data bus transceiver + level shifter
+U6  16-pin  WM8524CGEDT                 ; Audio dual 24-bit D/A 
+U7  8-pin   W25Q16JVSNIQ                ; FPGA 2Mx8 config flash
+U9  5-pin   AP3417CKTR-G1               ; 1.2V switching regulator
+U10 5-pin   MIC5504-3.3YM5              ; 3.3V linear regulator
+U11 8-pin   THS7314D                    ; SDTV video amplifier
+X1  4-pin   SG5032CAN_25.000000M-TJGA3  ; Oscillator 25.0MHz
+JP1 2-pin   Flash enable jumper
+J1  24-pin  Module connector
+J2  8-pin   Programmer connector
+J3  11-pin  Memory card slot
+J4  2-pin   RCA composite video connector
+J5  15-pin  DE-15 female VGA connector
+J9  4-pin   S-Video connector
+
+VERA FPGA (rev4 module)
+
+1   VCCIO (+3.3V)   13  VGA_R3 COMP_L5  25  D2              37  A2
+2   VGA_B3 COMP_C3  14  SPI_SO          26  D1              38  AUDIO_BCK
+3   VGA_G0 COMP_C4  15  SPI_SCK         27  D0              39  A1
+4   VGA_G1 COMP_C5  16  SPI_SS          28  /CS             40  A0
+5   VCC (+1.2V)     17  SPI_SI          29  VCCPLL (+1.2V)  41  A3 
+6   VGA_G2 COMP_L0  18  D7              30  VCC (+1.2V)     42  AUDIO_DATA
+7   CDONE           19  D6              31  /WR             43  AUDIO_LRCK
+8   /CRESET         20  D5              32  /IRQ            44  VGA_HSYNC
+9   VGA_G3 COMP_L1  21  D4              33  VCCIO (+3.3V)   45  VGA_VSYNC
+10  VGA_R0 COMP_L2  22  VCCIO (+3.3V)   34  A4              46  VGA_B0 COMP_L0
+11  VGA_R1 COMP_L3  23  D3              35  SYSCLK          47  VGA_B1 COMP_L1
+12  VGA_R2 COMP_L4  24  VPP_2V5 (+3.3V) 36  /RD             48  VGA_B2 COMP_L2
+EP  GND
 
 
 VIA Versatile Interface Adapter
@@ -2582,7 +2868,7 @@ Bit
 
 CT1 and CT2 outputs correspond to physical pins of the same name on the chip.
 These are used for general-purpose output. For X16, those pins are not connected
-to anything. (?)
+to anything.
 
 YM2151 Timers
 -------------
@@ -3181,6 +3467,7 @@ n   Internal cycle, when branch is taken
 x   Internal cycle, when branching crosses page boundaries
 y   Internal cycle, when indexing across page boundaries or STA nnnn,X
     The CPU doesn't do a read at invalid address unlike older NMOS 6502s
+    (it will read the last byte again instead)
 
 Implied or Immediate Operands
 
@@ -3215,7 +3502,7 @@ Branches
 Addressing Mode             Cycles  Execution
 BRA rr                      3,4     CPNx
 Bxx rr                      2,3,4   CPnx
-BBxn nn,rr                  5       CPPDN (?)
+BBxn nn,rr                  5,6,7   CPDNPnx
 JMP nnnn                    3       CPP
 JSR nnnn                    6       CPPNSS
 JMP (nnnn)                  6       CPPNDD
@@ -3531,8 +3818,13 @@ The branch opcode with parameter takes up two bytes (or three bytes in case of
 BBSx and BBRx), causing the PC to get incremented past it without any extra
 boundary cycle. If a branch is taken, the signed parameter is then added to the
 PC (PC+rr). The extra clock cycle occurs if the addition crosses page
-boundaries. BBSx and BBRx instructions don't have any extra cycle penalties at
-all (?).
+boundaries.
+
+Dummy Read Cycles in Read-Modify Opcodes
+
+The 65C02 does a read twice in all Read-Modify opcodes (such as INC, DEC and
+Shift/Rotate). Unlike older NMOS 6502s which does a read then a write of
+unmodified data, causing I/Os to act twice on writes.
 
 
 About/Credits
@@ -3551,9 +3843,6 @@ This document is released under CC-BY-4.0 license . Everyone is welcome to
 contribute, add missing bits and provide feedbacks through the website
 repository linked below.
 
-> Needed: Someone with a real hardware prototype, preferably active on Discord
-> too...
-
 Authors
 
 Natt Akuma
@@ -3561,11 +3850,11 @@ Natt Akuma
 Credits
 
 - Michael Steil (official X16 programmer's reference)
-- Frank van den Hoef (official VERA programmer's reference)
+- Frank van den Hoef (official VERA source code and programmer's reference)
 - Martin Korth (nocash) (SNES/65xx CPU reference)
-- Official X16 emulator contributors
 - Aaron Giles, Nuke.YKT (YM2151 core and test register details)
 - Adam Chapweske (PS/2 interface articles)
+- Wavicle (Test benches)
 
 Homepage
 

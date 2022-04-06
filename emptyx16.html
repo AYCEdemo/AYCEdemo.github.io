@@ -151,6 +151,7 @@ h3:hover .header-link {
     <li class="sidebar-header-3"><a href="#9f41h---ym2151-register-data-w--status-r">9F41h - YM2151 Register Data (W) / Status (R)</a></li>
     <li class="sidebar-header-1"><a href="#x16-versatile-embedded-retro-adapter-vera">X16 Versatile Embedded Retro Adapter (VERA)</a></li>
     <li class="sidebar-header-3"><a href="#embedded-memory">Embedded Memory</a></li>
+    <li class="sidebar-header-3"><a href="#pinouts">Pinouts</a></li>
     <li class="sidebar-header-2"><a href="#x16-vera-control">X16 VERA Control</a></li>
     <li class="sidebar-header-3"><a href="#9f25h---ctrl---control-rw">9F25h - CTRL - Control (R/W)</a></li>
     <li class="sidebar-header-2"><a href="#x16-vera-display-composer">X16 VERA Display Composer</a></li>
@@ -190,7 +191,7 @@ h3:hover .header-link {
     <li class="sidebar-header-2"><a href="#x16-vera-memory-and-io-map-vram">X16 VERA Memory and I/O Map (VRAM)</a></li>
     <li class="sidebar-header-3"><a href="#vera-memory-map">VERA Memory Map</a></li>
     <li class="sidebar-header-3"><a href="#tile-map">Tile Map</a></li>
-    <li class="sidebar-header-3"><a href="#tile-data-layers-and-obj">Tile Data (Layers and OBJ)</a></li>
+    <li class="sidebar-header-3"><a href="#tile-data-layers-and-sprites">Tile Data (Layers and Sprites)</a></li>
     <li class="sidebar-header-3"><a href="#bitmap-data">Bitmap Data</a></li>
     <li class="sidebar-header-3"><a href="#accessing-vram">Accessing VRAM</a></li>
     <li class="sidebar-header-2"><a href="#x16-vera-programmable-sound-generator-psg">X16 VERA Programmable Sound Generator (PSG)</a></li>
@@ -201,10 +202,10 @@ h3:hover .header-link {
     <li class="sidebar-header-3"><a href="#color-palette-indices">Color Palette Indices</a></li>
     <li class="sidebar-header-3"><a href="#initial-palette">Initial Palette</a></li>
     <li class="sidebar-header-3"><a href="#screen-border-color">Screen Border Color</a></li>
-    <li class="sidebar-header-2"><a href="#x16-vera-sprites-objs">X16 VERA Sprites (OBJs)</a></li>
-    <li class="sidebar-header-3"><a href="#oam-object-attribute-memory">OAM (Object Attribute Memory)</a></li>
+    <li class="sidebar-header-2"><a href="#x16-vera-sprites">X16 VERA Sprites</a></li>
+    <li class="sidebar-header-3"><a href="#sprite-attributes">Sprite Attributes</a></li>
     <li class="sidebar-header-3"><a href="#sprite-collision">Sprite Collision</a></li>
-    <li class="sidebar-header-3"><a href="#obj-priority-to-other-objs">OBJ Priority to Other OBJs</a></li>
+    <li class="sidebar-header-3"><a href="#sprite-priority-to-other-sprites">Sprite Priority to Other Sprites</a></li>
     <li class="sidebar-header-3"><a href="#maximum-number-of-sprites-per-line">Maximum Number of Sprites per Line</a></li>
     <li class="sidebar-header-1"><a href="#x16-peripherals">X16 Peripherals</a></li>
     <li class="sidebar-header-2"><a href="#via-connections">VIA Connections</a></li>
@@ -274,6 +275,27 @@ h3:hover .header-link {
     <li class="sidebar-header-2"><a href="#x16-video-timings">X16 Video Timings</a></li>
     <li class="sidebar-header-3"><a href="#horizontal-timings">Horizontal Timings</a></li>
     <li class="sidebar-header-3"><a href="#detailed-timings">Detailed Timings</a></li>
+    <li class="sidebar-header-1"><a href="#x16-pinouts">X16 Pinouts</a></li>
+    <li class="sidebar-header-3"><a href="#external-connectors">External Connectors</a></li>
+    <li class="sidebar-header-3"><a href="#internal-connectors">Internal Connectors</a></li>
+    <li class="sidebar-header-3"><a href="#chips">Chips</a></li>
+    <li class="sidebar-header-2"><a href="#x16-power-supply">X16 Power Supply</a></li>
+    <li class="sidebar-header-3"><a href="#x16p-atx-20-pin-socket">X16p: ATX (20-pin socket)</a></li>
+    <li class="sidebar-header-2"><a href="#x16-ps2-connector-pinouts">X16 PS/2 Connector Pinouts</a></li>
+    <li class="sidebar-header-2"><a href="#x16-iec-connector-pinouts">X16 IEC Connector Pinouts</a></li>
+    <li class="sidebar-header-2"><a href="#x16-joypad-connector-pinouts">X16 Joypad Connector Pinouts</a></li>
+    <li class="sidebar-header-2"><a href="#x16-audiovideo-connector-pinouts">X16 Audio/Video Connector Pinouts</a></li>
+    <li class="sidebar-header-3"><a href="#rgb-out-vga-connector">RGB Out (VGA Connector)</a></li>
+    <li class="sidebar-header-3"><a href="#composite-out-yellow-rca-connector">Composite Out (Yellow RCA Connector)</a></li>
+    <li class="sidebar-header-3"><a href="#lumachroma-out-s-video-connector">Luma/Chroma Out (S-Video Connector)</a></li>
+    <li class="sidebar-header-3"><a href="#audio-out-35mm-phone-connector">Audio Out (3.5mm Phone Connector)</a></li>
+    <li class="sidebar-header-2"><a href="#x16-memory-card-pinouts">X16 Memory Card Pinouts</a></li>
+    <li class="sidebar-header-2"><a href="#x16-expansion-port-pinouts">X16 Expansion Port Pinouts</a></li>
+    <li class="sidebar-header-2"><a href="#x16-pinouts-vera-module">X16 Pinouts VERA Module</a></li>
+    <li class="sidebar-header-2"><a href="#x16-pinouts-smc-chip">X16 Pinouts SMC Chip</a></li>
+    <li class="sidebar-header-2"><a href="#x16-pinouts-vera-chips">X16 Pinouts VERA Chips</a></li>
+    <li class="sidebar-header-3"><a href="#module-rev4">Module (rev4)</a></li>
+    <li class="sidebar-header-3"><a href="#vera-fpga-rev4-module">VERA FPGA (rev4 module)</a></li>
     <li class="sidebar-header-1"><a href="#via-versatile-interface-adapter">VIA Versatile Interface Adapter</a></li>
     <li class="sidebar-header-2"><a href="#via-peripheral-data-ports">VIA Peripheral Data Ports</a></li>
     <li class="sidebar-header-3"><a href="#0h---prb---port-b-inputoutput-rw">0h - PRB - Port B Input/Output (R/W)</a></li>
@@ -395,6 +417,7 @@ h3:hover .header-link {
     <li class="sidebar-header-3"><a href="#cpu-control">CPU Control</a></li>
     <li class="sidebar-header-3"><a href="#special-opcodes">Special Opcodes</a></li>
     <li class="sidebar-header-3"><a href="#conditional-branch-page-crossing">Conditional Branch Page Crossing</a></li>
+    <li class="sidebar-header-3"><a href="#dummy-read-cycles-in-read-modify-opcodes">Dummy Read Cycles in Read-Modify Opcodes</a></li>
     <li class="sidebar-header-1"><a href="#aboutcredits">About/Credits</a></li>
     <li class="sidebar-header-3"><a href="#about-1">About</a></li>
     <li class="sidebar-header-3"><a href="#authors">Authors</a></li>
@@ -404,9 +427,9 @@ h3:hover .header-link {
   </nav>
   <div class="main-wrapper">
     <div class="main"><h1 id="emptyx16---x16-hardware-specs"><a class="header-link" href="#emptyx16---x16-hardware-specs"></a>Emptyx16 - X16 Hardware Specs</h1>
-<p>nocash-style Commander X16 hardware specifications</p>
+<p>Commander X16 hardware specifications</p>
 <h3 id="x16-hardware-specifications"><a class="header-link" href="#x16-hardware-specifications"></a>X16 Hardware Specifications</h3>
-<p><a href="#x16-overview">X16 Overview</a><br><a href="#x16-io-map">X16 I/O Map</a><br><a href="#x16-memory">X16 Memory</a><br><a href="#x16-versatile-embedded-retro-adapter-vera">X16 Versatile Embedded Retro Adapter (VERA)</a><br><a href="#x16-peripherals">X16 Peripherals</a><br><a href="#x16-i2c-bus">X16 I2C Bus</a><br><a href="#x16-timings">X16 Timings</a><br><a href="#via-versatile-interface-adapter">VIA Versatile Interface Adapter</a><br><a href="#ym2151-fm-operator-type-m-opm">YM2151 FM Operator Type-M (OPM)</a><br><a href="#cpu-65c02-microprocessor">CPU 65C02 Microprocessor</a>  </p>
+<p><a href="#x16-overview">X16 Overview</a><br><a href="#x16-io-map">X16 I/O Map</a><br><a href="#x16-memory">X16 Memory</a><br><a href="#x16-versatile-embedded-retro-adapter-vera">X16 Versatile Embedded Retro Adapter (VERA)</a><br><a href="#x16-peripherals">X16 Peripherals</a><br><a href="#x16-i2c-bus">X16 I2C Bus</a><br><a href="#x16-timings">X16 Timings</a><br><a href="#x16-pinouts">X16 Pinouts</a><br><a href="#via-versatile-interface-adapter">VIA Versatile Interface Adapter</a><br><a href="#ym2151-fm-operator-type-m-opm">YM2151 FM Operator Type-M (OPM)</a><br><a href="#cpu-65c02-microprocessor">CPU 65C02 Microprocessor</a>  </p>
 <h3 id="about"><a class="header-link" href="#about"></a>About</h3>
 <p><a href="#aboutcredits">About/Credits</a></p>
 <h1 id="x16-overview"><a class="header-link" href="#x16-overview"></a>X16 Overview</h1>
@@ -422,10 +445,10 @@ h3:hover .header-link {
 <span class="hljs-attribute">BG</span> layers   <span class="hljs-number">2</span> background layers
 <span class="hljs-attribute">BG</span> types    Tile/map-based or bitmap-based
 <span class="hljs-attribute">BG</span> colors   <span class="hljs-number">256</span> colors, or <span class="hljs-number">2</span>/<span class="hljs-number">4</span>/<span class="hljs-number">16</span> colors/<span class="hljs-number">16</span> palettes
-<span class="hljs-attribute">OBJ</span> colors  <span class="hljs-number">256</span> colors, or <span class="hljs-number">16</span> colors/<span class="hljs-number">16</span> palettes
-<span class="hljs-attribute">OBJ</span> size    <span class="hljs-number">16</span> types (in range of <span class="hljs-number">8</span>x<span class="hljs-number">8</span> up to <span class="hljs-number">64</span>x<span class="hljs-number">64</span>)
-<span class="hljs-attribute">OBJs</span>/Screen max. <span class="hljs-number">128</span> OBJs of any size (up to <span class="hljs-number">64</span>x<span class="hljs-number">64</span> each)
-<span class="hljs-attribute">OBJs</span>/Line   max. <span class="hljs-number">80</span> OBJs of <span class="hljs-number">8</span>x<span class="hljs-number">8</span> size (under best circumstances)</code></pre><h3 id="sound"><a class="header-link" href="#sound"></a>Sound</h3>
+<span class="hljs-attribute">Spr</span> colors  <span class="hljs-number">256</span> colors, or <span class="hljs-number">16</span> colors/<span class="hljs-number">16</span> palettes
+<span class="hljs-attribute">Spr</span> size    <span class="hljs-number">16</span> types (in range of <span class="hljs-number">8</span>x<span class="hljs-number">8</span> up to <span class="hljs-number">64</span>x<span class="hljs-number">64</span>)
+<span class="hljs-attribute">Sprs</span>/Screen max. <span class="hljs-number">128</span> sprites of any size (up to <span class="hljs-number">64</span>x<span class="hljs-number">64</span> each)
+<span class="hljs-attribute">Sprs</span>/Line   max. <span class="hljs-number">80</span> sprites of <span class="hljs-number">8</span>x<span class="hljs-number">8</span> size (under best circumstances)</code></pre><h3 id="sound"><a class="header-link" href="#sound"></a>Sound</h3>
 <pre class="hljs"><code><span class="hljs-attribute">VERA</span> PSG    <span class="hljs-number">16</span> channels, pulse/saw/triangle/noise
 <span class="hljs-attribute">VERA</span> PCM    <span class="hljs-number">1</span> channel, <span class="hljs-number">8</span>/<span class="hljs-number">16</span>-bit mono/stereo PCM
 <span class="hljs-attribute">YM2151</span>      <span class="hljs-number">8</span> channels, phase-modulated sine</code></pre><h3 id="interface-ports"><a class="header-link" href="#interface-ports"></a>Interface Ports</h3>
@@ -495,7 +518,7 @@ Memory card <span class="hljs-built_in">SPI</span> mode MMC interface</code></pr
 <span class="hljs-number">9F3Ch</span> - AUDIO_RATE   - Audio FIFO Sample Rate                         <span class="hljs-number">00h</span>
 <span class="hljs-number">9F3Dh</span> - AUDIO_DATA   - Audio FIFO Data (W)                            -
 <span class="hljs-number">9F3Eh</span> - SPI_DATA     - SPI Data                                       -
-<span class="hljs-number">9F3Fh</span> - SPI_CTRL     - SPI Control                                    <span class="hljs-number">00h</span> (?)</code></pre><h3 id="ym2151-io-ports"><a class="header-link" href="#ym2151-io-ports"></a>YM2151 I/O Ports</h3>
+<span class="hljs-number">9F3Fh</span> - SPI_CTRL     - SPI Control                                    <span class="hljs-number">00h</span></code></pre><h3 id="ym2151-io-ports"><a class="header-link" href="#ym2151-io-ports"></a>YM2151 I/O Ports</h3>
 <pre class="hljs"><code><span class="hljs-number">9</span>F<span class="hljs-number">40</span>h - Y<span class="hljs-name">M2151</span> Register Address <span class="hljs-comment">(W)</span>
 <span class="hljs-number">9</span>F<span class="hljs-number">41</span>h - Y<span class="hljs-name">M2151</span> Register Data <span class="hljs-comment">(W)</span> / Status <span class="hljs-comment">(R)</span></code></pre><h3 id="further-memory"><a class="header-link" href="#further-memory"></a>Further Memory</h3>
 <pre class="hljs"><code><span class="hljs-number">9F42h</span>..<span class="hljs-number">9F5Fh</span> - Reserved
@@ -609,8 +632,10 @@ the register address won&#39;t set and isn&#39;t affected by this busy flag, how
 <h1 id="x16-versatile-embedded-retro-adapter-vera"><a class="header-link" href="#x16-versatile-embedded-retro-adapter-vera"></a>X16 Versatile Embedded Retro Adapter (VERA)</h1>
 <p><a href="#x16-vera-control">X16 VERA Control</a><br><a href="#x16-vera-display-composer">X16 VERA Display Composer</a><br><a href="#x16-vera-layer-control">X16 VERA Layer Control</a><br><a href="#x16-vera-layer-control">X16 VERA Interrupts</a><br><a href="#x16-vera-audio-fifo">X16 VERA Audio FIFO</a><br><a href="#x16-vera-memory-card-interface">X16 VERA Memory Card Interface</a>  </p>
 <h3 id="embedded-memory"><a class="header-link" href="#embedded-memory"></a>Embedded Memory</h3>
-<p><a href="#x16-vera-memory-and-io-map-vram">X16 VERA Memory and I/O Map (VRAM)</a><br><a href="#x16-vera-programmable-sound-generator-psg">X16 VERA Programmable Sound Generator (PSG)</a><br><a href="#x16-vera-color-palette">X16 VERA Color Palette</a><br><a href="#x16-vera-sprites-objs">X16 VERA Sprites (OBJs)</a><br>VERA memory isn&#39;t mapped to the CPU bus, and can be accessed only via I/O
+<p><a href="#x16-vera-memory-and-io-map-vram">X16 VERA Memory and I/O Map (VRAM)</a><br><a href="#x16-vera-programmable-sound-generator-psg">X16 VERA Programmable Sound Generator (PSG)</a><br><a href="#x16-vera-color-palette">X16 VERA Color Palette</a><br><a href="#x16-vera-sprites">X16 VERA Sprites</a><br>VERA memory isn&#39;t mapped to the CPU bus, and can be accessed only via I/O
 ports.<br><a href="#x16-vera-memory-access">X16 VERA Memory Access</a></p>
+<h3 id="pinouts"><a class="header-link" href="#pinouts"></a>Pinouts</h3>
+<p><a href="#x16-audiovideo-connector-pinouts">X16 Audio/Video Connector Pinouts</a><br><a href="#x16-pinouts-vera-module">X16 Pinouts VERA Module</a><br><a href="#x16-pinouts-vera-chips">X16 Pinouts VERA Chips</a>  </p>
 <h2 id="x16-vera-control"><a class="header-link" href="#x16-vera-control"></a>X16 VERA Control</h2>
 <h3 id="9f25h---ctrl---control-rw"><a class="header-link" href="#9f25h---ctrl---control-rw"></a>9F25h - CTRL - Control (R/W)</h3>
 <pre class="hljs"><code><span class="hljs-type">Bit</span>
@@ -653,13 +678,17 @@ pixel and V-Scale value each drawn line to the virtual screen position. Then
 the integer part of this virtual screen position is then used for the rest of
 the composition logic. This puts the scaling center at the top-left corner of
 an active display area.</p>
-<p>NOTE: Setting H-Scale or V-Scale above 1.0 (80h) will skip some pixels while
-rendering, potentially causing inaccurate collision detection (?)</p>
+<p>CAUTION: Virtual screens larger than 640x480 is not possible as the rendering
+will stop if the virtual screen position is either above it horizontally or
+vertically. Also, setting V-Scale above 1.0 (80h) will skip some pixels while
+rendering, potentially causing inaccurate collision detection. Although this is
+not a case for setting H-Scale above 1.0 (80h) as the line rendering always
+runs at a native horizontal resolution.</p>
 <h3 id="9f2ch-dcsel0---dc_border---border-color-rw"><a class="header-link" href="#9f2ch-dcsel0---dc_border---border-color-rw"></a>9F2Ch (DCSEL=0) - DC_BORDER - Border Color (R/W)</h3>
 <p>When the drawing pixel is outside the active display area defined by start and
 stop registers, it will be set to a solid color at the index of this register&#39;s
-value in the palette memory. Please note that this is different from a backdrop
-color which is always color index 0.</p>
+value in the palette memory. Please note that this is different from a
+background color which is always color index 0.</p>
 <h3 id="9f29h-dcsel1---dc_hstart---active-display-h-start-rw"><a class="header-link" href="#9f29h-dcsel1---dc_hstart---active-display-h-start-rw"></a>9F29h (DCSEL=1) - DC_HSTART - Active Display H-Start (R/W)</h3>
 <h3 id="9f2bh-dcsel1---dc_vstart---active-display-v-start-rw"><a class="header-link" href="#9f2bh-dcsel1---dc_vstart---active-display-v-start-rw"></a>9F2Bh (DCSEL=1) - DC_VSTART - Active Display V-Start (R/W)</h3>
 <p>Sets the starting point of an active display area in native display
@@ -667,10 +696,9 @@ coordinates. Horizontal value is in steps of 4 and vertical value is in steps
 of 2. The virtual screen will always start from this point.</p>
 <h3 id="9f2ah-dcsel1---dc_hstop---active-display-h-stop-rw"><a class="header-link" href="#9f2ah-dcsel1---dc_hstop---active-display-h-stop-rw"></a>9F2Ah (DCSEL=1) - DC_HSTOP - Active Display H-Stop (R/W)</h3>
 <h3 id="9f2ch-dcsel1---dc_vstop---active-display-v-stop-rw"><a class="header-link" href="#9f2ch-dcsel1---dc_vstop---active-display-v-stop-rw"></a>9F2Ch (DCSEL=1) - DC_VSTOP - Active Display V-Stop (R/W)</h3>
-<p>Sets the stopping point of an active display area in native display
-coordinates (they are not scaled to the DC_xSCALE values). Horizontal value is
-in steps of 4 and vertical value is in steps of 2. The stopping point is not
-inclusive.</p>
+<p>Sets the stopping point of an active display area in native display coordinates
+(they are not scaled to DC_xSCALE values). Horizontal value is in steps of 4
+and vertical value is in steps of 2. The stopping point is not inclusive.</p>
 <p>These four register values are analogous to a display window in many consoles.
 The width of an active display is <code>(DC_HSTOP-DC_HSTART)*4</code> pixels and the height
 of an active display is <code>(DC_VSTOP-DC_VSTART)*2</code> pixels. For example, a screen
@@ -726,7 +754,7 @@ effect.</p>
 its flags remain set until the buffer is larger than or equal to 1024 bytes.</p>
 <p>Sprite Collide IRQ is generated at VBlank when a sprite collision occurs. Its
 flags and Sprite Collisions field remain set until the next VBlank. For details
-about sprite collision bits, see:<br><a href="#x16-vera-sprites-objs">X16 VERA Sprites (OBJs)</a></p>
+about sprite collision bits, see:<br><a href="#x16-vera-sprites">X16 VERA Sprites</a></p>
 <p>Line IRQ is generated at the beginning of the display line that matches the
 line compare value. Its flags are not automatically cleared.</p>
 <p>VBlank IRQ is generated at the beginning of VBlank period (the line after the
@@ -749,10 +777,8 @@ Line IRQs.</p>
 4       FIFO Sample Channels (<span class="hljs-attribute">0</span>=Mono, <span class="hljs-attribute">1</span>=Stereo)
 3-0     FIFO Output Volume (<span class="hljs-attribute">0</span>=Silent, <span class="hljs-attribute">15</span>=Loudest)</code></pre><p>Writing reset bit to this register will empty the current buffer. The output
 volume is not linear and has the meaning as follows:</p>
-<pre class="hljs"><code><span class="hljs-attribute">0h</span>=0    <span class="hljs-attribute">2h</span>=2    <span class="hljs-attribute">4h</span>=4    <span class="hljs-attribute">6h</span>=6    <span class="hljs-attribute">8h</span>=11   <span class="hljs-attribute">Ah</span>=18   <span class="hljs-attribute">Ch</span>=30   <span class="hljs-attribute">Eh</span>=49
-<span class="hljs-attribute">1h</span>=1    <span class="hljs-attribute">3h</span>=3    <span class="hljs-attribute">5h</span>=5    <span class="hljs-attribute">7h</span>=8    <span class="hljs-attribute">9h</span>=14   <span class="hljs-attribute">Bh</span>=23   <span class="hljs-attribute">Dh</span>=38   <span class="hljs-attribute">Fh</span>=64</code></pre><p>NOTE: All values can be approximated as 2 dB steps. Volume values are taken
-from the official emulator source code and are not confirmed on real hardware
-(?)</p>
+<pre class="hljs"><code><span class="hljs-attribute">0h</span>=0    <span class="hljs-attribute">1h</span>=1    <span class="hljs-attribute">2h</span>=2    <span class="hljs-attribute">3h</span>=3    <span class="hljs-attribute">4h</span>=4    <span class="hljs-attribute">5h</span>=5    <span class="hljs-attribute">6h</span>=6    <span class="hljs-attribute">7h</span>=8
+<span class="hljs-attribute">8h</span>=11   <span class="hljs-attribute">9h</span>=14   <span class="hljs-attribute">Ah</span>=18   <span class="hljs-attribute">Bh</span>=23   <span class="hljs-attribute">Ch</span>=30   <span class="hljs-attribute">Dh</span>=38   <span class="hljs-attribute">Eh</span>=49   <span class="hljs-attribute">Fh</span>=64</code></pre><p>NOTE: All values can be approximated as 2 dB steps.</p>
 <h3 id="9f3ch---audio_rate---audio-fifo-sample-rate-rw"><a class="header-link" href="#9f3ch---audio_rate---audio-fifo-sample-rate-rw"></a>9F3Ch - AUDIO_RATE - Audio FIFO Sample Rate (R/W)</h3>
 <p>Specifies the playback rate of the FIFO in <code>25000*n/65536</code> KHz.
 A value of 0 or anything greater than 128 will stop playback.</p>
@@ -772,9 +798,9 @@ is lower than 1024 bytes it will generate FIFO Low IRQ if it&#39;s enabled and s
 its flag until the buffer size is higher than or equal to 1024 bytes.</p>
 <h2 id="x16-vera-memory-card-interface"><a class="header-link" href="#x16-vera-memory-card-interface"></a>X16 VERA Memory Card Interface</h2>
 <p>VERA uses an SPI bus, which is a 4-wire serial bus to communicate and transfer
-data with the memory card. It uses SPI Mode 0 (?) for clock and data signals.
-Its interface is quite bare and can be adapted to any SPI device. This is the
-only interface with automatic clocking and transfer in X16.</p>
+data with the memory card. It uses SPI Mode 0 for clock and data signals. Its
+interface is quite bare and can be adapted to any SPI device. This is the only
+interface with automatic clocking and transfer in X16.</p>
 <h3 id="9f3eh---spi_data---spi-data-rw"><a class="header-link" href="#9f3eh---spi_data---spi-data-rw"></a>9F3Eh - SPI_DATA - SPI Data (R/W)</h3>
 <p>Reads from this register returns the last received byte. Writes to this
 register will start transferring one byte of written data to the device and
@@ -925,7 +951,7 @@ back in the next byte, this 1-byte token has a following format:</p>
 <span class="hljs-number">00000h</span>-<span class="hljs-number">1F9BFh</span>   Video RAM
 <span class="hljs-number">1F9C0h</span>-<span class="hljs-number">1F9FFh</span>   PSG Registers
 <span class="hljs-number">1FA00h</span>-<span class="hljs-number">1FBFFh</span>   Color Palette
-<span class="hljs-number">1FC00h</span>-<span class="hljs-number">1FFFFh</span>   Object Attributes</code></pre><p>All of VERA I/O registers at 1F9C0h-1FFFFh are write-only and external to the
+<span class="hljs-number">1FC00h</span>-<span class="hljs-number">1FFFFh</span>   Sprite Attributes</code></pre><p>All of VERA I/O registers at 1F9C0h-1FFFFh are write-only and external to the
 VRAM. Any writes will set both it and the VRAM at that location but reads will
 only read back that VRAM content. Since the VRAM can have different values than
 the actual register values on power-up and most of them are never initially
@@ -948,7 +974,7 @@ If it is set to 0:</p>
 <pre class="hljs"><code><span class="hljs-attribute">Bit</span>
         <span class="hljs-attribute">Background</span> Color (<span class="hljs-number">0</span>)
 <span class="hljs-attribute">15</span>-<span class="hljs-number">8</span>    Foreground Color (<span class="hljs-number">0</span>-<span class="hljs-number">255</span>)
-<span class="hljs-attribute">7</span>-<span class="hljs-number">0</span>     Character Number (<span class="hljs-number">00</span>h-FFh)</code></pre><h3 id="tile-data-layers-and-obj"><a class="header-link" href="#tile-data-layers-and-obj"></a>Tile Data (Layers and OBJ)</h3>
+<span class="hljs-attribute">7</span>-<span class="hljs-number">0</span>     Character Number (<span class="hljs-number">00</span>h-FFh)</code></pre><h3 id="tile-data-layers-and-sprites"><a class="header-link" href="#tile-data-layers-and-sprites"></a>Tile Data (Layers and Sprites)</h3>
 <p>VERA strictly uses packed pixel format in every color depth setting. Its
 smallest 8x1 &quot;bars&quot; unit can be described as follows:</p>
 <pre class="hljs"><code>   <span class="hljs-attribute">Byte</span> <span class="hljs-number">0</span>        <span class="hljs-number">1</span>        <span class="hljs-number">2</span>        <span class="hljs-number">3</span>        <span class="hljs-number">4</span>        <span class="hljs-number">5</span>        <span class="hljs-number">6</span>        <span class="hljs-number">7</span>
@@ -962,8 +988,8 @@ together from left to right. The bit length of each color ID depends on the
 color depth setting. Making each bar occupy 1, 2, 4 or 8 bytes total. A color
 ID of 0 always mean transparent except in a certain 1bpp tile mode.</p>
 <p>To make up tiles which can be up to 16x16 pixels in size for Layers, and up to
-64x64 for OBJs, each bars are combined as follows. With X being a tile width in
-pixels divided by 8 and Y being a tile height in pixels. For example, a tile
+64x64 for sprites, each bars are combined as follows. With X being a tile width
+in pixels divided by 8 and Y being a tile height in pixels. For example, a tile
 size of 32x16 pixels has X=4 and Y=16.</p>
 <pre class="hljs"><code>Vertical Rows       Left-most    ...     Right-most
 Upper Row   in bars    <span class="hljs-number">0</span>,      <span class="hljs-number">1</span>,      <span class="hljs-number">2</span>, ...,  <span class="hljs-keyword">X</span><span class="hljs-number">-1</span>
@@ -995,9 +1021,7 @@ It contains a 4-byte entry for each of 16 channels:</p>
 <span class="hljs-attribute">04h</span>=2   <span class="hljs-attribute">0Ch</span>=3   <span class="hljs-attribute">14h</span>=5   <span class="hljs-attribute">1Ch</span>=8   <span class="hljs-attribute">24h</span>=13  <span class="hljs-attribute">2Ch</span>=21  <span class="hljs-attribute">34h</span>=33  <span class="hljs-attribute">3Ch</span>=52
 <span class="hljs-attribute">05h</span>=2   <span class="hljs-attribute">0Dh</span>=3   <span class="hljs-attribute">15h</span>=5   <span class="hljs-attribute">1Dh</span>=8   <span class="hljs-attribute">25h</span>=14  <span class="hljs-attribute">2Dh</span>=22  <span class="hljs-attribute">35h</span>=35  <span class="hljs-attribute">3Dh</span>=56
 <span class="hljs-attribute">06h</span>=2   <span class="hljs-attribute">0Eh</span>=3   <span class="hljs-attribute">16h</span>=5   <span class="hljs-attribute">1Eh</span>=9   <span class="hljs-attribute">26h</span>=14  <span class="hljs-attribute">2Eh</span>=23  <span class="hljs-attribute">36h</span>=37  <span class="hljs-attribute">3Eh</span>=59
-<span class="hljs-attribute">07h</span>=2   <span class="hljs-attribute">0Fh</span>=3   <span class="hljs-attribute">17h</span>=6   <span class="hljs-attribute">1Fh</span>=9   <span class="hljs-attribute">27h</span>=15  <span class="hljs-attribute">2Fh</span>=25  <span class="hljs-attribute">37h</span>=39  <span class="hljs-attribute">3Fh</span>=63</code></pre><p>NOTE: All values can be approximated as 0.5 dB steps. Volume values are taken
-from the official emulator source code and are not confirmed on real hardware
-(?)</p>
+<span class="hljs-attribute">07h</span>=2   <span class="hljs-attribute">0Fh</span>=3   <span class="hljs-attribute">17h</span>=6   <span class="hljs-attribute">1Fh</span>=9   <span class="hljs-attribute">27h</span>=15  <span class="hljs-attribute">2Fh</span>=25  <span class="hljs-attribute">37h</span>=39  <span class="hljs-attribute">3Fh</span>=63</code></pre><p>NOTE: All values can be approximated as 0.5 dB steps.</p>
 <h3 id="waveform"><a class="header-link" href="#waveform"></a>Waveform</h3>
 <p>For pulse waveform, an additional pulse width value w is used as a duty cycle.
 A value of 63 will give an exact square wave with a 50% duty cycle. A value of
@@ -1007,9 +1031,12 @@ as follows:</p>
   |<span class="hljs-string">       </span>|<span class="hljs-string">         </span>|
 __|<span class="hljs-string">       </span>|<span class="hljs-string">_________</span>|
  7 000       7777777 0
- F 012...w...9ABCDEF 0  Pulse cycle<span class="hljs-comment">#</span></code></pre><p>Noise uses some kind of LFSR (?) Official emulator implemented it with
-<code>std::rand()</code>.</p>
-<h2 id="x16-vera-color-palette"><a class="header-link" href="#x16-vera-color-palette"></a>X16 VERA Color Palette</h2>
+ F 012...w...9ABCDEF 0  Pulse cycle<span class="hljs-comment">#</span></code></pre><p>Noise generation uses a 16-bit LFSR which runs at every master clock cycle. The
+output of this is then shifted into a 6-bit buffer which will be latched onto
+each channel on its frequency cycle and used as an output. The LFSR and buffer
+are updated as follows:</p>
+<pre class="hljs"><code><span class="hljs-keyword">buffer </span>= (<span class="hljs-keyword">buffer </span><span class="hljs-keyword">SHL </span><span class="hljs-number">1</span>) <span class="hljs-keyword">OR </span>(lfsr.<span class="hljs-keyword">Bit0)
+</span>lfsr = (lfsr <span class="hljs-keyword">SHL </span><span class="hljs-number">1</span>) <span class="hljs-keyword">OR </span>(lfsr.<span class="hljs-keyword">Bit1 </span><span class="hljs-keyword">XOR </span>lfsr.<span class="hljs-keyword">Bit2 </span><span class="hljs-keyword">XOR </span>lfsr.<span class="hljs-keyword">Bit4 </span><span class="hljs-keyword">XOR </span>lfsr.<span class="hljs-keyword">Bit15)</span></code></pre><h2 id="x16-vera-color-palette"><a class="header-link" href="#x16-vera-color-palette"></a>X16 VERA Color Palette</h2>
 <h3 id="color-palette-entries"><a class="header-link" href="#color-palette-entries"></a>Color Palette Entries</h3>
 <p>VERA contains the data for 256 colors mapped to the location of 1FA00h in VRAM.
 It contains a 2-byte entry for each of 256 colors:</p>
@@ -1018,9 +1045,9 @@ It contains a 2-byte entry for each of 256 colors:</p>
 <span class="hljs-attribute">11</span>-<span class="hljs-number">8</span>    Red
 <span class="hljs-attribute">7</span>-<span class="hljs-number">4</span>     Green
 <span class="hljs-attribute">3</span>-<span class="hljs-number">0</span>     Blue</code></pre><h3 id="color-palette-indices"><a class="header-link" href="#color-palette-indices"></a>Color Palette Indices</h3>
-<pre class="hljs"><code><span class="hljs-attribute">00h</span>      Backdrop Color (used when <span class="hljs-literal">all</span> Layer/OBJ pixels are transparent)
-<span class="hljs-attribute">01h</span>-FFh  <span class="hljs-number">256</span>-color Palette (<span class="hljs-number">1</span>bpp mode and <span class="hljs-number">8</span>bpp mode)
-<span class="hljs-attribute">01h</span>-FFh  Sixteen <span class="hljs-number">16</span>-color Palettes (<span class="hljs-number">2</span>bpp mode uses first four colors each)</code></pre><p>NOTE: Due to a hardware quirk, a palette number entry will also modify the
+<pre class="hljs"><code>00h      <span class="hljs-attribute">Background</span> <span class="hljs-attribute">Color</span> (used when all Layer/Sprite pixels are transparent)
+01h-FFh  256-<span class="hljs-attribute">color</span> Palette (<span class="hljs-number">1</span>bpp mode and <span class="hljs-number">8</span>bpp mode)
+01h-FFh  Sixteen 16-<span class="hljs-attribute">color</span> Palettes (<span class="hljs-number">2</span>bpp mode uses first four colors each)</code></pre><p>NOTE: Due to a hardware quirk, a palette number entry will also modify the
 first 16 colors mapping in 8bpp mode as if it was 4bpp mode. So it is
 recommended to set the palette number to 0 to still have access to all 256
 colors.</p>
@@ -1047,11 +1074,11 @@ memory is initialized to these values. It consists of 16 pre-defined colors,
 <span class="hljs-attribute">Fxh</span> C<span class="hljs-number">6</span>B F<span class="hljs-number">7</span>D <span class="hljs-number">201</span> <span class="hljs-number">413</span> <span class="hljs-number">615</span> <span class="hljs-number">826</span> A<span class="hljs-number">28</span> C<span class="hljs-number">3</span>A F<span class="hljs-number">3</span>C <span class="hljs-number">201</span> <span class="hljs-number">403</span> <span class="hljs-number">604</span> <span class="hljs-number">806</span> A<span class="hljs-number">08</span> C<span class="hljs-number">09</span> F<span class="hljs-number">0</span>B</code></pre><p class="img-container"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAJgUlEQVR42u3YYXUUSxCG4Z57MNBIqJbQkbCRcFdCkAASshKIBJAAElgLSCAS5orYH9/l1PMYqKnuneQ9c4wxzhF0ntHx43Yc0fl1/snOf/4dnf/0ehvZB/g3Ov7Pn3t0/vtb9v5vP79H53/dn7M/v58/o/Mvl0t0/n59j86/3r5G5//Y2fv/ZwAA7QgAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAjzvGGGfyAeacw3zzzTfffPPN9wUAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAEAAAgAAEAAAAACAAAQAACAAAAA/vc+1JzRB6iq7Pzu+zc//x3ef12vvX//5kfnz+b7r9ut9f6+AABAQwIAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAQAADA446XOc/kA9Sc0QOo8AWk99/h/df93vv+zW89P/7+Vfjvb1V4fu/9fQEAgIYEAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAgMcd3769nskHqJrRA9hV0flrXUfn8ze/9/wdnr+ebs3vP/sPqGbz/cP37wsAADQkAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAADzuOH/tM/kA6/kePYCq7AXUHL33b37+O7z/x08zfP8Vnt99/+bnH34Bn9bVFwAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAIAAAAAEAAAgAAEAAAAACAAD42xz7UmfyAWbN6AFU8/nx89/Z+dd1633+NVrvP8P7x9//nd3/y7q3vv/0fF8AAKAhAQAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAOBxx+V1nMkHmJU9gPj8nZ3/tmZ0flWF77/C+zv/6P47O/+6nsPnP1vff37/7HxfAACgIQEAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAADgccfLr9cz+QBzz+gB3Nan6PxZ2f1HeL79w/uH37/7emt9/6OG/Tvvv30BAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAACAAAQAACAAAAABAAAIAAAgL/OMavO5ANUVfQAZnh+NZ8fP/+9o/Ova7U+f/Obzw+/f7fm758vAADQkAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAADwuGO+vJzJB5hV2RMIz4/vv3d0/H2t1vdvfvP54fdvflzh4+/997dmdr4vAADQkAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAADwuA+f6xJ9gFkVnV+1o/Ovzyt7/jN7/jv9+wvvP0fz+e/Z9+/21Pv9GzP7/r2Hf3/v79V6f18AAKAhAQAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAABAAAIAAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAAAEAAAgAAOBxx345z+QD3N9W9gRmha+g7N96/51d/3f2/avKnn+F7z++f/vzz75/T9fs++cLAAA0JAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAA87th1OZMPMGdFD6Caz8+f/47Ov95W7/MfvX9/czR//0f2/ftyX63vPz3fFwAAaEgAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAABAAAIAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAeNxxGa9n8gHmqNF7/o7O/z5XdH5V9vxrVu/9m5//Du+/rqv37998XwAAAAEAAAgAAEAAAAACAAAQAACAAAAABAAAIAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAgAAAAAQAACAAAAABAAAIAADgb3P8evlxJh9gz4oewLo9RedXeP8a4flzNt8/O3+H91/35973P5r//puff/r98wUAABoSAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAAAAAQAACAAAQAAAAAIAABAAAIAAAAAEAAAgAABAAAAAAgAAEAAAgAAAAAQAACAAAAABAAAIAABAAAAAAgAAEAAAgAAAAB73H2plkcYNKQbDAAAAAElFTkSuQmCC" alt="Initial palette colors arranged in a 16x16 grid as an above table"></p>
 <h3 id="screen-border-color"><a class="header-link" href="#screen-border-color"></a>Screen Border Color</h3>
 <p><a href="#x16-vera-display-composer">X16 VERA Display Composer</a>  </p>
-<h2 id="x16-vera-sprites-objs"><a class="header-link" href="#x16-vera-sprites-objs"></a>X16 VERA Sprites (OBJs)</h2>
-<h3 id="oam-object-attribute-memory"><a class="header-link" href="#oam-object-attribute-memory"></a>OAM (Object Attribute Memory)</h3>
-<p>VERA contains the data for 128 OBJs mapped to the location of 1FC00h in VRAM.
-OAM size is 1024 bytes which extends to the end of VRAM at 1FFFFh.
-It contains an 8-byte entry for each of 128 OBJs:</p>
+<h2 id="x16-vera-sprites"><a class="header-link" href="#x16-vera-sprites"></a>X16 VERA Sprites</h2>
+<h3 id="sprite-attributes"><a class="header-link" href="#sprite-attributes"></a>Sprite Attributes</h3>
+<p>VERA contains the data for 128 sprites mapped to the location of 1FC00h in
+VRAM. The total size is 1024 bytes which extends to the end of VRAM at 1FFFFh.
+It contains an 8-byte entry for each of 128 sprites:</p>
 <pre class="hljs"><code><span class="hljs-attribute">Byte</span> <span class="hljs-number">0</span>-<span class="hljs-number">1</span>
   <span class="hljs-attribute">Bit</span> <span class="hljs-number">15</span>    Color Depth (<span class="hljs-number">0</span>=<span class="hljs-number">4</span>bpp, <span class="hljs-number">1</span>=<span class="hljs-number">8</span>bpp)
   <span class="hljs-attribute">Bit</span> <span class="hljs-number">14</span>-<span class="hljs-number">12</span> Not Used
@@ -1061,57 +1088,77 @@ It contains an 8-byte entry for each of 128 OBJs:</p>
 <span class="hljs-attribute">Byte</span> <span class="hljs-number">6</span>
   <span class="hljs-attribute">Bit</span> <span class="hljs-number">7</span>-<span class="hljs-number">4</span>   Collision Mask
   <span class="hljs-attribute">Bit</span> <span class="hljs-number">3</span>-<span class="hljs-number">2</span>   Enable / Priority Relative to Layers
-              <span class="hljs-attribute">0</span> = OBJ disabled
-              <span class="hljs-attribute">1</span> = OBJ between backdrop and layer <span class="hljs-number">0</span>
-              <span class="hljs-attribute">2</span> = OBJ between layer <span class="hljs-number">0</span> and layer <span class="hljs-number">1</span>
-              <span class="hljs-attribute">3</span> = OBJ in front of layer <span class="hljs-number">1</span>
+              <span class="hljs-attribute">0</span> = Sprite disabled
+              <span class="hljs-attribute">1</span> = Sprite between background and layer <span class="hljs-number">0</span>
+              <span class="hljs-attribute">2</span> = Sprite between layer <span class="hljs-number">0</span> and layer <span class="hljs-number">1</span>
+              <span class="hljs-attribute">3</span> = Sprite in front of layer <span class="hljs-number">1</span>
   <span class="hljs-attribute">Bit</span> <span class="hljs-number">1</span>     V-flip (<span class="hljs-number">0</span>=Normal, <span class="hljs-number">1</span>=Mirror vertically)
   <span class="hljs-attribute">Bit</span> <span class="hljs-number">0</span>     H-flip (<span class="hljs-number">0</span>=Normal, <span class="hljs-number">1</span>=Mirror horizontally)
 <span class="hljs-attribute">Byte</span> <span class="hljs-number">7</span>
   <span class="hljs-attribute">Bit</span> <span class="hljs-number">7</span>-<span class="hljs-number">6</span>   Sprite Height (<span class="hljs-number">0</span>=<span class="hljs-number">8</span>, <span class="hljs-number">1</span>=<span class="hljs-number">16</span>, <span class="hljs-number">2</span>=<span class="hljs-number">32</span>, <span class="hljs-number">3</span>=<span class="hljs-number">64</span> pixels)
   <span class="hljs-attribute">Bit</span> <span class="hljs-number">5</span>-<span class="hljs-number">4</span>   Sprite Width (<span class="hljs-number">0</span>=<span class="hljs-number">8</span>, <span class="hljs-number">1</span>=<span class="hljs-number">16</span>, <span class="hljs-number">2</span>=<span class="hljs-number">32</span>, <span class="hljs-number">3</span>=<span class="hljs-number">64</span> pixels)
   <span class="hljs-attribute">Bit</span> <span class="hljs-number">3</span>-<span class="hljs-number">0</span>   Palette Number (<span class="hljs-number">0</span>-<span class="hljs-number">15</span>)</code></pre><h3 id="sprite-collision"><a class="header-link" href="#sprite-collision"></a>Sprite Collision</h3>
-<p>NOTE: All of the description in this section is purely based on the official
-emulator source code and has not been confirmed on real hardware (?)</p>
 <p>VERA has a feature where sprite collisions can be detected automatically on
 hardware while rendering. It does this by having a collision buffer in addition
-to a render buffer in a line. Each time a non-transparent pixel of an OBJ is
+to a render buffer in a line. Each time a non-transparent pixel of a sprite is
 being drawn to the buffer, it will compare the collision mask bit field between
-of that OBJ and the buffer. A collision is marked if one of bit positions
+of that sprite and the buffer. A collision is marked if one of bit positions
 match. The implementation pseudocode is as follows:</p>
 <pre class="hljs"><code><span class="hljs-keyword">For</span> each frame:
     cflag := <span class="hljs-number">0</span>
     Set <span class="hljs-keyword">all</span> Collision <span class="hljs-keyword">buffer</span> <span class="hljs-keyword">to</span> <span class="hljs-number">0</span>
-    <span class="hljs-keyword">For</span> each OBJ:
+    <span class="hljs-keyword">For</span> each sprite:
         <span class="hljs-keyword">If</span> a non-transparent pixel <span class="hljs-keyword">is</span> being drawn:
-            cflag |= Collision <span class="hljs-keyword">buffer</span> at target pixel &amp; OBJ<span class="hljs-symbol">&#x27;s</span> collision mask
-            Collision <span class="hljs-keyword">buffer</span> at target pixel |= OBJ<span class="hljs-symbol">&#x27;s</span> collision mask
+            cflag |= Collision <span class="hljs-keyword">buffer</span> at target pixel &amp; sprite<span class="hljs-symbol">&#x27;s</span> collision mask
+            Collision <span class="hljs-keyword">buffer</span> at target pixel |= sprite<span class="hljs-symbol">&#x27;s</span> collision mask
     ISR[<span class="hljs-number">7</span>:<span class="hljs-number">4</span>] = cflag
     <span class="hljs-keyword">If</span> cflag != <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> Sprite Collide IRQ <span class="hljs-keyword">is</span> enabled:
         <span class="hljs-keyword">Generate</span> Sprite Collide IRQ</code></pre><p>Note that the effect of sprites per line limit still applies here and enabled
-OBJs that are on the line but are never displayed (off-screen) still adds to
-this logic. Bits 4-7 of ISR and the Sprite Collide IRQ is only updated and
+sprites that are rendered to the line buffer but are never displayed still add
+to this logic. Bits 4-7 of ISR and the Sprite Collide IRQ is only updated and
 generated once per frame at the beginning of the VBlank.</p>
 <p>CAUTION: Collisions are only detected on lines that are actually rendered.
-This can be problematic in interlaced mode where some lines are skipped per
-frame and potentially missing the collision.</p>
-<h3 id="obj-priority-to-other-objs"><a class="header-link" href="#obj-priority-to-other-objs"></a>OBJ Priority to Other OBJs</h3>
-<p>The OAM location dictates the order in which OBJs to be displayed on top. An
-OBJ will always display on top of the other OBJs that have their OAM entries
-following its. Thus making OBJ0 has the highest priority and OBJ127 has the
-lowest priority.</p>
+This can be problematic when V-Scale is more than 1.0 or the video output is in
+interlaced mode where some lines are skipped per frame. Which will potentially
+missing the collision.</p>
+<h3 id="sprite-priority-to-other-sprites"><a class="header-link" href="#sprite-priority-to-other-sprites"></a>Sprite Priority to Other Sprites</h3>
+<p>The sprite attribute memory location dictates the order in which sprites to be
+displayed on top. A sprite will always display on top of the other sprites that
+have their attribute entries following its. Thus making sprite #0 has the
+highest priority and sprite #127 has the lowest priority.</p>
 <h3 id="maximum-number-of-sprites-per-line"><a class="header-link" href="#maximum-number-of-sprites-per-line"></a>Maximum Number of Sprites per Line</h3>
-<p>The total available OBJ rendering cycles per line are 801. The required
-rendering cycles per OBJ are as follows:</p>
-<pre class="hljs"><code><span class="hljs-attribute">Depth</span>       OBJ Width
-            <span class="hljs-attribute">8px</span>   <span class="hljs-number">16</span>px  <span class="hljs-number">32</span>px  <span class="hljs-number">64</span>px
-<span class="hljs-attribute">4bpp</span>        <span class="hljs-number">10</span>    <span class="hljs-number">19</span>    <span class="hljs-number">37</span>    <span class="hljs-number">73</span>    ; <span class="hljs-number">9</span>X+<span class="hljs-number">1</span>
-<span class="hljs-attribute">8bpp</span>        <span class="hljs-number">11</span>    <span class="hljs-number">21</span>    <span class="hljs-number">41</span>    <span class="hljs-number">81</span>    ; <span class="hljs-number">10</span>X+<span class="hljs-number">1</span>
+<p>The total available sprite rendering cycles per line are 798, <em>regardless of
+any video mode</em>, as sprite lookup will not continue after this amount of cycles
+has been elapsed since the start of the line. If the lookup succeeds and there
+are enough cycles left in the line, the sprite can be fully drawn.</p>
+<p>The required rendering cycles and VRAM accesses per sprite are as follows:</p>
+<pre class="hljs"><code><span class="hljs-attribute">Depth</span>       Cycles                    VRAM accesses
+            <span class="hljs-attribute">8px</span>   <span class="hljs-number">16</span>px  <span class="hljs-number">32</span>px  <span class="hljs-number">64</span>px    <span class="hljs-number">8</span>px   <span class="hljs-number">16</span>px  <span class="hljs-number">32</span>px  <span class="hljs-number">64</span>px    Sprite Width
+<span class="hljs-attribute">4bpp</span>        <span class="hljs-number">10</span>    <span class="hljs-number">19</span>    <span class="hljs-number">37</span>    <span class="hljs-number">73</span>      <span class="hljs-number">1</span>     <span class="hljs-number">2</span>     <span class="hljs-number">3</span>     <span class="hljs-number">4</span>
+<span class="hljs-attribute">8bpp</span>        <span class="hljs-number">11</span>    <span class="hljs-number">21</span>    <span class="hljs-number">41</span>    <span class="hljs-number">81</span>      <span class="hljs-number">2</span>     <span class="hljs-number">4</span>     <span class="hljs-number">6</span>     <span class="hljs-number">8</span>
 <span class="hljs-section">&lt;disabled/
-not on line&gt;</span>          <span class="hljs-attribute">1</span>             ; OAM lookup cost</code></pre><p>Under best circumstances, up to 80 OBJs (with all of them being 4bpp 8x8) can
-be displayed per screen line. The maximum number of OBJs per line is also
-affected by off-screen OBJs. To avoid this, either move displayed OBJs to the
-beginning of the OAM or set a priority of 0 (disabled) to undisplayed OBJs.</p>
+not on line&gt;</span>          <span class="hljs-attribute">1</span>                        <span class="hljs-number">0</span></code></pre><p>Under best circumstances, up to 80 sprites (with no other layers displayed and
+all of sprites are 4bpp 8x8) can be displayed per screen line. The maximum
+number of sprites per line is also affected by off-screen sprites. To avoid
+this, either move displayed sprites to the beginning of the attribute memory or
+set a priority of 0 (disabled) to undisplayed sprites.</p>
+<p>Additionally, it is also depends on how the video is currently displayed and if
+the CPU is causing reads/writes to VRAM. As the VRAM runs at the same master
+clock frequency and has only one 32-bit bus which is arbitrated by a 4:1 bus
+multiplexer. Since sprites have the least priority in accessing VRAM, CPU
+accesses and Layer rendering can stall their VRAM accesses during rendering and
+further increase rendering cycles amount.</p>
+<p>The required VRAM accesses per CPU accesses are as follows:</p>
+<pre class="hljs"><code><span class="hljs-attribute">Register</span>    Read  Write
+<span class="hljs-attribute">ADDR_x</span>      <span class="hljs-number">0</span>     <span class="hljs-number">1</span>
+<span class="hljs-attribute">DATAx</span>       <span class="hljs-number">1</span>     <span class="hljs-number">2</span>
+<span class="hljs-attribute">Others</span>      <span class="hljs-number">0</span>     <span class="hljs-number">0</span></code></pre><p>The required VRAM accesses per layer are as follows:</p>
+<pre class="hljs"><code><span class="hljs-attribute">Depth</span>       Tile Width /  Bitmap Width
+            <span class="hljs-attribute">8px</span>   <span class="hljs-number">16</span>px    <span class="hljs-number">320</span>px <span class="hljs-number">640</span>px
+<span class="hljs-attribute">1bpp</span>        <span class="hljs-number">160</span>   <span class="hljs-number">80</span>      <span class="hljs-number">20</span>    <span class="hljs-number">20</span>
+<span class="hljs-attribute">2bpp</span>        <span class="hljs-number">160</span>   <span class="hljs-number">80</span>      <span class="hljs-number">40</span>    <span class="hljs-number">40</span>
+<span class="hljs-attribute">4bpp</span>        <span class="hljs-number">160</span>   <span class="hljs-number">120</span>     <span class="hljs-number">80</span>    <span class="hljs-number">80</span>
+<span class="hljs-attribute">8bpp</span>        <span class="hljs-number">240</span>   <span class="hljs-number">200</span>     <span class="hljs-number">160</span>   <span class="hljs-number">160</span></code></pre><p>NOTE: Layer rendering is always active even if it&#39;s disabled in DC_VIDEO</p>
 <h1 id="x16-peripherals"><a class="header-link" href="#x16-peripherals"></a>X16 Peripherals</h1>
 <p>This section describes all interfaces and peripherals external to the X16.</p>
 <p><a href="#via-connections">VIA Connections</a><br><a href="#x16-ps2-interface-keyboardmouse">X16 PS/2 Interface (Keyboard/Mouse)</a><br><a href="#x16-joypad-interface-snes-controllers">X16 Joypad Interface (SNES Controllers)</a><br><a href="#x16-iec-interface-commodore-disk-drivesprinters">X16 IEC Interface (Commodore Disk Drives/Printers)</a><br><a href="#x16-vera-memory-card-interface">X16 VERA Memory Card Interface</a>  </p>
@@ -1691,35 +1738,206 @@ Output Polarity bit is shared and writable in Alarm 0 counterpart only.</p>
 <pre class="hljs"><code><span class="hljs-attribute">VERA</span> Oscillator         <span class="hljs-number">25</span>.<span class="hljs-number">00000</span>MHz
 <span class="hljs-attribute">Progressive</span> Dot Clock   <span class="hljs-number">25</span>.<span class="hljs-number">00000</span>MHz (<span class="hljs-number">25</span>MHz/<span class="hljs-number">1</span>)
 <span class="hljs-attribute">Interlaced</span> Dot Clock    <span class="hljs-number">12</span>.<span class="hljs-number">50000</span>MHz (<span class="hljs-number">25</span>MHz/<span class="hljs-number">2</span>)
-<span class="hljs-attribute">L</span>/C Color Clock         <span class="hljs-number">3</span>.<span class="hljs-number">571429</span>MHz (<span class="hljs-number">25</span>MHz/<span class="hljs-number">7</span>) (?)
+<span class="hljs-attribute">L</span>/C Color Clock         <span class="hljs-number">3</span>.<span class="hljs-number">579545</span>MHz (<span class="hljs-number">25</span>MHz*<span class="hljs-number">150137</span>/<span class="hljs-number">2</span>^<span class="hljs-number">20</span>)
 <span class="hljs-attribute">Progressive</span> Line Rate   <span class="hljs-number">31</span>.<span class="hljs-number">25000</span>kHz (<span class="hljs-number">25</span>MHz/<span class="hljs-number">800</span>)
-<span class="hljs-attribute">Interlaced</span> Line Rate    <span class="hljs-number">15</span>.<span class="hljs-number">62500</span>kHz (<span class="hljs-number">25</span>MHz/(<span class="hljs-number">800</span>*<span class="hljs-number">2</span>))
+<span class="hljs-attribute">Interlaced</span> Line Rate    <span class="hljs-number">15</span>.<span class="hljs-number">74307</span>kHz (<span class="hljs-number">25</span>MHz/(<span class="hljs-number">794</span>*<span class="hljs-number">2</span>))
 <span class="hljs-attribute">Progressive</span> Frame Rate  <span class="hljs-number">59</span>.<span class="hljs-number">523810</span>Hz (<span class="hljs-number">25</span>MHz/(<span class="hljs-number">525</span>*<span class="hljs-number">800</span>))
-<span class="hljs-attribute">Interlaced</span> Frame Rate   <span class="hljs-number">29</span>.<span class="hljs-number">761905</span>Hz (<span class="hljs-number">25</span>MHz/(<span class="hljs-number">525</span>*<span class="hljs-number">800</span>*<span class="hljs-number">2</span>))
+<span class="hljs-attribute">Interlaced</span> Frame Rate   <span class="hljs-number">29</span>.<span class="hljs-number">986805</span>Hz (<span class="hljs-number">25</span>MHz/(<span class="hljs-number">525</span>*<span class="hljs-number">794</span>*<span class="hljs-number">2</span>))
 <span class="hljs-attribute">PSG</span>+FIFO Sample Rate    <span class="hljs-number">48</span>.<span class="hljs-number">82813</span>kHz (<span class="hljs-number">25</span>MHz/<span class="hljs-number">512</span>)
 <span class="hljs-attribute">SPI</span> Fast Clock          <span class="hljs-number">12</span>.<span class="hljs-number">50000</span>MHz (<span class="hljs-number">25</span>MHz/<span class="hljs-number">2</span>)
 <span class="hljs-attribute">SPI</span> Slow Clock          <span class="hljs-number">390</span>.<span class="hljs-number">6250</span>kHz (<span class="hljs-number">25</span>MHz/<span class="hljs-number">64</span>)</code></pre><h3 id="ym2151-timings"><a class="header-link" href="#ym2151-timings"></a>YM2151 Timings</h3>
 <pre class="hljs"><code><span class="hljs-attribute">YM2151</span> Oscillator       <span class="hljs-number">3</span>.<span class="hljs-number">579545</span>MHz
 <span class="hljs-attribute">YM2151</span> Sample Rate      <span class="hljs-number">55</span>.<span class="hljs-number">93039</span>kHz (<span class="hljs-number">3</span>.<span class="hljs-number">58</span>MHz/<span class="hljs-number">64</span>)</code></pre><p>NOTE: Although it&#39;s exactly NTSC color clock, it&#39;s actually never used by VERA
-to generate NTSC video signals (?)</p>
+to generate NTSC video signals. VERA internally has a counter for this.</p>
 <h2 id="x16-video-timings"><a class="header-link" href="#x16-video-timings"></a>X16 Video Timings</h2>
 <h3 id="horizontal-timings"><a class="header-link" href="#horizontal-timings"></a>Horizontal Timings</h3>
-<pre class="hljs"><code>Scanline Length    <span class="hljs-number"> 800 </span>dot cycles
-                    =<span class="hljs-number"> 256 </span>CPU cycles (progressive)
-                    =<span class="hljs-number"> 512 </span>CPU cycles (interlaced)</code></pre><h3 id="detailed-timings"><a class="header-link" href="#detailed-timings"></a>Detailed Timings</h3>
+<pre class="hljs"><code><span class="hljs-keyword">Progress</span>ive Scanline Length     800 dot cycles = 256.00 CPU cycles
+Interlaced Scanline Length      794 dot cycles = 508.16 CPU cycles</code></pre><h3 id="detailed-timings"><a class="header-link" href="#detailed-timings"></a>Detailed Timings</h3>
 <p>(H=Horizontal, V=Vertical, F=Field)</p>
 <p>Progressive Output</p>
-<pre class="hljs"><code><span class="hljs-attribute">H</span>=0 <span class="hljs-attribute">V</span>=0             End of VBlank
-<span class="hljs-attribute">H</span>=0..639  <span class="hljs-attribute">V</span>=0..479  Draw Picture
-<span class="hljs-attribute">H</span>=0 <span class="hljs-attribute">V</span>=480           Begin of VBlank (VBlank IRQ, collision latch)
-    <span class="hljs-attribute">V</span>=524           Last Line
-<span class="hljs-attribute">H</span>=0 <span class="hljs-attribute">V</span>=IRQLINE       Generate Line IRQ</code></pre><p>Interlaced Output</p>
-<pre class="hljs"><code><span class="hljs-attribute">H</span>=0 <span class="hljs-attribute">V</span>=0             End of VBlank, toggle field (?)
-<span class="hljs-attribute">H</span>=0..639  <span class="hljs-attribute">V</span>=0..239  Draw Picture
-<span class="hljs-attribute">H</span>=0 <span class="hljs-attribute">V</span>=240           Begin of VBlank (VBlank IRQ, collision latch)
-    <span class="hljs-attribute">V</span>=261           Last Line
-    <span class="hljs-attribute">V</span>=262 <span class="hljs-attribute">F</span>=1       Extra Line
-<span class="hljs-attribute">H</span>=0 <span class="hljs-attribute">V</span>=IRQLINE/2     Generate Line IRQ</code></pre><h1 id="via-versatile-interface-adapter"><a class="header-link" href="#via-versatile-interface-adapter"></a>VIA Versatile Interface Adapter</h1>
+<pre class="hljs"><code><span class="hljs-attribute">H</span>=0        <span class="hljs-attribute">V</span>=0          VERA starts at this time after /RES
+<span class="hljs-attribute">H</span>=0        <span class="hljs-attribute">V</span>=0          End of VBlank
+<span class="hljs-attribute">H</span>=0        <span class="hljs-attribute">V</span>=480        Begin of VBlank, <span class="hljs-builtin-name">set</span> VBlank flag <span class="hljs-keyword">and</span> collision latch
+           <span class="hljs-attribute">V</span>=524        Last line, begin of rendering
+<span class="hljs-attribute">H</span>=0        <span class="hljs-attribute">V</span>=IRQLINE    Generate line<span class="hljs-built_in"> IRQ
+</span><span class="hljs-attribute">H</span>=0..639   <span class="hljs-attribute">V</span>=0..479     Draw picture
+<span class="hljs-attribute">H</span>=799                   Last dot <span class="hljs-keyword">in</span> the line</code></pre><p>Interlaced Output</p>
+<pre class="hljs"><code><span class="hljs-attribute">H</span>=0        <span class="hljs-attribute">V</span>=0      <span class="hljs-attribute">F</span>=0 VERA starts at this time after /RES
+<span class="hljs-attribute">H</span>=0        <span class="hljs-attribute">V</span>=0          End of VBlank, toggle field
+<span class="hljs-attribute">H</span>=0        <span class="hljs-attribute">V</span>=240        Begin of VBlank, <span class="hljs-builtin-name">set</span> VBlank flag <span class="hljs-keyword">and</span> collision latch
+           <span class="hljs-attribute">V</span>=262    <span class="hljs-attribute">F</span>=1 Last line, begin of rendering (Odd Frames)
+           <span class="hljs-attribute">V</span>=263    <span class="hljs-attribute">F</span>=0 Last line, begin of rendering (Even Frames)
+<span class="hljs-attribute">H</span>=135      <span class="hljs-attribute">V</span>=IRQLINE/2  Generate line<span class="hljs-built_in"> IRQ
+</span><span class="hljs-attribute">H</span>=135..774 <span class="hljs-attribute">V</span>=0..239     Draw picture
+<span class="hljs-attribute">H</span>=793                   Last dot <span class="hljs-keyword">in</span> the line</code></pre><h1 id="x16-pinouts"><a class="header-link" href="#x16-pinouts"></a>X16 Pinouts</h1>
+<h3 id="external-connectors"><a class="header-link" href="#external-connectors"></a>External Connectors</h3>
+<p><a href="#x16-power-supply">X16 Power Supply</a><br><a href="#x16-ps2-connector-pinouts">X16 PS/2 Connector Pinouts</a><br><a href="#x16-iec-connector-pinouts">X16 IEC Connector Pinouts</a><br><a href="#x16-joypad-connector-pinouts">X16 Joypad Connector Pinouts</a><br><a href="#x16-audiovideo-connector-pinouts">X16 Audio/Video Connector Pinouts</a><br><a href="#x16-memory-card-pinouts">X16 Memory Card Pinouts</a> 
+<a href="#x16-expansion-port-pinouts">X16 Expansion Port Pinouts</a>  </p>
+<h3 id="internal-connectors"><a class="header-link" href="#internal-connectors"></a>Internal Connectors</h3>
+<p><a href="#x16-pinouts-vera-module">X16 Pinouts VERA Module</a>  </p>
+<h3 id="chips"><a class="header-link" href="#chips"></a>Chips</h3>
+<p><a href="#x16-pinouts-smc-chip">X16 Pinouts SMC Chip</a><br><a href="#x16-pinouts-vera-chips">X16 Pinouts VERA Chips</a>  </p>
+<h2 id="x16-power-supply"><a class="header-link" href="#x16-power-supply"></a>X16 Power Supply</h2>
+<h3 id="x16p-atx-20-pin-socket"><a class="header-link" href="#x16p-atx-20-pin-socket"></a>X16p: ATX (20-pin socket)</h3>
+<pre class="hljs"><code>         _____
+  +<span class="hljs-number">3.3</span>V |<span class="hljs-type">1</span>  <span class="hljs-number">13</span>| <span class="hljs-type">+3</span><span class="hljs-number">.3</span>V
+  +<span class="hljs-number">3.3</span>V |<span class="hljs-type">2</span>  <span class="hljs-number">14</span>| <span class="hljs-type">-12V</span>
+    GND |<span class="hljs-type">3</span>  <span class="hljs-number">15</span>| <span class="hljs-type">GND</span>
+    +<span class="hljs-number">5</span>V |<span class="hljs-type">4</span>  <span class="hljs-number">16</span>| <span class="hljs-type">/PWR_ON</span>
+    GND |<span class="hljs-type">5</span>  <span class="hljs-number">17</span>|<span class="hljs-type">|GND</span>
+    +<span class="hljs-number">5</span>V |<span class="hljs-type">6</span>  <span class="hljs-number">18</span>|<span class="hljs-type">|GND</span>
+    GND |<span class="hljs-type">7</span>  <span class="hljs-number">19</span>| <span class="hljs-type">GND</span>
+ PWR_OK |<span class="hljs-type">8</span>  <span class="hljs-number">20</span>| <span class="hljs-type">NC</span>
+ +<span class="hljs-number">5</span>V_SB |<span class="hljs-type">9</span>  <span class="hljs-number">21</span>| <span class="hljs-type">+5V</span>
+   +<span class="hljs-number">12</span>V |<span class="hljs-type">10</span> <span class="hljs-number">22</span>| <span class="hljs-type">+5V</span>
+        &#x27;-----&#x27;</code></pre><h2 id="x16-ps2-connector-pinouts"><a class="header-link" href="#x16-ps2-connector-pinouts"></a>X16 PS/2 Connector Pinouts</h2>
+<pre class="hljs"><code>    <span class="hljs-attribute">Keyboard</span> Port   Mouse Port
+<span class="hljs-attribute">1</span>   Keyboard Data   Mouse Data              _ _
+<span class="hljs-attribute">2</span>   Not Connected   Not Connected         .&#x27; - &#x27;.
+<span class="hljs-attribute">3</span>   Ground          Ground           NC  / <span class="hljs-number">6</span> . <span class="hljs-number">5</span> \  CLK
+<span class="hljs-attribute">4</span>   VCC +<span class="hljs-number">5</span>V         VCC +<span class="hljs-number">5</span>V         VCC | <span class="hljs-number">4</span>  &#x27;  <span class="hljs-number">3</span> | GND
+<span class="hljs-attribute">5</span>   Keyboard Clock  Mouse Clock      NC  \  <span class="hljs-number">2</span> <span class="hljs-number">1</span>  /  DAT
+<span class="hljs-attribute">6</span>   Not Connected   Not Connected         &#x27;.___.&#x27;</code></pre><h2 id="x16-iec-connector-pinouts"><a class="header-link" href="#x16-iec-connector-pinouts"></a>X16 IEC Connector Pinouts</h2>
+<pre class="hljs"><code><span class="hljs-symbol">1 </span>  Service Request                         _ _
+<span class="hljs-symbol">2 </span>  Ground                                .<span class="hljs-comment">&#x27; - &#x27;.</span>
+<span class="hljs-symbol">3 </span>  Attention                      <span class="hljs-keyword">DATA</span>  / <span class="hljs-number">5</span>   <span class="hljs-number">1</span> \  SRQ
+<span class="hljs-symbol">4 </span>  Clock                               |    <span class="hljs-number">6</span>    | <span class="hljs-keyword">RESET</span>
+<span class="hljs-symbol">5 </span>  <span class="hljs-keyword">Data</span>                            CLK  \ <span class="hljs-number">4</span>   <span class="hljs-number">2</span> /  GND
+<span class="hljs-symbol">6 </span>  <span class="hljs-keyword">Reset</span>                                 <span class="hljs-comment">&#x27;._3_.&#x27;   ATN</span></code></pre><h2 id="x16-joypad-connector-pinouts"><a class="header-link" href="#x16-joypad-connector-pinouts"></a>X16 Joypad Connector Pinouts</h2>
+<pre class="hljs"><code>    <span class="hljs-attribute">Port</span> <span class="hljs-number">1</span>          Port <span class="hljs-number">2</span>           ______________________________
+<span class="hljs-attribute">1</span>   VCC +<span class="hljs-number">5</span>V         VCC +<span class="hljs-number">5</span>V         |  <span class="hljs-number">1</span>   <span class="hljs-number">2</span>   <span class="hljs-number">3</span>   <span class="hljs-number">4</span>  |  <span class="hljs-number">5</span>   <span class="hljs-number">6</span>   <span class="hljs-number">7</span> \
+<span class="hljs-attribute">2</span>   JOY-<span class="hljs-number">1</span>/<span class="hljs-number">3</span> Clock   JOY-<span class="hljs-number">2</span>/<span class="hljs-number">4</span> Clock   | VCC CK<span class="hljs-number">1</span> STB IN<span class="hljs-number">1</span> | IN<span class="hljs-number">3</span> IO<span class="hljs-number">6</span> GND | <span class="hljs-number">1</span>
+<span class="hljs-attribute">3</span>   JOY Strobe      JOY Strobe      |_________________|____________/
+<span class="hljs-attribute">4</span>   JOY-<span class="hljs-number">1</span> Data      JOY-<span class="hljs-number">2</span> Data       ______________________________
+<span class="hljs-attribute">5</span>   JOY-<span class="hljs-number">3</span> Data      JOY-<span class="hljs-number">4</span> Data      |  <span class="hljs-number">1</span>   <span class="hljs-number">2</span>   <span class="hljs-number">3</span>   <span class="hljs-number">4</span>  |  <span class="hljs-number">5</span>   <span class="hljs-number">6</span>   <span class="hljs-number">7</span> \
+<span class="hljs-attribute">6</span>   I/O bit <span class="hljs-number">6</span> (NC)  I/O bit <span class="hljs-number">7</span> (NC)  | VCC CK<span class="hljs-number">2</span> STB IN<span class="hljs-number">2</span> | IN<span class="hljs-number">4</span> IO<span class="hljs-number">7</span> GND | <span class="hljs-number">2</span>
+<span class="hljs-attribute">7</span>   Ground          Ground          |_________________|____________/</code></pre><h2 id="x16-audiovideo-connector-pinouts"><a class="header-link" href="#x16-audiovideo-connector-pinouts"></a>X16 Audio/Video Connector Pinouts</h2>
+<h3 id="rgb-out-vga-connector"><a class="header-link" href="#rgb-out-vga-connector"></a>RGB Out (VGA Connector)</h3>
+<pre class="hljs"><code><span class="hljs-symbol">1 </span>  Red     <span class="hljs-number">6</span>   R Rtn.  <span class="hljs-number">11</span>  ID0/RES      ______________________
+<span class="hljs-symbol">2 </span>  Green   <span class="hljs-number">7</span>   G Rtn.  <span class="hljs-number">12</span>  ID1/SDA     /  <span class="hljs-number">5</span>   <span class="hljs-number">4</span>   <span class="hljs-number">3</span>   <span class="hljs-number">2</span>   <span class="hljs-number">1</span>   \
+<span class="hljs-symbol">3 </span>  Blue    <span class="hljs-number">8</span>   B Rtn.  <span class="hljs-number">13</span>  HSync       |    <span class="hljs-number">10</span>  <span class="hljs-number">9</span>   <span class="hljs-number">8</span>   <span class="hljs-number">7</span>   <span class="hljs-number">6</span> |
+<span class="hljs-symbol">4 </span>  ID2/RES <span class="hljs-number">9</span>   <span class="hljs-keyword">Key</span>/+<span class="hljs-number">5</span>V <span class="hljs-number">14</span>  VSync        | <span class="hljs-number">15</span>  <span class="hljs-number">14</span>  <span class="hljs-number">13</span>  <span class="hljs-number">12</span>  <span class="hljs-number">11</span> |
+<span class="hljs-symbol">5 </span>  Ground  <span class="hljs-number">10</span>  Ground  <span class="hljs-number">15</span>  ID3/SCL       --------------------</code></pre><p>NOTE: In interlaced RGB mode, only composite sync signal is output in pin 13;
+pin 14 will always output ground.</p>
+<h3 id="composite-out-yellow-rca-connector"><a class="header-link" href="#composite-out-yellow-rca-connector"></a>Composite Out (Yellow RCA Connector)</h3>
+<pre class="hljs"><code>Tip     Video            <span class="hljs-string">.--.</span>
+Ring    Ground          | <span class="hljs-params">()</span>-|<span class="hljs-params">--COMP</span>
+                        &#x27;<span class="hljs-string">.__.</span>&#x27;<span class="hljs-params">--GND</span></code></pre><h3 id="lumachroma-out-s-video-connector"><a class="header-link" href="#lumachroma-out-s-video-connector"></a>Luma/Chroma Out (S-Video Connector)</h3>
+<pre class="hljs"><code>                            <span class="hljs-literal">_</span> <span class="hljs-literal">_</span>
+<span class="hljs-number">1</span>   Ground                .<span class="hljs-string">&#x27; - &#x27;</span>.
+<span class="hljs-number">2</span>   Ground            C  / <span class="hljs-number">4</span>   <span class="hljs-number">3</span> \  Y
+<span class="hljs-number">3</span>   Luminance       GND | <span class="hljs-number">2</span>     <span class="hljs-number">1</span> | GND
+<span class="hljs-number">4</span>   Chrominance          \  [<span class="hljs-literal">_</span>]  /
+                          <span class="hljs-string">&#x27;.___.&#x27;</span></code></pre><h3 id="audio-out-35mm-phone-connector"><a class="header-link" href="#audio-out-35mm-phone-connector"></a>Audio Out (3.5mm Phone Connector)</h3>
+<pre class="hljs"><code>Tip     Audio <span class="hljs-keyword">Left</span>       ___ ___ _____.-----------.
+<span class="hljs-keyword">Ring</span>    Audio <span class="hljs-keyword">Right</span>     (___|<span class="hljs-type">___</span>|<span class="hljs-type">_____</span>|           <span class="hljs-type">|
+Sleeve</span>  Ground            L   R   GND &#x27;-----------&#x27;</code></pre><h2 id="x16-memory-card-pinouts"><a class="header-link" href="#x16-memory-card-pinouts"></a>X16 Memory Card Pinouts</h2>
+<pre class="hljs"><code>    SPI Mode    Native Mode                        ________________
+                1-bit Bus   4-bit Bus             / _ _,-,-._ _ _ _|<span class="hljs-string">
+1   /CS         CD          DAT3                 /_</span>|<span class="hljs-string">1</span>|<span class="hljs-string">2</span>|<span class="hljs-string">3</span>|<span class="hljs-string">4</span>|<span class="hljs-string">5</span>|<span class="hljs-string">6</span>|<span class="hljs-string">7</span>|<span class="hljs-string">8</span>|
+2   DI          CMD         CMD                 ||<span class="hljs-string">9</span>|<span class="hljs-string">-&#x27;-&#x27;-&#x27;-&#x27;-&#x27;-&#x27;- -</span>|<span class="hljs-string">  WP Tab
+3   GND         GND         GND                 </span>|<span class="hljs-string">&#x27;-&#x27;              </span>||<span class="hljs-string"> &lt;-Unlock
+4   VDD         VDD         VDD                  ]                </span>|<span class="hljs-string">  &lt;-Lock
+5   CLK         CLK         CLK                 </span>|<span class="hljs-string">                  </span>|
+6   GND         GND         GND                 |<span class="hljs-string">                  </span>|
+7   DO          DAT0        DAT0                |<span class="hljs-string">                  </span>|
+8   /IRQ (SDIO) /IRQ (SDIO) DAT1 /IRQ (SDIO)    |<span class="hljs-string">                  </span>|
+9   NC          NC          DAT2                |<span class="hljs-string">                  </span>|
+CD  Card detect (slot only)                     |<span class="hljs-string">                  </span>|
+WP  Write protect (slot only)                   &#x27;------------------&#x27;</code></pre><h2 id="x16-expansion-port-pinouts"><a class="header-link" href="#x16-expansion-port-pinouts"></a>X16 Expansion Port Pinouts</h2>
+<p>X16p has 4 identical expansion ports located at where ATX expansion slots would
+be. Physically, they are 60-pin PCB edge connectors with a 2.54mm pitch (?).
+The following pinouts are viewed from the component side.</p>
+<pre class="hljs"><code>     ^^^ To I/O side ^^^
+    -12V -<span class="hljs-number"> 1 </span>   <span class="hljs-number"> 2 </span>- +12V
+     GND -<span class="hljs-number"> 3 </span>   <span class="hljs-number"> 4 </span>- +5V
+   +3.3V -<span class="hljs-number"> 5 </span>   <span class="hljs-number"> 6 </span>- GND
+     GND -<span class="hljs-number"> 7 </span>   <span class="hljs-number"> 8 </span>- /IO3
+ AUDIO_L -<span class="hljs-number"> 9 </span>  <span class="hljs-number"> 10 </span>- /IO4
+     GND -<span class="hljs-number"> 11 </span> <span class="hljs-number"> 12 </span>- /IO5
+ AUDIO_R -<span class="hljs-number"> 13 </span> <span class="hljs-number"> 14 </span>- /IO6
+     GND -<span class="hljs-number"> 15 </span> <span class="hljs-number"> 16 </span>- /IO7
+     /VP -<span class="hljs-number"> 17 </span> <span class="hljs-number"> 18 </span>- /RES
+     RDY -<span class="hljs-number"> 19 </span> <span class="hljs-number"> 20 </span>- GND
+    /IRQ -<span class="hljs-number"> 21 </span> <span class="hljs-number"> 22 </span>- PHI2
+      BE -<span class="hljs-number"> 23 </span> <span class="hljs-number"> 24 </span>- /ML
+    /NMI -<span class="hljs-number"> 25 </span> <span class="hljs-number"> 26 </span>- GND
+    SYNC -<span class="hljs-number"> 27 </span> <span class="hljs-number"> 28 </span>- R/W
+     GND -<span class="hljs-number"> 29 </span> <span class="hljs-number"> 30 </span>- D0
+      A0 -<span class="hljs-number"> 31 </span> <span class="hljs-number"> 32 </span>- D1
+      A1 -<span class="hljs-number"> 33 </span> <span class="hljs-number"> 34 </span>- D2
+      A2 -<span class="hljs-number"> 35 </span> <span class="hljs-number"> 36 </span>- D3
+      A3 -<span class="hljs-number"> 37 </span> <span class="hljs-number"> 38 </span>- D4
+      A4 -<span class="hljs-number"> 39 </span> <span class="hljs-number"> 40 </span>- D5
+      A5 -<span class="hljs-number"> 41 </span> <span class="hljs-number"> 42 </span>- D6
+      A6 -<span class="hljs-number"> 43 </span> <span class="hljs-number"> 44 </span>- D7
+      A7 -<span class="hljs-number"> 45 </span> <span class="hljs-number"> 46 </span>- A15
+      A8 -<span class="hljs-number"> 47 </span> <span class="hljs-number"> 48 </span>- A14
+      A9 -<span class="hljs-number"> 49 </span> <span class="hljs-number"> 50 </span>- A13
+     A10 -<span class="hljs-number"> 51 </span> <span class="hljs-number"> 52 </span>- A12
+     A11 -<span class="hljs-number"> 53 </span> <span class="hljs-number"> 54 </span>- GND
+     GND -<span class="hljs-number"> 55 </span> <span class="hljs-number"> 56 </span>- +3.3V
+     +5V -<span class="hljs-number"> 57 </span> <span class="hljs-number"> 58 </span>- GND
+    +12V -<span class="hljs-number"> 59 </span> <span class="hljs-number"> 60 </span>- -12V</code></pre><h2 id="x16-pinouts-vera-module"><a class="header-link" href="#x16-pinouts-vera-module"></a>X16 Pinouts VERA Module</h2>
+<p>Viewed from component side, the connector is a 2x12 pin header with a 2.54mm
+pitch.</p>
+<pre class="hljs"><code>     VCC -<span class="hljs-number"> 1 </span>   <span class="hljs-number"> 2 </span>- GND
+      D7 -<span class="hljs-number"> 3 </span>   <span class="hljs-number"> 4 </span>- D6
+      D5 -<span class="hljs-number"> 5 </span>   <span class="hljs-number"> 6 </span>- D4
+      D3 -<span class="hljs-number"> 7 </span>   <span class="hljs-number"> 8 </span>- D2
+      D1 -<span class="hljs-number"> 9 </span>  <span class="hljs-number"> 10 </span>- D0
+     /CS -<span class="hljs-number"> 11 </span> <span class="hljs-number"> 12 </span>- /RES
+     /WR -<span class="hljs-number"> 13 </span> <span class="hljs-number"> 14 </span>- /IRQ
+      A4 -<span class="hljs-number"> 15 </span> <span class="hljs-number"> 16 </span>- /RD
+      A2 -<span class="hljs-number"> 17 </span> <span class="hljs-number"> 18 </span>- A3
+      A0 -<span class="hljs-number"> 19 </span> <span class="hljs-number"> 20 </span>- A1
+     GND -<span class="hljs-number"> 21 </span> <span class="hljs-number"> 22 </span>- GND
+ AUDIO_L -<span class="hljs-number"> 23 </span> <span class="hljs-number"> 24 </span>- AUDIO_R</code></pre><h2 id="x16-pinouts-smc-chip"><a class="header-link" href="#x16-pinouts-smc-chip"></a>X16 Pinouts SMC Chip</h2>
+<pre class="hljs"><code>              .---_---. 
+      I2C_SDA |<span class="hljs-string">1    20</span>|<span class="hljs-string"> /RES
+      HDD_LED </span>|<span class="hljs-string">2  T 19</span>|<span class="hljs-string"> /NMI
+      I2C_SCL </span>|<span class="hljs-string">3  I 18</span>|<span class="hljs-string"> RESET_BTN
+   KB_DAT (?) </span>|<span class="hljs-string">4  N 17</span>|<span class="hljs-string"> NMI_BTN
+          VCC </span>|<span class="hljs-string">5  Y 16</span>|<span class="hljs-string"> AGND
+          GND </span>|<span class="hljs-string">6  8 15</span>|<span class="hljs-string"> AVCC
+   KB_CLK (?) </span>|<span class="hljs-string">7  6 14</span>|<span class="hljs-string"> PWR_BTN
+MOUSE_DAT (?) </span>|<span class="hljs-string">8  1 13</span>|<span class="hljs-string"> /PWR_ON
+MOUSE_CLK (?) </span>|<span class="hljs-string">9    12</span>|<span class="hljs-string"> PWR_OK
+   /SMC_RESET </span>|<span class="hljs-string">10   11</span>|<span class="hljs-string"> (?)
+              &#x27;-------&#x27; </span></code></pre><h2 id="x16-pinouts-vera-chips"><a class="header-link" href="#x16-pinouts-vera-chips"></a>X16 Pinouts VERA Chips</h2>
+<h3 id="module-rev4"><a class="header-link" href="#module-rev4"></a>Module (rev4)</h3>
+<pre class="hljs"><code><span class="hljs-attribute">Board</span>:      COMMANDER X<span class="hljs-number">16</span>p VERA module rev<span class="hljs-number">4</span> by Frank van den Hoef (c) <span class="hljs-number">2020</span>
+<span class="hljs-attribute">U1</span>  <span class="hljs-number">48</span>-pin  ICE<span class="hljs-number">40</span>UP<span class="hljs-number">5</span>K-SG<span class="hljs-number">48</span>ITR<span class="hljs-number">50</span>         ; VERA FPGA
+<span class="hljs-attribute">U2</span>  <span class="hljs-number">14</span>-pin  <span class="hljs-number">74</span>AHC<span class="hljs-number">00</span>PW                   ; Quad NAND gate (for U<span class="hljs-number">4</span> enable pins)
+<span class="hljs-attribute">U3</span>  <span class="hljs-number">24</span>-pin  SN<span class="hljs-number">74</span>CBTD<span class="hljs-number">3861</span>PWR             ; Address bus switch + level shifter
+<span class="hljs-attribute">U4</span>  <span class="hljs-number">14</span>-pin  <span class="hljs-number">74</span>CBTLV<span class="hljs-number">3126</span>PW,<span class="hljs-number">118</span>           ; Memory card buffer
+<span class="hljs-attribute">U5</span>  <span class="hljs-number">24</span>-pin  <span class="hljs-number">74</span>LVC<span class="hljs-number">4245</span>APW                ; Data bus transceiver + level shifter
+<span class="hljs-attribute">U6</span>  <span class="hljs-number">16</span>-pin  WM<span class="hljs-number">8524</span>CGEDT                 ; Audio dual <span class="hljs-number">24</span>-bit D/A 
+<span class="hljs-attribute">U7</span>  <span class="hljs-number">8</span>-pin   W<span class="hljs-number">25</span>Q<span class="hljs-number">16</span>JVSNIQ                ; FPGA <span class="hljs-number">2</span>Mx<span class="hljs-number">8</span> config flash
+<span class="hljs-attribute">U9</span>  <span class="hljs-number">5</span>-pin   AP<span class="hljs-number">3417</span>CKTR-G<span class="hljs-number">1</span>               ; <span class="hljs-number">1</span>.<span class="hljs-number">2</span>V switching regulator
+<span class="hljs-attribute">U10</span> <span class="hljs-number">5</span>-pin   MIC<span class="hljs-number">5504</span>-<span class="hljs-number">3</span>.<span class="hljs-number">3</span>YM<span class="hljs-number">5</span>              ; <span class="hljs-number">3</span>.<span class="hljs-number">3</span>V linear regulator
+<span class="hljs-attribute">U11</span> <span class="hljs-number">8</span>-pin   THS<span class="hljs-number">7314</span>D                    ; SDTV video amplifier
+<span class="hljs-attribute">X1</span>  <span class="hljs-number">4</span>-pin   SG<span class="hljs-number">5032</span>CAN_<span class="hljs-number">25</span>.<span class="hljs-number">000000</span>M-TJGA<span class="hljs-number">3</span>  ; Oscillator <span class="hljs-number">25</span>.<span class="hljs-number">0</span>MHz
+<span class="hljs-attribute">JP1</span> <span class="hljs-number">2</span>-pin   Flash enable jumper
+<span class="hljs-attribute">J1</span>  <span class="hljs-number">24</span>-pin  Module connector
+<span class="hljs-attribute">J2</span>  <span class="hljs-number">8</span>-pin   Programmer connector
+<span class="hljs-attribute">J3</span>  <span class="hljs-number">11</span>-pin  Memory card slot
+<span class="hljs-attribute">J4</span>  <span class="hljs-number">2</span>-pin   RCA composite video connector
+<span class="hljs-attribute">J5</span>  <span class="hljs-number">15</span>-pin  DE-<span class="hljs-number">15</span> female VGA connector
+<span class="hljs-attribute">J9</span>  <span class="hljs-number">4</span>-pin   S-Video connector</code></pre><h3 id="vera-fpga-rev4-module"><a class="header-link" href="#vera-fpga-rev4-module"></a>VERA FPGA (rev4 module)</h3>
+<pre class="hljs"><code><span class="hljs-attribute">1</span>   VCCIO (+<span class="hljs-number">3</span>.<span class="hljs-number">3</span>V)   <span class="hljs-number">13</span>  VGA_R<span class="hljs-number">3</span> COMP_L<span class="hljs-number">5</span>  <span class="hljs-number">25</span>  D<span class="hljs-number">2</span>              <span class="hljs-number">37</span>  A<span class="hljs-number">2</span>
+<span class="hljs-attribute">2</span>   VGA_B<span class="hljs-number">3</span> COMP_C<span class="hljs-number">3</span>  <span class="hljs-number">14</span>  SPI_SO          <span class="hljs-number">26</span>  D<span class="hljs-number">1</span>              <span class="hljs-number">38</span>  AUDIO_BCK
+<span class="hljs-attribute">3</span>   VGA_G<span class="hljs-number">0</span> COMP_C<span class="hljs-number">4</span>  <span class="hljs-number">15</span>  SPI_SCK         <span class="hljs-number">27</span>  D<span class="hljs-number">0</span>              <span class="hljs-number">39</span>  A<span class="hljs-number">1</span>
+<span class="hljs-attribute">4</span>   VGA_G<span class="hljs-number">1</span> COMP_C<span class="hljs-number">5</span>  <span class="hljs-number">16</span>  SPI_SS          <span class="hljs-number">28</span>  /CS             <span class="hljs-number">40</span>  A<span class="hljs-number">0</span>
+<span class="hljs-attribute">5</span>   VCC (+<span class="hljs-number">1</span>.<span class="hljs-number">2</span>V)     <span class="hljs-number">17</span>  SPI_SI          <span class="hljs-number">29</span>  VCCPLL (+<span class="hljs-number">1</span>.<span class="hljs-number">2</span>V)  <span class="hljs-number">41</span>  A<span class="hljs-number">3</span> 
+<span class="hljs-attribute">6</span>   VGA_G<span class="hljs-number">2</span> COMP_L<span class="hljs-number">0</span>  <span class="hljs-number">18</span>  D<span class="hljs-number">7</span>              <span class="hljs-number">30</span>  VCC (+<span class="hljs-number">1</span>.<span class="hljs-number">2</span>V)     <span class="hljs-number">42</span>  AUDIO_DATA
+<span class="hljs-attribute">7</span>   CDONE           <span class="hljs-number">19</span>  D<span class="hljs-number">6</span>              <span class="hljs-number">31</span>  /WR             <span class="hljs-number">43</span>  AUDIO_LRCK
+<span class="hljs-attribute">8</span>   /CRESET         <span class="hljs-number">20</span>  D<span class="hljs-number">5</span>              <span class="hljs-number">32</span>  /IRQ            <span class="hljs-number">44</span>  VGA_HSYNC
+<span class="hljs-attribute">9</span>   VGA_G<span class="hljs-number">3</span> COMP_L<span class="hljs-number">1</span>  <span class="hljs-number">21</span>  D<span class="hljs-number">4</span>              <span class="hljs-number">33</span>  VCCIO (+<span class="hljs-number">3</span>.<span class="hljs-number">3</span>V)   <span class="hljs-number">45</span>  VGA_VSYNC
+<span class="hljs-attribute">10</span>  VGA_R<span class="hljs-number">0</span> COMP_L<span class="hljs-number">2</span>  <span class="hljs-number">22</span>  VCCIO (+<span class="hljs-number">3</span>.<span class="hljs-number">3</span>V)   <span class="hljs-number">34</span>  A<span class="hljs-number">4</span>              <span class="hljs-number">46</span>  VGA_B<span class="hljs-number">0</span> COMP_L<span class="hljs-number">0</span>
+<span class="hljs-attribute">11</span>  VGA_R<span class="hljs-number">1</span> COMP_L<span class="hljs-number">3</span>  <span class="hljs-number">23</span>  D<span class="hljs-number">3</span>              <span class="hljs-number">35</span>  SYSCLK          <span class="hljs-number">47</span>  VGA_B<span class="hljs-number">1</span> COMP_L<span class="hljs-number">1</span>
+<span class="hljs-attribute">12</span>  VGA_R<span class="hljs-number">2</span> COMP_L<span class="hljs-number">4</span>  <span class="hljs-number">24</span>  VPP_<span class="hljs-number">2</span>V<span class="hljs-number">5</span> (+<span class="hljs-number">3</span>.<span class="hljs-number">3</span>V) <span class="hljs-number">36</span>  /RD             <span class="hljs-number">48</span>  VGA_B<span class="hljs-number">2</span> COMP_L<span class="hljs-number">2</span>
+<span class="hljs-attribute">EP</span>  GND</code></pre><h1 id="via-versatile-interface-adapter"><a class="header-link" href="#via-versatile-interface-adapter"></a>VIA Versatile Interface Adapter</h1>
 <p>I/O port addresses below are 4-bit RSx address line values. For X16, which uses
 two VIAs, these addresses are mapped directly to 9F0xh for the first one and
 9F1xh for the second one.</p>
@@ -2218,7 +2436,7 @@ value, the lower and upper 8 bits of this can be selected with bit 7:</p>
 <span class="hljs-attribute">5</span>-<span class="hljs-number">2</span>     Not Used
 <span class="hljs-attribute">1</span>-<span class="hljs-number">0</span>     LFO Waveform (see LFO section)</code></pre><p>CT1 and CT2 outputs correspond to physical pins of the same name on the chip.
 These are used for general-purpose output. For X16, those pins are not
-connected to anything. (?)</p>
+connected to anything.</p>
 <h2 id="ym2151-timers"><a class="header-link" href="#ym2151-timers"></a>YM2151 Timers</h2>
 <h3 id="10h11h---timer-a-reload"><a class="header-link" href="#10h11h---timer-a-reload"></a>10h/11h - Timer A Reload</h3>
 <pre class="hljs"><code><span class="hljs-attribute">Bit</span>
@@ -2643,7 +2861,8 @@ S   <span class="hljs-comment">Stack cycles</span></code></pre><p>Additional cyc
 <pre class="hljs"><code>n   <span class="hljs-type">Internal</span> <span class="hljs-keyword">cycle</span>, <span class="hljs-keyword">when</span> branch <span class="hljs-keyword">is</span> taken
 x   <span class="hljs-type">Internal</span> <span class="hljs-keyword">cycle</span>, <span class="hljs-keyword">when</span> branching crosses page boundaries
 y   <span class="hljs-type">Internal</span> <span class="hljs-keyword">cycle</span>, <span class="hljs-keyword">when</span> indexing across page boundaries <span class="hljs-keyword">or</span> STA nnnn,X
-    The CPU doesn<span class="hljs-string">&#x27;t do a read at invalid address unlike older NMOS 6502s</span></code></pre><h3 id="implied-or-immediate-operands"><a class="header-link" href="#implied-or-immediate-operands"></a>Implied or Immediate Operands</h3>
+    The CPU doesn<span class="hljs-string">&#x27;t do a read at invalid address unlike older NMOS 6502s
+    (it will read the last byte again instead)</span></code></pre><h3 id="implied-or-immediate-operands"><a class="header-link" href="#implied-or-immediate-operands"></a>Implied or Immediate Operands</h3>
 <pre class="hljs"><code><span class="hljs-attribute">Addressing</span> Mode             Cycles  Execution
 <span class="hljs-attribute">Implied</span> Opcodes             <span class="hljs-number">2</span>       CN
 <span class="hljs-attribute">WAI</span>/STP (wait IRQ, stop)    <span class="hljs-number">3</span>       CNN
@@ -2666,7 +2885,7 @@ nnnn,X (RMW)                6,7     CPPyDND
 <pre class="hljs"><code><span class="hljs-attribute">Addressing</span> Mode             Cycles  Execution
 <span class="hljs-attribute">BRA</span> rr                      <span class="hljs-number">3</span>,<span class="hljs-number">4</span>     CPNx
 <span class="hljs-attribute">Bxx</span> rr                      <span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>   CPnx
-<span class="hljs-attribute">BBxn</span> nn,rr                  <span class="hljs-number">5</span>       CPPDN (?)
+<span class="hljs-attribute">BBxn</span> nn,rr                  <span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>   CPDNPnx
 <span class="hljs-attribute">JMP</span> nnnn                    <span class="hljs-number">3</span>       CPP
 <span class="hljs-attribute">JSR</span> nnnn                    <span class="hljs-number">6</span>       CPPNSS
 <span class="hljs-attribute">JMP</span> (nnnn)                  <span class="hljs-number">6</span>       CPPNDD
@@ -2889,8 +3108,11 @@ executed as NOPs. Those later become new opcodes in 65C816.</p>
 BBSx and BBRx), causing the PC to get incremented past it without any extra
 boundary cycle. If a branch is taken, the signed parameter is then added to the
 PC (PC+rr). The extra clock cycle occurs if the addition crosses page
-boundaries. BBSx and BBRx instructions don&#39;t have any extra cycle penalties at
-all (?).</p>
+boundaries.</p>
+<h3 id="dummy-read-cycles-in-read-modify-opcodes"><a class="header-link" href="#dummy-read-cycles-in-read-modify-opcodes"></a>Dummy Read Cycles in Read-Modify Opcodes</h3>
+<p>The 65C02 does a read twice in all Read-Modify opcodes (such as INC, DEC and
+Shift/Rotate). Unlike older NMOS 6502s which does a read then a write of
+unmodified data, causing I/Os to act twice on writes.</p>
 <h1 id="aboutcredits"><a class="header-link" href="#aboutcredits"></a>About/Credits</h1>
 <h3 id="about-1"><a class="header-link" href="#about-1"></a>About</h3>
 <p>This document is written as an alternative to the official reference and aims
@@ -2903,20 +3125,16 @@ it (and this specs too) can change anytime!</p>
 <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0 license</a>. Everyone is
 welcome to contribute, add missing bits and provide feedbacks through the
 website repository linked below.</p>
-<blockquote>
-<p>Needed: Someone with a real hardware prototype, preferably active on Discord
-too...</p>
-</blockquote>
 <h3 id="authors"><a class="header-link" href="#authors"></a>Authors</h3>
 <p>Natt Akuma</p>
 <h3 id="credits"><a class="header-link" href="#credits"></a>Credits</h3>
 <ul class="list">
 <li>Michael Steil (official X16 programmer&#39;s reference)</li>
-<li>Frank van den Hoef (official VERA programmer&#39;s reference)</li>
+<li>Frank van den Hoef (official VERA source code and programmer&#39;s reference)</li>
 <li>Martin Korth (nocash) (SNES/65xx CPU reference)</li>
-<li>Official X16 emulator contributors</li>
 <li>Aaron Giles, Nuke.YKT (YM2151 core and test register details)</li>
 <li>Adam Chapweske (PS/2 interface articles)</li>
+<li>Wavicle (Test benches)</li>
 </ul>
 <h3 id="homepage"><a class="header-link" href="#homepage"></a>Homepage</h3>
 <p><a href="https://ayce.dev/emptyx16.html">https://ayce.dev/emptyx16.html</a> - X16 specs updates (html version)<br><a href="https://ayce.dev/emptyx16.txt">https://ayce.dev/emptyx16.txt</a> - X16 specs updates (text version)<br><a href="https://github.com/AYCEdemo/emptyx16">https://github.com/AYCEdemo/emptyx16</a> - X16 specs repository  </p>
