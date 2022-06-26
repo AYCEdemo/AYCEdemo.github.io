@@ -626,9 +626,12 @@ byte no matter what the currently set register address is:</p>
 1       Timer B Overflow (<span class="hljs-attribute">0</span>=<span class="hljs-literal">No</span> Overflow, <span class="hljs-attribute">1</span>=Overflow)
 0       Timer A Overflow (<span class="hljs-attribute">0</span>=<span class="hljs-literal">No</span> Overflow, <span class="hljs-attribute">1</span>=Overflow)</code></pre><p>Any successful writes to the register data will set a busy flag for 64 clock
 cycles (about 144 CPU cycles since the chip runs slower), indicating that any
-other writes shouldn&#39;t be done during this period. It&#39;s recommended to check
-for the busy flag in a wait loop until it&#39;s cleared before writing. Setting
-the register address won&#39;t set and isn&#39;t affected by this busy flag, however.</p>
+other writes shouldn&#39;t be done during this period. Setting the register
+address won&#39;t set and isn&#39;t affected by this busy flag, however.</p>
+<p>Unfortunately, due to timing constraints from a faster CPU, it is impossible to
+read from this chip in X16. Which means reading those flags are useless and
+shouldn&#39;t be relied on. Manual delays or waiting for other timer sources should
+be done between writes instead.</p>
 <h1 id="x16-versatile-embedded-retro-adapter-vera"><a class="header-link" href="#x16-versatile-embedded-retro-adapter-vera"></a>X16 Versatile Embedded Retro Adapter (VERA)</h1>
 <p><a href="#x16-vera-control">X16 VERA Control</a><br><a href="#x16-vera-display-composer">X16 VERA Display Composer</a><br><a href="#x16-vera-layer-control">X16 VERA Layer Control</a><br><a href="#x16-vera-layer-control">X16 VERA Interrupts</a><br><a href="#x16-vera-audio-fifo">X16 VERA Audio FIFO</a><br><a href="#x16-vera-memory-card-interface">X16 VERA Memory Card Interface</a>  </p>
 <h3 id="embedded-memory"><a class="header-link" href="#embedded-memory"></a>Embedded Memory</h3>
@@ -777,8 +780,9 @@ Line IRQs.</p>
 4       FIFO Sample Channels (<span class="hljs-attribute">0</span>=Mono, <span class="hljs-attribute">1</span>=Stereo)
 3-0     FIFO Output Volume (<span class="hljs-attribute">0</span>=Silent, <span class="hljs-attribute">15</span>=Loudest)</code></pre><p>Writing reset bit to this register will empty the current buffer. The output
 volume is not linear and has the meaning as follows:</p>
-<pre class="hljs"><code><span class="hljs-attribute">0h</span>=0    <span class="hljs-attribute">1h</span>=1    <span class="hljs-attribute">2h</span>=2    <span class="hljs-attribute">3h</span>=3    <span class="hljs-attribute">4h</span>=4    <span class="hljs-attribute">5h</span>=5    <span class="hljs-attribute">6h</span>=6    <span class="hljs-attribute">7h</span>=8
-<span class="hljs-attribute">8h</span>=11   <span class="hljs-attribute">9h</span>=14   <span class="hljs-attribute">Ah</span>=18   <span class="hljs-attribute">Bh</span>=23   <span class="hljs-attribute">Ch</span>=30   <span class="hljs-attribute">Dh</span>=38   <span class="hljs-attribute">Eh</span>=49   <span class="hljs-attribute">Fh</span>=64</code></pre><p>NOTE: All values can be approximated as 2 dB steps.</p>
+<pre class="hljs"><code><span class="hljs-attribute">0h</span>=0    <span class="hljs-attribute">1h</span>=16   <span class="hljs-attribute">2h</span>=32   <span class="hljs-attribute">3h</span>=48   <span class="hljs-attribute">4h</span>=64   <span class="hljs-attribute">5h</span>=80   <span class="hljs-attribute">6h</span>=96   <span class="hljs-attribute">7h</span>=128
+<span class="hljs-attribute">8h</span>=176  <span class="hljs-attribute">9h</span>=224  <span class="hljs-attribute">Ah</span>=384  <span class="hljs-attribute">Bh</span>=368  <span class="hljs-attribute">Ch</span>=480  <span class="hljs-attribute">Dh</span>=608  <span class="hljs-attribute">Eh</span>=784  <span class="hljs-attribute">Fh</span>=1024</code></pre><p>NOTE: All values can be approximated as 2 dB steps, and are relative to PSG&#39;s
+output level.</p>
 <h3 id="9f3ch---audio_rate---audio-fifo-sample-rate-rw"><a class="header-link" href="#9f3ch---audio_rate---audio-fifo-sample-rate-rw"></a>9F3Ch - AUDIO_RATE - Audio FIFO Sample Rate (R/W)</h3>
 <p>Specifies the playback rate of the FIFO in <code>25000*n/65536</code> KHz.
 A value of 0 or anything greater than 128 will stop playback.</p>
@@ -792,10 +796,12 @@ current bit 4-5 setting in AUDIO_CTRL as follows:</p>
 <span class="hljs-number">8</span>-<span class="hljs-built_in">bit</span> Stereo    [<span class="hljs-built_in">Signed</span> Left <span class="hljs-number">7</span>:<span class="hljs-number">0</span>] [<span class="hljs-built_in">Signed</span> Right <span class="hljs-number">7</span>:<span class="hljs-number">0</span>]
 <span class="hljs-number">16</span>-<span class="hljs-built_in">bit</span> Mono     [<span class="hljs-number">7</span>:<span class="hljs-number">0</span>] [<span class="hljs-built_in">Signed</span> <span class="hljs-number">15</span>:<span class="hljs-number">8</span>]
 <span class="hljs-number">16</span>-<span class="hljs-built_in">bit</span> Stereo   [Left <span class="hljs-number">7</span>:<span class="hljs-number">0</span>] [<span class="hljs-built_in">Signed</span> Left <span class="hljs-number">15</span>:<span class="hljs-number">8</span>] [Right <span class="hljs-number">7</span>:<span class="hljs-number">0</span>] [<span class="hljs-built_in">Signed</span> Right <span class="hljs-number">15</span>:<span class="hljs-number">8</span>]</code></pre><p>When the FIFO is active, it will regularly retrieve the oldest sample in the
-buffer as the name implies (First In, First Out), at a rate defined in
-AUDIO_RATE register. And then decreases the buffer size. Once the buffer size
-is lower than 1024 bytes it will generate FIFO Low IRQ if it&#39;s enabled and set
-its flag until the buffer size is higher than or equal to 1024 bytes.</p>
+buffer as the name implies (First In, First Out), and output at a rate defined
+in AUDIO_RATE register. And then decreases the buffer size. Once the buffer
+size is lower than 1024 bytes it will generate FIFO Low IRQ if it&#39;s enabled and
+set its flag until the buffer size is higher than or equal to 1024 bytes. If it
+is unable to retrieve a new sample from an empty buffer, the output will be set
+to 0.</p>
 <h2 id="x16-vera-memory-card-interface"><a class="header-link" href="#x16-vera-memory-card-interface"></a>X16 VERA Memory Card Interface</h2>
 <p>VERA uses an SPI bus, which is a 4-wire serial bus to communicate and transfer
 data with the memory card. It uses SPI Mode 0 for clock and data signals. Its
@@ -1113,16 +1119,17 @@ match. The implementation pseudocode is as follows:</p>
             Collision <span class="hljs-keyword">buffer</span> at target pixel |= sprite<span class="hljs-symbol">&#x27;s</span> collision mask
     ISR[<span class="hljs-number">7</span>:<span class="hljs-number">4</span>] = cflag
     <span class="hljs-keyword">If</span> cflag != <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> Sprite Collide IRQ <span class="hljs-keyword">is</span> enabled:
-        <span class="hljs-keyword">Generate</span> Sprite Collide IRQ</code></pre><p>Note that the effect of sprites per line limit still applies here and enabled
-sprites that are rendered to the line buffer but are never displayed still add
-to this logic. Bits 4-7 of ISR and the Sprite Collide IRQ is only updated and
-generated once per frame at the beginning of the VBlank.</p>
-<p>CAUTION: Collisions are only detected on lines that are actually rendered.
-This can be problematic when V-Scale is more than 1.0 or the video output is in
-interlaced mode where some lines are skipped per frame. Which will potentially
-missing the collision.</p>
+        <span class="hljs-keyword">Generate</span> Sprite Collide IRQ</code></pre><p>Bits 4-7 of ISR and the Sprite Collide IRQ is only updated and generated once
+per frame at the beginning of the VBlank.</p>
+<p>CAUTION: Collisions are only detected on sprites that are actually drawn. This
+can be problematic when sprites are off the 640-pixel line buffer or per-line
+limit is reached or the line it&#39;s being drawn is skipped from a V-Scale value
+of more than 1.0 or an interlaced mode. Also, priority settings have no effect
+on the collision detection which means that <em>disabled</em> sprites that are
+successfully &quot;drawn&quot; can still contribute to it.</p>
 <h3 id="sprite-priority-to-other-sprites"><a class="header-link" href="#sprite-priority-to-other-sprites"></a>Sprite Priority to Other Sprites</h3>
-<p>The sprite attribute memory location dictates the order in which sprites to be
+<p>When sprites are on the same priority (byte 6 bits 2-3 in attribute), the
+sprite attribute memory location dictates the order in which sprites to be
 displayed on top. A sprite will always display on top of the other sprites that
 have their attribute entries following its. Thus making sprite #0 has the
 highest priority and sprite #127 has the lowest priority.</p>
@@ -1662,7 +1669,7 @@ keeping up to year 2399, assuming the chip still survives. Of course.</p>
           <span class="hljs-keyword">Else</span>: 64 Hz (trimmed)</code></pre><h3 id="08h---osctrim---oscillator-digital-trim-rw"><a class="header-link" href="#08h---osctrim---oscillator-digital-trim-rw"></a>08h - OSCTRIM - Oscillator Digital Trim (R/W)</h3>
 <pre class="hljs"><code>Bit
 7       Trim Sign (<span class="hljs-attribute">1</span>=Subtract-&gt;Faster, <span class="hljs-attribute">0</span>=Add-&gt;Slower)
-6-0     Trim Value (<span class="hljs-attribute">0</span>=Disable Trimming)</code></pre><p>The values can be treated as one&#39;s complement number n which will add/subtract
+6-0     Trim Value (<span class="hljs-attribute">0</span>=Disable Trimming)</code></pre><p>The values can be treated as a sign-magnitude number n which will add/subtract
 2n cycles every minute normally or at 128Hz when Coarse Trim is enabled.</p>
 <h3 id="0ah---alm0sec---alarm-0-seconds-rw"><a class="header-link" href="#0ah---alm0sec---alarm-0-seconds-rw"></a>0Ah - ALM0SEC - Alarm 0 Seconds (R/W)</h3>
 <h3 id="11h---alm1sec---alarm-1-seconds-rw"><a class="header-link" href="#11h---alm1sec---alarm-1-seconds-rw"></a>11h - ALM1SEC - Alarm 1 Seconds (R/W)</h3>
@@ -2525,7 +2532,7 @@ the phase step can be calculated as <code>clk*n/2^26</code> Hz.</p>
 <span class="hljs-attribute">7</span>       Not Used
 <span class="hljs-attribute">6</span>       Detune <span class="hljs-number">1</span> (DT<span class="hljs-number">1</span>) Sign (<span class="hljs-number">0</span>=Positive, <span class="hljs-number">1</span>=Negative)
 <span class="hljs-attribute">5</span>-<span class="hljs-number">4</span>     Detune <span class="hljs-number">1</span> (DT<span class="hljs-number">1</span>) Amount (<span class="hljs-number">0</span>-<span class="hljs-number">3</span>)
-<span class="hljs-attribute">3</span>-<span class="hljs-number">0</span>     Phase Multiply (MUL) (<span class="hljs-number">0</span>=<span class="hljs-number">0</span>.<span class="hljs-number">5</span>x, <span class="hljs-number">1</span>=<span class="hljs-number">1</span>x..<span class="hljs-number">15</span>=<span class="hljs-number">15</span>x)</code></pre><p>Detune 1 values can be treated as a 3-bit one&#39;s complement number. This will
+<span class="hljs-attribute">3</span>-<span class="hljs-number">0</span>     Phase Multiply (MUL) (<span class="hljs-number">0</span>=<span class="hljs-number">0</span>.<span class="hljs-number">5</span>x, <span class="hljs-number">1</span>=<span class="hljs-number">1</span>x..<span class="hljs-number">15</span>=<span class="hljs-number">15</span>x)</code></pre><p>Detune 1 values can be treated as a 3-bit sign-magnitude number. This will
 apply a tiny change to the phase step in each slot&#39;s phase generator. Resulting
 in a slight inharmonic, strings-like timbre to the voice. The amount to
 add/subtract to the phase step also depends on the current Key Code value as
