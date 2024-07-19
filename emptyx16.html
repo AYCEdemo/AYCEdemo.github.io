@@ -162,7 +162,7 @@ h3:hover .header-link {
     <li class="sidebar-header-3"><a href="#pinouts">Pinouts</a></li>
     <li class="sidebar-header-2"><a href="#x16-vera-control">X16 VERA Control</a></li>
     <li class="sidebar-header-3"><a href="#9f25h---ctrl---control-(r/w)">9F25h - CTRL - Control (R/W)</a></li>
-    <li class="sidebar-header-3"><a href="#9f29h..9f2ch-(dcsel&#x3D;63)---version-number-(r)">9F29h..9F2Ch (DCSEL&#x3D;63) - Version Number (R)</a></li>
+    <li class="sidebar-header-3"><a href="#9f29h..9f2ch-(dcsel&#x3D;63)---version---version-number-(r)">9F29h..9F2Ch (DCSEL&#x3D;63) - VERSION - Version Number (R)</a></li>
     <li class="sidebar-header-2"><a href="#x16-vera-display-composer">X16 VERA Display Composer</a></li>
     <li class="sidebar-header-3"><a href="#9f29h-(dcsel&#x3D;0)---dc_video---active-display-control-(r/w)">9F29h (DCSEL&#x3D;0) - DC_VIDEO - Active Display Control (R/W)</a></li>
     <li class="sidebar-header-3"><a href="#9f2ah-(dcsel&#x3D;0)---dc_hscale---active-display-h-scale-(r/w)">9F2Ah (DCSEL&#x3D;0) - DC_HSCALE - Active Display H-Scale (R/W)</a></li>
@@ -199,6 +199,24 @@ h3:hover .header-link {
     <li class="sidebar-header-3"><a href="#memory-card-initialization">Memory Card Initialization</a></li>
     <li class="sidebar-header-3"><a href="#memory-card-data-transfer">Memory Card Data Transfer</a></li>
     <li class="sidebar-header-3"><a href="#vera-configuration-flash-access">VERA Configuration Flash Access</a></li>
+    <li class="sidebar-header-2"><a href="#x16-vera-fx-helper">X16 VERA FX Helper</a></li>
+    <li class="sidebar-header-3"><a href="#9f29h-(dcsel&#x3D;2)---fx_ctrl---addr1-update-mode-/-vram-data-port-write-mode-(r/w)">9F29h (DCSEL&#x3D;2) - FX_CTRL - ADDR1 Update Mode / VRAM Data Port Write Mode (R/W)</a></li>
+    <li class="sidebar-header-3"><a href="#9f2ah-(dcsel&#x3D;2)---fx_tilebase---affine-transformation-tile-base-(w)">9F2Ah (DCSEL&#x3D;2) - FX_TILEBASE - Affine Transformation Tile Base (W)</a></li>
+    <li class="sidebar-header-3"><a href="#9f2bh-(dcsel&#x3D;2)---fx_mapbase---affine-transformation-map-base-(w)">9F2Bh (DCSEL&#x3D;2) - FX_MAPBASE - Affine Transformation Map Base (W)</a></li>
+    <li class="sidebar-header-3"><a href="#9f2ch-(dcsel&#x3D;2)---fx_mult---write-cache-index-/-multiply-accumulate-mode-(w)">9F2Ch (DCSEL&#x3D;2) - FX_MULT - Write Cache Index / Multiply-accumulate Mode (W)</a></li>
+    <li class="sidebar-header-3"><a href="#9f29h-(dcsel&#x3D;3)---fx_x_incr_l---x-position-increment-(lower-8-bits)-(w)">9F29h (DCSEL&#x3D;3) - FX_X_INCR_L - X Position Increment (lower 8 bits) (W)</a></li>
+    <li class="sidebar-header-3"><a href="#9f2ah-(dcsel&#x3D;3)---fx_x_incr_h---x-position-increment-(upper-8-bits)-(w)">9F2Ah (DCSEL&#x3D;3) - FX_X_INCR_H - X Position Increment (upper 8 bits) (W)</a></li>
+    <li class="sidebar-header-3"><a href="#9f2bh-(dcsel&#x3D;3)---fx_y_incr_l---y-position-increment-(lower-8-bits)-(w)">9F2Bh (DCSEL&#x3D;3) - FX_Y_INCR_L - Y Position Increment (lower 8 bits) (W)</a></li>
+    <li class="sidebar-header-3"><a href="#9f2ch-(dcsel&#x3D;3)---fx_y_incr_h---y-position-increment-(upper-8-bits)-(w)">9F2Ch (DCSEL&#x3D;3) - FX_Y_INCR_H - Y Position Increment (upper 8 bits) (W)</a></li>
+    <li class="sidebar-header-3"><a href="#9f29h-(dcsel&#x3D;4)---fx_x_pos_l---pixel-x-position-(lower-8-bits)-(w)">9F29h (DCSEL&#x3D;4) - FX_X_POS_L - Pixel X Position (lower 8 bits) (W)</a></li>
+    <li class="sidebar-header-3"><a href="#9f2ah-(dcsel&#x3D;4)---fx_x_pos_h---pixel-x-position-(upper-3-bits)-(w)">9F2Ah (DCSEL&#x3D;4) - FX_X_POS_H - Pixel X Position (upper 3 bits) (W)</a></li>
+    <li class="sidebar-header-3"><a href="#9f2bh-(dcsel&#x3D;4)---fx_y_pos_l---pixel-y-position-(lower-8-bits)-(w)">9F2Bh (DCSEL&#x3D;4) - FX_Y_POS_L - Pixel Y Position (lower 8 bits) (W)</a></li>
+    <li class="sidebar-header-3"><a href="#9f2ch-(dcsel&#x3D;4)---fx_y_pos_h---pixel-y-position-(upper-3-bits)-(w)">9F2Ch (DCSEL&#x3D;4) - FX_Y_POS_H - Pixel Y Position (upper 3 bits) (W)</a></li>
+    <li class="sidebar-header-3"><a href="#9f29h-(dcsel&#x3D;5)---fx_x_pos_f---pixel-x-fractional-position-(upper-8-bits)-(w)">9F29h (DCSEL&#x3D;5) - FX_X_POS_F - Pixel X Fractional Position (upper 8 bits) (W)</a></li>
+    <li class="sidebar-header-3"><a href="#9f2ah-(dcsel&#x3D;5)---fx_y_pos_f---pixel-y-fractional-position-(upper-8-bits)-(w)">9F2Ah (DCSEL&#x3D;5) - FX_Y_POS_F - Pixel Y Fractional Position (upper 8 bits) (W)</a></li>
+    <li class="sidebar-header-3"><a href="#9f2bh-(dcsel&#x3D;5)---fx_poly_fill_l---fill-length-(lower-3-bits)-(r)">9F2Bh (DCSEL&#x3D;5) - FX_POLY_FILL_L - Fill Length (lower 3 bits) (R)</a></li>
+    <li class="sidebar-header-3"><a href="#9f2ch-(dcsel&#x3D;5)---fx_poly_fill_h---fill-length-(upper-7-bits)-(r)">9F2Ch (DCSEL&#x3D;5) - FX_POLY_FILL_H - Fill Length (upper 7 bits) (R)</a></li>
+    <li class="sidebar-header-3"><a href="#9f29h..9f2ch-(dcsel&#x3D;6)---fx_cache---32-bit-write-cache-data-(w)">9F29h..9F2Ch (DCSEL&#x3D;6) - FX_CACHE - 32-bit Write Cache Data (W)</a></li>
     <li class="sidebar-header-2"><a href="#x16-vera-memory-and-i/o-map-(vram)">X16 VERA Memory and I/O Map (VRAM)</a></li>
     <li class="sidebar-header-3"><a href="#vera-memory-map">VERA Memory Map</a></li>
     <li class="sidebar-header-3"><a href="#tile-map">Tile Map</a></li>
@@ -237,6 +255,7 @@ h3:hover .header-link {
     <li class="sidebar-header-3"><a href="#normal-keyboard-scancodes-(us-layout)">Normal Keyboard Scancodes (US Layout)</a></li>
     <li class="sidebar-header-3"><a href="#special-keyboard-scancodes">Special Keyboard Scancodes</a></li>
     <li class="sidebar-header-3"><a href="#mouse-modes">Mouse Modes</a></li>
+    <li class="sidebar-header-3"><a href="#mouse-type">Mouse Type</a></li>
     <li class="sidebar-header-3"><a href="#mouse-data">Mouse Data</a></li>
     <li class="sidebar-header-3"><a href="#host-write-commands">Host Write Commands</a></li>
     <li class="sidebar-header-3"><a href="#ps/2-internals">PS/2 Internals</a></li>
@@ -302,7 +321,6 @@ h3:hover .header-link {
     <li class="sidebar-header-2"><a href="#x16-memory-card-pinouts">X16 Memory Card Pinouts</a></li>
     <li class="sidebar-header-2"><a href="#x16-expansion-port-pinouts">X16 Expansion Port Pinouts</a></li>
     <li class="sidebar-header-3"><a href="#x16p-&quot;developer-board&quot;-expansion-port-pinouts">X16p &quot;Developer Board&quot; Expansion Port Pinouts</a></li>
-    <li class="sidebar-header-3"><a href="#x16p-&quot;prototype-#3&quot;-expansion-port-pinouts">X16p &quot;Prototype #3&quot; Expansion Port Pinouts</a></li>
     <li class="sidebar-header-2"><a href="#x16-pinouts-vera-module">X16 Pinouts VERA Module</a></li>
     <li class="sidebar-header-2"><a href="#x16-pinouts-smc-chip">X16 Pinouts SMC Chip</a></li>
     <li class="sidebar-header-2"><a href="#x16-pinouts-vera-chips">X16 Pinouts VERA Chips</a></li>
@@ -494,51 +512,78 @@ Memory card <span class="hljs-built_in">SPI</span> mode MMC interface</code></pr
 <span class="hljs-number">9F0Eh</span> - IER  - Interrupt Enable Register
 <span class="hljs-number">9F0Fh</span> - PRA2 - Port A Input/Output Without Handshaking</code></pre><h3 id="vera-versatile-embedded-retro-adapter-rw"><a class="header-link" href="#vera-versatile-embedded-retro-adapter-rw"></a>VERA Versatile Embedded Retro Adapter (R/W)</h3>
 <p>Note: The rightmost column shows the initial value on Reset</p>
-<pre class="hljs"><code><span class="hljs-number">9F20h</span> - ADDR_L       - VRAM Address (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)                    <span class="hljs-number">00h</span>
-<span class="hljs-number">9F21h</span> - ADDR_M       - VRAM Address (middle <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)                   <span class="hljs-number">00h</span>
-<span class="hljs-number">9F22h</span> - ADDR_H       - VRAM Address (upper <span class="hljs-number">1</span> bit) / Increment Mode    <span class="hljs-number">00h</span>
-<span class="hljs-number">9F23h</span> - DATA0        - VRAM Data Port <span class="hljs-number">0</span>                               <span class="hljs-number">00h</span>
-<span class="hljs-number">9F24h</span> - DATA1        - VRAM Data Port <span class="hljs-number">1</span>                               <span class="hljs-number">00h</span>
-<span class="hljs-number">9F25h</span> - CTRL         - Control                                        <span class="hljs-number">00h</span>
-<span class="hljs-number">9F26h</span> - IEN          - <span class="hljs-keyword">Int</span>. Enable / Line Comp. / Num. (upper <span class="hljs-number">1</span> bit)  <span class="hljs-number">00h</span>
-<span class="hljs-number">9F27h</span> - ISR          - Interrupt / Status Register                    <span class="hljs-number">00h</span>
-<span class="hljs-number">9F28h</span> - IRQLINE_L    - Interrupt Line Compare (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>) (W)      -
-<span class="hljs-number">9F28h</span> - SCANLINE_L   - Current Line Number (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>) (R)         <span class="hljs-number">00h</span>
+<pre class="hljs"><code><span class="hljs-number">9F20h</span> - ADDR_L        - VRAM Address (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)                   <span class="hljs-number">00h</span>
+<span class="hljs-number">9F21h</span> - ADDR_M        - VRAM Address (middle <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)                  <span class="hljs-number">00h</span>
+<span class="hljs-number">9F22h</span> - ADDR_H        - VRAM Address (upper <span class="hljs-number">1</span> bit) / Increment Mode   <span class="hljs-number">00h</span>
+<span class="hljs-number">9F23h</span> - DATA0         - VRAM Data Port <span class="hljs-number">0</span>                              <span class="hljs-number">00h</span>
+<span class="hljs-number">9F24h</span> - DATA1         - VRAM Data Port <span class="hljs-number">1</span>                              <span class="hljs-number">00h</span>
+<span class="hljs-number">9F25h</span> - CTRL          - Control                                       <span class="hljs-number">00h</span>
+<span class="hljs-number">9F26h</span> - IEN           - <span class="hljs-keyword">Int</span>. Enable / Line Comp. / Num. (upper <span class="hljs-number">1</span> bit) <span class="hljs-number">00h</span>
+<span class="hljs-number">9F27h</span> - ISR           - Interrupt / Status Register                   <span class="hljs-number">00h</span>
+<span class="hljs-number">9F28h</span> - IRQLINE_L     - Interrupt Line Compare (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>) (W)     -
+<span class="hljs-number">9F28h</span> - SCANLINE_L    - Current Line Number (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>) (R)        <span class="hljs-number">00h</span>
 
         (DCSEL=<span class="hljs-number">0</span>)
-<span class="hljs-number">9F29h</span> - DC_VIDEO     - Active Display Control                         <span class="hljs-number">00h</span>
-<span class="hljs-number">9F2Ah</span> - DC_HSCALE    - Active Display H-Scale                         <span class="hljs-number">80h</span>
-<span class="hljs-number">9F2Bh</span> - DC_VSCALE    - Active Display V-Scale                         <span class="hljs-number">80h</span>
-<span class="hljs-number">9F2Ch</span> - DC_BORDER    - Border Color                                   <span class="hljs-number">00h</span>
+<span class="hljs-number">9F29h</span> - DC_VIDEO      - Active Display Control                        <span class="hljs-number">04h</span>
+<span class="hljs-number">9F2Ah</span> - DC_HSCALE     - Active Display H-Scale                        <span class="hljs-number">80h</span>
+<span class="hljs-number">9F2Bh</span> - DC_VSCALE     - Active Display V-Scale                        <span class="hljs-number">80h</span>
+<span class="hljs-number">9F2Ch</span> - DC_BORDER     - Border Color                                  <span class="hljs-number">00h</span>
 
         (DCSEL=<span class="hljs-number">1</span>)
-<span class="hljs-number">9F29h</span> - DC_HSTART    - Active Display H-Start                         <span class="hljs-number">00h</span>
-<span class="hljs-number">9F2Ah</span> - DC_HSTOP     - Active Display H-Stop                          <span class="hljs-number">A0h</span>
-<span class="hljs-number">9F2Bh</span> - DC_VSTART    - Active Display V-Start                         <span class="hljs-number">00h</span>
-<span class="hljs-number">9F2Ch</span> - DC_VSTOP     - Active Display V-Stop                          <span class="hljs-number">F0h</span>
+<span class="hljs-number">9F29h</span> - DC_HSTART     - Active Display H-Start                        <span class="hljs-number">00h</span>
+<span class="hljs-number">9F2Ah</span> - DC_HSTOP      - Active Display H-Stop                         <span class="hljs-number">A0h</span>
+<span class="hljs-number">9F2Bh</span> - DC_VSTART     - Active Display V-Start                        <span class="hljs-number">00h</span> 
+<span class="hljs-number">9F2Ch</span> - DC_VSTOP      - Active Display V-Stop                         <span class="hljs-number">F0h</span>
+
+        (DCSEL=<span class="hljs-number">2</span>)
+<span class="hljs-number">9F29h</span> - FX_CTRL       - ADDR1 Update Mode / VRAM Data Port Write Mode <span class="hljs-number">00h</span>
+<span class="hljs-number">9F2Ah</span> - FX_TILEBASE   - Affine Transformation Tile Base               <span class="hljs-number">00h</span>
+<span class="hljs-number">9F2Bh</span> - FX_MAPBASE    - Affine Transformation Map Base                <span class="hljs-number">00h</span>
+<span class="hljs-number">9F2Ch</span> - FX_MULT       - Write Cache Index / Multiply-accumulate Mode  <span class="hljs-number">00h</span>
+
+        (DCSEL=<span class="hljs-number">3</span>)
+<span class="hljs-number">9F29h</span> - FX_X_INCR_L   - X Position Increment (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)           <span class="hljs-number">00h</span>
+<span class="hljs-number">9F2Ah</span> - FX_X_INCR_H   - X Position Increment (upper <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)           <span class="hljs-number">00h</span>
+<span class="hljs-number">9F2Bh</span> - FX_Y_INCR_L   - Y Position Increment (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)           <span class="hljs-number">00h</span>
+<span class="hljs-number">9F2Ch</span> - FX_Y_INCR_H   - Y Position Increment (upper <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)           <span class="hljs-number">00h</span>
+
+        (DCSEL=<span class="hljs-number">4</span>)
+<span class="hljs-number">9F29h</span> - FX_X_POS_L    - Pixel X Position (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)               <span class="hljs-number">00h</span>
+<span class="hljs-number">9F2Ah</span> - FX_X_POS_H    - Pixel X Position (upper <span class="hljs-number">3</span> <span class="hljs-meta">bits</span>)               <span class="hljs-number">00h</span>
+<span class="hljs-number">9F2Bh</span> - FX_Y_POS_L    - Pixel Y Position (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)               <span class="hljs-number">00h</span>
+<span class="hljs-number">9F2Ch</span> - FX_Y_POS_H    - Pixel Y Position (upper <span class="hljs-number">3</span> <span class="hljs-meta">bits</span>)               <span class="hljs-number">00h</span>
+
+        (DCSEL=<span class="hljs-number">5</span>)
+<span class="hljs-number">9F29h</span> - FX_X_POS_F    - Pixel X Fractional Position (upper <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)    <span class="hljs-number">80h</span>
+<span class="hljs-number">9F2Ah</span> - FX_Y_POS_F    - Pixel Y Fractional Position (upper <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)    <span class="hljs-number">80h</span>
+<span class="hljs-number">9F2Bh</span> - FX_POLY_FILL_L- Fill Length (lower <span class="hljs-number">3</span> <span class="hljs-meta">bits</span>)                    <span class="hljs-number">00h</span>
+<span class="hljs-number">9F2Ch</span> - FX_POLY_FILL_H- Fill Length (upper <span class="hljs-number">7</span> <span class="hljs-meta">bits</span>)                    <span class="hljs-number">00h</span>
+
+        (DCSEL=<span class="hljs-number">6</span>)
+<span class="hljs-number">9F29h</span>..<span class="hljs-number">9F2Ch</span> FX_CACHE - <span class="hljs-number">32</span>-bit Write Cache Data                       <span class="hljs-number">00000000h</span>
 
         (DCSEL=<span class="hljs-number">63</span>)
-<span class="hljs-number">9F29h</span>..<span class="hljs-number">9F2Ch</span>         - Version Number (R)
+<span class="hljs-number">9F29h</span>..<span class="hljs-number">9F2Ch</span> VERSION  - Version Number (R)                            -
 
-<span class="hljs-number">9F2Dh</span> - L0_CONFIG    - L0 Mode <span class="hljs-keyword">and</span> Map Size                           <span class="hljs-number">00h</span>
-<span class="hljs-number">9F2Eh</span> - L0_MAPBASE   - L0 Map Base                                    <span class="hljs-number">00h</span>
-<span class="hljs-number">9F2Fh</span> - L0_TILEBASE  - L0 Tile Base <span class="hljs-keyword">and</span> Tile Size                     <span class="hljs-number">00h</span>
-<span class="hljs-number">9F30h</span> - L0_HSCROLL_L - L0 H-Scroll (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)                     <span class="hljs-number">00h</span>
-<span class="hljs-number">9F31h</span> - L0_HSCROLL_H - L0 H-Scroll (upper <span class="hljs-number">4</span> <span class="hljs-meta">bits</span>) / Bitmap Color      <span class="hljs-number">00h</span>
-<span class="hljs-number">9F32h</span> - L0_VSCROLL_L - L0 V-Scroll (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)                     <span class="hljs-number">00h</span>
-<span class="hljs-number">9F33h</span> - L0_VSCROLL_H - L0 V-Scroll (upper <span class="hljs-number">4</span> <span class="hljs-meta">bits</span>)                     <span class="hljs-number">00h</span>
-<span class="hljs-number">9F34h</span> - L1_CONFIG    - L1 Mode <span class="hljs-keyword">and</span> Map Size                           <span class="hljs-number">00h</span>
-<span class="hljs-number">9F35h</span> - L1_MAPBASE   - L1 Map Base                                    <span class="hljs-number">00h</span>
-<span class="hljs-number">9F36h</span> - L1_TILEBASE  - L1 Tile Base <span class="hljs-keyword">and</span> Tile Size                     <span class="hljs-number">00h</span>
-<span class="hljs-number">9F37h</span> - L1_HSCROLL_L - L1 H-Scroll (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)                     <span class="hljs-number">00h</span>
-<span class="hljs-number">9F38h</span> - L1_HSCROLL_H - L1 H-Scroll (upper <span class="hljs-number">4</span> <span class="hljs-meta">bits</span>) / Bitmap Color      <span class="hljs-number">00h</span>
-<span class="hljs-number">9F39h</span> - L1_VSCROLL_L - L1 V-Scroll (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)                     <span class="hljs-number">00h</span>
-<span class="hljs-number">9F3Ah</span> - L1_VSCROLL_H - L1 V-Scroll (upper <span class="hljs-number">4</span> <span class="hljs-meta">bits</span>)                     <span class="hljs-number">00h</span>
-<span class="hljs-number">9F3Bh</span> - AUDIO_CTRL   - Audio FIFO Control                             <span class="hljs-number">00h</span>
-<span class="hljs-number">9F3Ch</span> - AUDIO_RATE   - Audio FIFO Sample Rate                         <span class="hljs-number">00h</span>
-<span class="hljs-number">9F3Dh</span> - AUDIO_DATA   - Audio FIFO Data (W)                            -
-<span class="hljs-number">9F3Eh</span> - SPI_DATA     - SPI Data                                       -
-<span class="hljs-number">9F3Fh</span> - SPI_CTRL     - SPI Control                                    <span class="hljs-number">00h</span></code></pre><h3 id="ym2151-io-ports-2mhz-speed"><a class="header-link" href="#ym2151-io-ports-2mhz-speed"></a>YM2151 I/O Ports (2MHz Speed)</h3>
+<span class="hljs-number">9F2Dh</span> - L0_CONFIG     - L0 Mode <span class="hljs-keyword">and</span> Map Size                          <span class="hljs-number">00h</span>
+<span class="hljs-number">9F2Eh</span> - L0_MAPBASE    - L0 Map Base                                   <span class="hljs-number">00h</span>
+<span class="hljs-number">9F2Fh</span> - L0_TILEBASE   - L0 Tile Base <span class="hljs-keyword">and</span> Tile Size                    <span class="hljs-number">00h</span>
+<span class="hljs-number">9F30h</span> - L0_HSCROLL_L  - L0 H-Scroll (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)                    <span class="hljs-number">00h</span>
+<span class="hljs-number">9F31h</span> - L0_HSCROLL_H  - L0 H-Scroll (upper <span class="hljs-number">4</span> <span class="hljs-meta">bits</span>) / Bitmap Color     <span class="hljs-number">00h</span>
+<span class="hljs-number">9F32h</span> - L0_VSCROLL_L  - L0 V-Scroll (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)                    <span class="hljs-number">00h</span>
+<span class="hljs-number">9F33h</span> - L0_VSCROLL_H  - L0 V-Scroll (upper <span class="hljs-number">4</span> <span class="hljs-meta">bits</span>)                    <span class="hljs-number">00h</span>
+<span class="hljs-number">9F34h</span> - L1_CONFIG     - L1 Mode <span class="hljs-keyword">and</span> Map Size                          <span class="hljs-number">00h</span>
+<span class="hljs-number">9F35h</span> - L1_MAPBASE    - L1 Map Base                                   <span class="hljs-number">00h</span>
+<span class="hljs-number">9F36h</span> - L1_TILEBASE   - L1 Tile Base <span class="hljs-keyword">and</span> Tile Size                    <span class="hljs-number">00h</span>
+<span class="hljs-number">9F37h</span> - L1_HSCROLL_L  - L1 H-Scroll (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)                    <span class="hljs-number">00h</span>
+<span class="hljs-number">9F38h</span> - L1_HSCROLL_H  - L1 H-Scroll (upper <span class="hljs-number">4</span> <span class="hljs-meta">bits</span>) / Bitmap Color     <span class="hljs-number">00h</span>
+<span class="hljs-number">9F39h</span> - L1_VSCROLL_L  - L1 V-Scroll (lower <span class="hljs-number">8</span> <span class="hljs-meta">bits</span>)                    <span class="hljs-number">00h</span>
+<span class="hljs-number">9F3Ah</span> - L1_VSCROLL_H  - L1 V-Scroll (upper <span class="hljs-number">4</span> <span class="hljs-meta">bits</span>)                    <span class="hljs-number">00h</span>
+<span class="hljs-number">9F3Bh</span> - AUDIO_CTRL    - Audio FIFO Control                            <span class="hljs-number">00h</span>
+<span class="hljs-number">9F3Ch</span> - AUDIO_RATE    - Audio FIFO Sample Rate                        <span class="hljs-number">00h</span>
+<span class="hljs-number">9F3Dh</span> - AUDIO_DATA    - Audio FIFO Data (W)                           -
+<span class="hljs-number">9F3Eh</span> - SPI_DATA      - SPI Data                                      -
+<span class="hljs-number">9F3Fh</span> - SPI_CTRL      - SPI Control                                   <span class="hljs-number">00h</span></code></pre><h3 id="ym2151-io-ports-2mhz-speed"><a class="header-link" href="#ym2151-io-ports-2mhz-speed"></a>YM2151 I/O Ports (2MHz Speed)</h3>
 <pre class="hljs"><code><span class="hljs-number">9</span>F<span class="hljs-number">40</span>h - Y<span class="hljs-name">M2151</span> Register Address <span class="hljs-comment">(W)</span>
 <span class="hljs-number">9</span>F<span class="hljs-number">41</span>h - Y<span class="hljs-name">M2151</span> Register Data <span class="hljs-comment">(W)</span>
 <span class="hljs-number">9</span>F<span class="hljs-number">4</span>xh - Y<span class="hljs-name">M2151</span> Status <span class="hljs-comment">(R)</span></code></pre><h3 id="further-memory"><a class="header-link" href="#further-memory"></a>Further Memory</h3>
@@ -609,10 +654,11 @@ on boot and become consistent at user program execution.</p>
 <h3 id="9f21h---addr_m---vram-address-middle-8-bits-rw"><a class="header-link" href="#9f21h---addr_m---vram-address-middle-8-bits-rw"></a>9F21h - ADDR_M - VRAM Address (middle 8 bits) (R/W)</h3>
 <h3 id="9f22h---addr_h---vram-address-upper-1-bit-and-increment-mode-rw"><a class="header-link" href="#9f22h---addr_h---vram-address-upper-1-bit-and-increment-mode-rw"></a>9F22h - ADDR_H - VRAM Address (upper 1 bit) and Increment Mode (R/W)</h3>
 <pre class="hljs"><code>Bit
-7-4    <span class="hljs-built_in"> Address </span><span class="hljs-keyword">Step</span> Size (see below)
-3      <span class="hljs-built_in"> Address </span><span class="hljs-keyword">Step</span> Direction (<span class="hljs-attribute">0</span>=Increment, <span class="hljs-attribute">1</span>=Decrement)
-2-1     <span class="hljs-keyword">Not</span> Used
-0       Upper 1 bit of VRAM Address</code></pre><p>Address Step Size:</p>
+7-4    <span class="hljs-built_in"> Address </span>Byte <span class="hljs-keyword">Step</span> Size (see below)
+3      <span class="hljs-built_in"> Address </span>Byte <span class="hljs-keyword">Step</span> Direction (<span class="hljs-attribute">0</span>=Increment, <span class="hljs-attribute">1</span>=Decrement)
+2      <span class="hljs-built_in"> Address </span>Nibble <span class="hljs-keyword">Step</span> (<span class="hljs-attribute">0</span>=Increment, <span class="hljs-attribute">1</span>=Decrement)
+1       VRAM Nibble<span class="hljs-built_in"> Address
+</span>0       Upper 1 bit of VRAM Address</code></pre><p>Address Step Size:</p>
 <pre class="hljs"><code><span class="hljs-attribute">0h</span>=0
 <span class="hljs-attribute">1h</span>=1
 <span class="hljs-attribute">2h</span>=2
@@ -628,10 +674,18 @@ DATA1. These registers are multiplexed for each port which is set by ADDRSEL
 bit in CTRL. Address register contents are also updated after each step
 occurred from reading/writing to their respective data port register. For
 details about ADDRSEL bit, see:<br><a href="#x16-vera-control">X16 VERA Control</a></p>
+<p>Nibble address and step only work when address byte step is 0 and are only
+relevant in FX-assisted 4-bit bitmap drawing, see:<br><a href="#x16-vera-fx-helper">X16 VERA FX Helper</a></p>
 <h3 id="9f23h---data0---vram-data-port-0-rw"><a class="header-link" href="#9f23h---data0---vram-data-port-0-rw"></a>9F23h - DATA0 - VRAM Data Port 0 (R/W)</h3>
 <h3 id="9f24h---data1---vram-data-port-1-rw"><a class="header-link" href="#9f24h---data1---vram-data-port-1-rw"></a>9F24h - DATA1 - VRAM Data Port 1 (R/W)</h3>
 <p>Simply reads or writes a byte at the set address in 9F20h-9F22h of their
 respective ports, then steps the address once.</p>
+<p>CAUTION: When the address is set or DATAx is read or written, the destination
+port will automatically read the next data from VRAM into a buffer ready for
+its next DATAx read. However, these buffers are not shared across ports which
+can lead to inconsistency when both ports are set to the same address. For
+example, when both ADDR0 and ADDR1 are the same, writing to DATA0 will <em>not</em>
+update DATA1&#39;s read data and vice versa.</p>
 <h3 id="memory-content"><a class="header-link" href="#memory-content"></a>Memory Content</h3>
 <p><a href="#x16-vera-memory-and-io-map-vram">X16 VERA Memory and I/O Map (VRAM)</a>  </p>
 <h2 id="x16-ym2151-access"><a class="header-link" href="#x16-ym2151-access"></a>X16 YM2151 Access</h2>
@@ -706,7 +760,7 @@ before programming</p>
     (nnnnnn+i)=<span class="hljs-keyword">data</span>[<span class="hljs-type">i</span>]
     repeat X=(nnnnnn+i) <span class="hljs-keyword">until</span> X==<span class="hljs-keyword">data</span>[<span class="hljs-type">i</span>]
 next i</code></pre><h1 id="x16-versatile-embedded-retro-adapter-vera"><a class="header-link" href="#x16-versatile-embedded-retro-adapter-vera"></a>X16 Versatile Embedded Retro Adapter (VERA)</h1>
-<p><a href="#x16-vera-control">X16 VERA Control</a><br><a href="#x16-vera-display-composer">X16 VERA Display Composer</a><br><a href="#x16-vera-layer-control">X16 VERA Layer Control</a><br><a href="#x16-vera-layer-control">X16 VERA Interrupts</a><br><a href="#x16-vera-audio-fifo">X16 VERA Audio FIFO</a><br><a href="#x16-vera-memory-card-interface">X16 VERA Memory Card Interface</a>  </p>
+<p><a href="#x16-vera-control">X16 VERA Control</a><br><a href="#x16-vera-display-composer">X16 VERA Display Composer</a><br><a href="#x16-vera-layer-control">X16 VERA Layer Control</a><br><a href="#x16-vera-layer-control">X16 VERA Interrupts</a><br><a href="#x16-vera-audio-fifo">X16 VERA Audio FIFO</a><br><a href="#x16-vera-memory-card-interface">X16 VERA Memory Card Interface</a><br><a href="#x16-vera-fx-helper">X16 VERA FX Helper</a></p>
 <h3 id="embedded-memory"><a class="header-link" href="#embedded-memory"></a>Embedded Memory</h3>
 <p><a href="#x16-vera-memory-and-io-map-vram">X16 VERA Memory and I/O Map (VRAM)</a><br><a href="#x16-vera-programmable-sound-generator-psg">X16 VERA Programmable Sound Generator (PSG)</a><br><a href="#x16-vera-color-palette">X16 VERA Color Palette</a><br><a href="#x16-vera-sprites">X16 VERA Sprites</a><br>VERA memory isn&#39;t mapped to the CPU bus, and can be accessed only via I/O
 ports.<br><a href="#x16-vera-memory-access">X16 VERA Memory Access</a></p>
@@ -726,13 +780,13 @@ it back until it stays.</p>
 <p>DCSEL selects which Display Composer register bank to access in location
 9F29h-9F2Ch. ADDRSEL selects which port to read/write address when accessing
 VERA memory from the CPU. For more information, see their respective entries:<br><a href="#x16-vera-display-composer">X16 VERA Display Composer</a><br><a href="#x16-vera-memory-access">X16 VERA Memory Access</a></p>
-<h3 id="9f29h9f2ch-dcsel63---version-number-r"><a class="header-link" href="#9f29h9f2ch-dcsel63---version-number-r"></a>9F29h..9F2Ch (DCSEL=63) - Version Number (R)</h3>
+<h3 id="9f29h9f2ch-dcsel63---version---version-number-r"><a class="header-link" href="#9f29h9f2ch-dcsel63---version---version-number-r"></a>9F29h..9F2Ch (DCSEL=63) - VERSION - Version Number (R)</h3>
 <pre class="hljs"><code><span class="hljs-built_in">Byte</span> <span class="hljs-number">0</span>  <span class="hljs-variable">Always</span> <span class="hljs-number">56</span><span class="hljs-variable">h</span> <span class="hljs-punctuation">(</span><span class="hljs-operator">&#x27;</span><span class="hljs-variable">V</span><span class="hljs-operator">&#x27;</span><span class="hljs-punctuation">)</span>
 <span class="hljs-built_in">Byte</span> <span class="hljs-number">1</span>  <span class="hljs-variable">Major</span> <span class="hljs-built_in">Version</span> <span class="hljs-built_in">Number</span>
 <span class="hljs-built_in">Byte</span> <span class="hljs-number">2</span>  <span class="hljs-variable">Minor</span> <span class="hljs-built_in">Version</span> <span class="hljs-built_in">Number</span>
-<span class="hljs-built_in">Byte</span> <span class="hljs-number">3</span>  <span class="hljs-variable">Build</span> <span class="hljs-built_in">Number</span></code></pre><p>Writing 63 to DCSEL will select this read-only register. It contains a version
-number information of this VERA hardware. For example, a &quot;community release
-v0.1.1&quot; FPGA configuration contains bytes 56h 00h 01h 01h in order.</p>
+<span class="hljs-built_in">Byte</span> <span class="hljs-number">3</span>  <span class="hljs-variable">Patch</span> <span class="hljs-built_in">Version</span> <span class="hljs-built_in">Number</span></code></pre><p>Writing 63 to DCSEL will select this read-only register. It contains a version
+number information of this VERA hardware. For example, an official r47 FPGA
+configuration contains bytes 56h 2Fh 00h 00h in order.</p>
 <h2 id="x16-vera-display-composer"><a class="header-link" href="#x16-vera-display-composer"></a>X16 VERA Display Composer</h2>
 <h3 id="9f29h-dcsel0---dc_video---active-display-control-rw"><a class="header-link" href="#9f29h-dcsel0---dc_video---active-display-control-rw"></a>9F29h (DCSEL=0) - DC_VIDEO - Active Display Control (R/W)</h3>
 <pre class="hljs"><code>Bit
@@ -805,14 +859,17 @@ have 9F29h-9F2Ch values of 10h, 19h, 60h, 7Dh in order.</p>
 <h2 id="x16-vera-layer-control"><a class="header-link" href="#x16-vera-layer-control"></a>X16 VERA Layer Control</h2>
 <h3 id="9f2dh---l0_config---l0-mode-and-map-size-rw"><a class="header-link" href="#9f2dh---l0_config---l0-mode-and-map-size-rw"></a>9F2Dh - L0_CONFIG - L0 Mode and Map Size (R/W)</h3>
 <h3 id="9f34h---l1_config---l1-mode-and-map-size-rw"><a class="header-link" href="#9f34h---l1_config---l1-mode-and-map-size-rw"></a>9F34h - L1_CONFIG - L1 Mode and Map Size (R/W)</h3>
-<pre class="hljs"><code><span class="hljs-attribute">Bit</span>
-<span class="hljs-attribute">7</span>-<span class="hljs-number">6</span>     Map Height (<span class="hljs-number">0</span>=<span class="hljs-number">32</span>, <span class="hljs-number">1</span>=<span class="hljs-number">64</span>, <span class="hljs-number">2</span>=<span class="hljs-number">128</span>, <span class="hljs-number">3</span>=<span class="hljs-number">256</span> tiles)
-<span class="hljs-attribute">5</span>-<span class="hljs-number">4</span>     Map Width (<span class="hljs-number">0</span>=<span class="hljs-number">32</span>, <span class="hljs-number">1</span>=<span class="hljs-number">64</span>, <span class="hljs-number">2</span>=<span class="hljs-number">128</span>, <span class="hljs-number">3</span>=<span class="hljs-number">256</span> tiles)
-<span class="hljs-attribute">3</span>       <span class="hljs-number">1</span>bpp Tile Mode Color (<span class="hljs-number">0</span>=<span class="hljs-number">16</span>FG/<span class="hljs-number">16</span>BG, <span class="hljs-number">1</span>=<span class="hljs-number">256</span>FG/<span class="hljs-number">1</span>BG)
-<span class="hljs-attribute">2</span>       Tile/Bitmap Mode (<span class="hljs-number">0</span>=Tile Mode, <span class="hljs-number">1</span>=Bitmap Mode)
-<span class="hljs-attribute">1</span>-<span class="hljs-number">0</span>     Color Depth (<span class="hljs-number">0</span>=<span class="hljs-number">1</span>bpp, <span class="hljs-number">1</span>=<span class="hljs-number">2</span>bpp, <span class="hljs-number">2</span>=<span class="hljs-number">4</span>bpp, <span class="hljs-number">3</span>=<span class="hljs-number">8</span>bpp)</code></pre><p>1bpp Tile Mode Color (bit 3) setting is valid only if the layer is set to that
-mode (bits 0-2 are all zero). The map will wrap around if the screen draws
-beyond its width or height.</p>
+<pre class="hljs"><code>Bit
+7-6     Map Height (<span class="hljs-attribute">0</span>=32, <span class="hljs-attribute">1</span>=64, <span class="hljs-attribute">2</span>=128, <span class="hljs-attribute">3</span>=256 tiles)
+5-4     Map Width (<span class="hljs-attribute">0</span>=32, <span class="hljs-attribute">1</span>=64, <span class="hljs-attribute">2</span>=128, <span class="hljs-attribute">3</span>=256 tiles)
+3       Tile Mode Color (<span class="hljs-attribute">0</span>=16FG/16BG, <span class="hljs-attribute">1</span>=256FG/1BG) (1bpp-only)
+        / Force Palette Number Bit 7               (other depths)
+2       Tile/Bitmap Mode (<span class="hljs-attribute">0</span>=Tile Mode, <span class="hljs-attribute">1</span>=Bitmap Mode)
+1-0     Color Depth (<span class="hljs-attribute">0</span>=1bpp, <span class="hljs-attribute">1</span>=2bpp, <span class="hljs-attribute">2</span>=4bpp, <span class="hljs-attribute">3</span>=8bpp)</code></pre><p>Tile Mode Color (bit 3) setting is valid only if the layer is set to 1bpp mode.
+For other modes, all layer pixels&#39; palette number bit 7 is ORed with this bit
+just before the color lookup. Allowing quick global color changes to layers.
+Sprite pixels are not affected by this bit, however.</p>
+<p>The map will wrap around if the screen draws beyond its width or height.</p>
 <h3 id="9f2eh---l0_mapbase---l0-map-base-rw"><a class="header-link" href="#9f2eh---l0_mapbase---l0-map-base-rw"></a>9F2Eh - L0_MAPBASE - L0 Map Base (R/W)</h3>
 <h3 id="9f35h---l1_mapbase---l1-map-base-rw"><a class="header-link" href="#9f35h---l1_mapbase---l1-map-base-rw"></a>9F35h - L1_MAPBASE - L1 Map Base (R/W)</h3>
 <p>Specifies the map base address in 512-byte steps. In bitmap mode, this has no
@@ -867,9 +924,9 @@ Writing a bit 1 to one of the bits 0-2 will clear that interrupt status.</p>
 with the DC_VSCALE register nor offset with the DC_VSTART register. In
 interlaced mode, bit 0 is fixed to the current odd/even field value when read
 and is ignored when write - it will generate IRQ in both two frames even
-if that line is skipped in either field of the display. Line comparison is only
-done on drawing lines which means a value higher than 479 will never generate
-Line IRQs. Also for lines 512-525 (during VBlank), this is always read 511.</p>
+if that line is skipped in either field of the display. Line comparison is done
+on every display lines even during VBlank up to line 511. Display lines further
+than this are always read 511 and cannot be compared.</p>
 <p>CAUTION: Since VERA renders to a line buffer first then read it out to the
 screen in the next line, changes made to layer settings and VRAM will not be
 visible until the next line. This does not apply to display composer settings
@@ -924,9 +981,8 @@ the desired data from the device is received and latched.</p>
 <h3 id="9f3fh---spi_ctrl---spi-control-rw"><a class="header-link" href="#9f3fh---spi_ctrl---spi-control-rw"></a>9F3Fh - SPI_CTRL - SPI Control (R/W)</h3>
 <pre class="hljs"><code>Bit
 7       Busy Flag (<span class="hljs-attribute">1</span>=Busy) (Read-only)
-6-4     <span class="hljs-keyword">Not</span> Used
-3       Auto Transfer (<span class="hljs-attribute">0</span>=Off, <span class="hljs-attribute">1</span>=On) (undocumented)
-2       <span class="hljs-keyword">Not</span> Used
+6-3     <span class="hljs-keyword">Not</span> Used
+2       Auto Transfer (<span class="hljs-attribute">0</span>=Off, <span class="hljs-attribute">1</span>=On)
 1       Shift<span class="hljs-built_in"> Clock </span>Speed (<span class="hljs-attribute">0</span>=12.5MHz, <span class="hljs-attribute">1</span>=391KHz)
 0       Chip Select (<span class="hljs-attribute">0</span>=Release, <span class="hljs-attribute">1</span>=Select)</code></pre><p>A shift clock speed of 391KHz was implemented because some memory cards require
 it to be lower than 400KHz during an initialization process. A chip select is
@@ -1062,6 +1118,88 @@ an accesss to the configuration flash memory during a normal operation. This
 allows VERA FPGA&#39;s configuration to be reprogrammed in-system through the same
 SPI interface. However, SPI flash memory have different commands from memory
 cards and the topic of programming it is outside of this document&#39;s scope.</p>
+<h2 id="x16-vera-fx-helper"><a class="header-link" href="#x16-vera-fx-helper"></a>X16 VERA FX Helper</h2>
+<p>(under construction - see
+<a href="https://docs.google.com/document/d/1q34uWOiM3Be2pnaHRVgSdHySI-qsiQWPTo_gfE54PTg">Jeffrey&#39;s docs</a>
+for now)</p>
+<p>Starting with V0.3.1, an FX helper was added to the VERA to accelerate bitmap
+graphics tasks such as transparent pixel composition, polygon drawing and
+affine transformation. It also provides an interface to a single-cycle 16-bit
+signed multiply-accumulator. Few more registers have been added through
+expanded DCSEL bits in CTRL.</p>
+<p>However, this is merely an addition to the VRAM I/O interface. It does not
+modify an existing renderer logic and could not render by itself. Thus the CPU
+still have to manually push out all the pixels.</p>
+<h3 id="9f29h-dcsel2---fx_ctrl---addr1-update-mode--vram-data-port-write-mode-rw"><a class="header-link" href="#9f29h-dcsel2---fx_ctrl---addr1-update-mode--vram-data-port-write-mode-rw"></a>9F29h (DCSEL=2) - FX_CTRL - ADDR1 Update Mode / VRAM Data Port Write Mode (R/W)</h3>
+<pre class="hljs"><code>Bit
+7       Transparent Pixel Write Masking (<span class="hljs-attribute">0</span>=Disabled, <span class="hljs-attribute">1</span>=Enabled)
+6       32-Bit Write Cache Writing (<span class="hljs-attribute">0</span>=Disabled, <span class="hljs-attribute">1</span>=Enabled)
+5       Read <span class="hljs-keyword">to</span> 32-Bit Write Cache (<span class="hljs-attribute">0</span>=Disabled, <span class="hljs-attribute">1</span>=Enabled)
+4       One-Byte Cache Cycling (<span class="hljs-attribute">0</span>=Disabled, <span class="hljs-attribute">1</span>=Enabled)
+3       Odd <span class="hljs-keyword">Step</span> Skipping (<span class="hljs-attribute">0</span>=Disabled, <span class="hljs-attribute">1</span>=Enabled)
+2       Target Bitmap Mode (<span class="hljs-attribute">0</span>=8-Bit, <span class="hljs-attribute">1</span>=4-Bit)
+1-0     ADDR1 Update Mode
+          0 = Normal
+          1 = Line Draw Helper
+          2 = Filled Polygon Draw Helper
+          3 = Affine Transformation Helper</code></pre><h3 id="9f2ah-dcsel2---fx_tilebase---affine-transformation-tile-base-w"><a class="header-link" href="#9f2ah-dcsel2---fx_tilebase---affine-transformation-tile-base-w"></a>9F2Ah (DCSEL=2) - FX_TILEBASE - Affine Transformation Tile Base (W)</h3>
+<pre class="hljs"><code><span class="hljs-attribute">Bit</span>
+<span class="hljs-attribute">7</span>-<span class="hljs-number">2</span>     Tile Base Address in VRAM (in <span class="hljs-number">2</span>-KiB steps)
+<span class="hljs-attribute">1</span>       Outside Map (<span class="hljs-number">0</span>=Wrap Within Map Area, <span class="hljs-number">1</span>=Filled by Tile <span class="hljs-number">00</span>h)
+<span class="hljs-attribute">0</span>       <span class="hljs-number">2</span>-bit Filled Polygon Drawing</code></pre><h3 id="9f2bh-dcsel2---fx_mapbase---affine-transformation-map-base-w"><a class="header-link" href="#9f2bh-dcsel2---fx_mapbase---affine-transformation-map-base-w"></a>9F2Bh (DCSEL=2) - FX_MAPBASE - Affine Transformation Map Base (W)</h3>
+<pre class="hljs"><code><span class="hljs-attribute">Bit</span>
+<span class="hljs-attribute">7</span>-<span class="hljs-number">2</span>     Map Base Address in VRAM (in <span class="hljs-number">2</span>-KiB steps)
+<span class="hljs-attribute">1</span>-<span class="hljs-number">0</span>     Map Size (<span class="hljs-number">0</span>=<span class="hljs-number">2</span>x<span class="hljs-number">2</span>, <span class="hljs-number">1</span>=<span class="hljs-number">8</span>x<span class="hljs-number">8</span>, <span class="hljs-number">2</span>=<span class="hljs-number">32</span>x<span class="hljs-number">32</span>, <span class="hljs-number">3</span>=<span class="hljs-number">128</span>x<span class="hljs-number">128</span>)</code></pre><h3 id="9f2ch-dcsel2---fx_mult---write-cache-index--multiply-accumulate-mode-w"><a class="header-link" href="#9f2ch-dcsel2---fx_mult---write-cache-index--multiply-accumulate-mode-w"></a>9F2Ch (DCSEL=2) - FX_MULT - Write Cache Index / Multiply-accumulate Mode (W)</h3>
+<pre class="hljs"><code><span class="hljs-attribute">Bit</span>
+<span class="hljs-attribute">7</span>       Reset MAC&#x27;s Accumulator to <span class="hljs-number">0</span>
+<span class="hljs-attribute">6</span>       Perform One Round of MAC Accumulation
+<span class="hljs-attribute">5</span>       Add/Subtract to Accumulator (<span class="hljs-number">0</span>=Add, <span class="hljs-number">1</span>=Subtract)
+<span class="hljs-attribute">4</span>       Enable MAC Writes to VRAM (<span class="hljs-number">0</span>=Disabled, <span class="hljs-number">1</span>=Enabled)
+<span class="hljs-attribute">3</span>-<span class="hljs-number">2</span>     <span class="hljs-number">32</span>-bit Write Cache Byte Index
+<span class="hljs-attribute">1</span>       <span class="hljs-number">32</span>-bit Write Cache Nibble Index
+<span class="hljs-attribute">0</span>       Read to Write Cache Step (<span class="hljs-number">0</span>=<span class="hljs-literal">All</span> <span class="hljs-number">4</span> bytes, <span class="hljs-number">1</span>=Bytes <span class="hljs-number">2</span>-<span class="hljs-number">3</span> Only)</code></pre><h3 id="9f29h-dcsel3---fx_x_incr_l---x-position-increment-lower-8-bits-w"><a class="header-link" href="#9f29h-dcsel3---fx_x_incr_l---x-position-increment-lower-8-bits-w"></a>9F29h (DCSEL=3) - FX_X_INCR_L - X Position Increment (lower 8 bits) (W)</h3>
+<pre class="hljs"><code><span class="hljs-attribute">Bit</span>
+<span class="hljs-attribute">7</span>-<span class="hljs-number">0</span>     X Position Increment (lower <span class="hljs-number">8</span> bits)</code></pre><h3 id="9f2ah-dcsel3---fx_x_incr_h---x-position-increment-upper-8-bits-w"><a class="header-link" href="#9f2ah-dcsel3---fx_x_incr_h---x-position-increment-upper-8-bits-w"></a>9F2Ah (DCSEL=3) - FX_X_INCR_H - X Position Increment (upper 8 bits) (W)</h3>
+<pre class="hljs"><code><span class="hljs-attribute">Bit</span>
+<span class="hljs-attribute">7</span>       X Position Increment (significand bit: <span class="hljs-number">0</span>=<span class="hljs-number">1</span>/<span class="hljs-number">512</span> pixels, <span class="hljs-number">1</span>=<span class="hljs-number">1</span>/<span class="hljs-number">16</span> pixels)
+<span class="hljs-attribute">6</span>-<span class="hljs-number">0</span>     X Position Increment (upper <span class="hljs-number">7</span> bits)</code></pre><h3 id="9f2bh-dcsel3---fx_y_incr_l---y-position-increment-lower-8-bits-w"><a class="header-link" href="#9f2bh-dcsel3---fx_y_incr_l---y-position-increment-lower-8-bits-w"></a>9F2Bh (DCSEL=3) - FX_Y_INCR_L - Y Position Increment (lower 8 bits) (W)</h3>
+<pre class="hljs"><code><span class="hljs-attribute">Bit</span>
+<span class="hljs-attribute">7</span>-<span class="hljs-number">0</span>     Y Position Increment (lower <span class="hljs-number">8</span> bits)</code></pre><h3 id="9f2ch-dcsel3---fx_y_incr_h---y-position-increment-upper-8-bits-w"><a class="header-link" href="#9f2ch-dcsel3---fx_y_incr_h---y-position-increment-upper-8-bits-w"></a>9F2Ch (DCSEL=3) - FX_Y_INCR_H - Y Position Increment (upper 8 bits) (W)</h3>
+<pre class="hljs"><code><span class="hljs-attribute">Bit</span>
+<span class="hljs-attribute">7</span>       Y Position Increment (significand bit: <span class="hljs-number">0</span>=<span class="hljs-number">1</span>/<span class="hljs-number">512</span> pixels, <span class="hljs-number">1</span>=<span class="hljs-number">1</span>/<span class="hljs-number">16</span> pixels)
+<span class="hljs-attribute">6</span>-<span class="hljs-number">0</span>     Y Position Increment (upper <span class="hljs-number">7</span> bits)</code></pre><h3 id="9f29h-dcsel4---fx_x_pos_l---pixel-x-position-lower-8-bits-w"><a class="header-link" href="#9f29h-dcsel4---fx_x_pos_l---pixel-x-position-lower-8-bits-w"></a>9F29h (DCSEL=4) - FX_X_POS_L - Pixel X Position (lower 8 bits) (W)</h3>
+<pre class="hljs"><code><span class="hljs-attribute">Bit</span>
+<span class="hljs-attribute">7</span>-<span class="hljs-number">0</span>     Pixel X Position (lower <span class="hljs-number">8</span> bits)</code></pre><h3 id="9f2ah-dcsel4---fx_x_pos_h---pixel-x-position-upper-3-bits-w"><a class="header-link" href="#9f2ah-dcsel4---fx_x_pos_h---pixel-x-position-upper-3-bits-w"></a>9F2Ah (DCSEL=4) - FX_X_POS_H - Pixel X Position (upper 3 bits) (W)</h3>
+<pre class="hljs"><code><span class="hljs-attribute">Bit</span>
+<span class="hljs-attribute">7</span>       Pixel X Fractional Position (lower <span class="hljs-number">1</span> bit)
+<span class="hljs-attribute">6</span>-<span class="hljs-number">3</span>     Not Used
+<span class="hljs-attribute">2</span>-<span class="hljs-number">0</span>     Pixel X Position (upper <span class="hljs-number">3</span> bits)</code></pre><h3 id="9f2bh-dcsel4---fx_y_pos_l---pixel-y-position-lower-8-bits-w"><a class="header-link" href="#9f2bh-dcsel4---fx_y_pos_l---pixel-y-position-lower-8-bits-w"></a>9F2Bh (DCSEL=4) - FX_Y_POS_L - Pixel Y Position (lower 8 bits) (W)</h3>
+<pre class="hljs"><code><span class="hljs-attribute">Bit</span>
+<span class="hljs-attribute">7</span>-<span class="hljs-number">0</span>     Pixel Y Position (lower <span class="hljs-number">8</span> bits)</code></pre><h3 id="9f2ch-dcsel4---fx_y_pos_h---pixel-y-position-upper-3-bits-w"><a class="header-link" href="#9f2ch-dcsel4---fx_y_pos_h---pixel-y-position-upper-3-bits-w"></a>9F2Ch (DCSEL=4) - FX_Y_POS_H - Pixel Y Position (upper 3 bits) (W)</h3>
+<pre class="hljs"><code><span class="hljs-attribute">Bit</span>
+<span class="hljs-attribute">7</span>       Pixel Y Fractional Position (lower <span class="hljs-number">1</span> bit)
+<span class="hljs-attribute">6</span>-<span class="hljs-number">3</span>     Not Used
+<span class="hljs-attribute">2</span>-<span class="hljs-number">0</span>     Pixel Y Position (upper <span class="hljs-number">3</span> bits)</code></pre><h3 id="9f29h-dcsel5---fx_x_pos_f---pixel-x-fractional-position-upper-8-bits-w"><a class="header-link" href="#9f29h-dcsel5---fx_x_pos_f---pixel-x-fractional-position-upper-8-bits-w"></a>9F29h (DCSEL=5) - FX_X_POS_F - Pixel X Fractional Position (upper 8 bits) (W)</h3>
+<h3 id="9f2ah-dcsel5---fx_y_pos_f---pixel-y-fractional-position-upper-8-bits-w"><a class="header-link" href="#9f2ah-dcsel5---fx_y_pos_f---pixel-y-fractional-position-upper-8-bits-w"></a>9F2Ah (DCSEL=5) - FX_Y_POS_F - Pixel Y Fractional Position (upper 8 bits) (W)</h3>
+<h3 id="9f2bh-dcsel5---fx_poly_fill_l---fill-length-lower-3-bits-r"><a class="header-link" href="#9f2bh-dcsel5---fx_poly_fill_l---fill-length-lower-3-bits-r"></a>9F2Bh (DCSEL=5) - FX_POLY_FILL_L - Fill Length (lower 3 bits) (R)</h3>
+<pre class="hljs"><code><span class="hljs-attribute">Bit</span>
+<span class="hljs-attribute">7</span>       Fill Length (<span class="hljs-number">0</span>=Less Than <span class="hljs-number">16</span>, <span class="hljs-number">1</span>=Greater Than/Equal <span class="hljs-number">16</span>)
+<span class="hljs-attribute">6</span>-<span class="hljs-number">5</span>     X Position (bits <span class="hljs-number">0</span>-<span class="hljs-number">1</span>)
+<span class="hljs-attribute">4</span>       X Position (bit <span class="hljs-number">2</span>) (<span class="hljs-number">4</span>-bit bitmap) / Fill Length (bit <span class="hljs-number">3</span>) (<span class="hljs-number">8</span>-bit bitmap)
+<span class="hljs-attribute">3</span>-<span class="hljs-number">1</span>     Fill Length (bits <span class="hljs-number">0</span>-<span class="hljs-number">2</span>)
+<span class="hljs-attribute">0</span>       Always <span class="hljs-number">0</span></code></pre><p>This register is oddly-laid out so that it can directly be read as a 16-bit jump
+table index and big fill length conditions as a number&#39;s sign</p>
+<h3 id="9f2ch-dcsel5---fx_poly_fill_h---fill-length-upper-7-bits-r"><a class="header-link" href="#9f2ch-dcsel5---fx_poly_fill_h---fill-length-upper-7-bits-r"></a>9F2Ch (DCSEL=5) - FX_POLY_FILL_H - Fill Length (upper 7 bits) (R)</h3>
+<pre class="hljs"><code><span class="hljs-attribute">Bit</span>
+<span class="hljs-attribute">7</span>-<span class="hljs-number">1</span>     Fill Length (bits <span class="hljs-number">3</span>-<span class="hljs-number">9</span>)
+<span class="hljs-attribute">0</span>       Always <span class="hljs-number">0</span></code></pre><p>This register is oddly-laid out so that it can directly be read as a 16-bit jump
+table index. Also, fill lengths more than 2FFh (bits 8-9 are both set) indicate
+a negative fill length and the current polygon&#39;s scanline should not be drawn.</p>
+<h3 id="9f29h9f2ch-dcsel6---fx_cache---32-bit-write-cache-data-w"><a class="header-link" href="#9f29h9f2ch-dcsel6---fx_cache---32-bit-write-cache-data-w"></a>9F29h..9F2Ch (DCSEL=6) - FX_CACHE - 32-bit Write Cache Data (W)</h3>
+<p>Writes to the 32-bit write cache directly.</p>
+<p>Reading from 9F29h will set MAC&#39;s current accumulator to 0. Reading from 9F2Ah
+will perform an accumulation to MAC. Both actions are only a shortcut to
+FX_MULT writes and will <em>not</em> return the write cache&#39;s content, however.</p>
 <h2 id="x16-vera-memory-and-io-map-vram"><a class="header-link" href="#x16-vera-memory-and-io-map-vram"></a>X16 VERA Memory and I/O Map (VRAM)</h2>
 <h3 id="vera-memory-map"><a class="header-link" href="#vera-memory-map"></a>VERA Memory Map</h3>
 <pre class="hljs"><code>Offset          Content
@@ -1140,9 +1278,9 @@ It contains a 4-byte entry for each of 16 channels:</p>
         <span class="hljs-attribute">0Ah</span>=23  <span class="hljs-attribute">16h</span>=47  <span class="hljs-attribute">22h</span>=95  <span class="hljs-attribute">2Eh</span>=191 <span class="hljs-attribute">3Ah</span>=383
         <span class="hljs-attribute">0Bh</span>=25  <span class="hljs-attribute">17h</span>=50  <span class="hljs-attribute">23h</span>=101 <span class="hljs-attribute">2Fh</span>=203 <span class="hljs-attribute">3Bh</span>=406
         <span class="hljs-attribute">0Ch</span>=26  <span class="hljs-attribute">18h</span>=53  <span class="hljs-attribute">24h</span>=107 <span class="hljs-attribute">30h</span>=215 <span class="hljs-attribute">3Ch</span>=430
-<span class="hljs-attribute">01h</span>=14  <span class="hljs-attribute">0Dh</span>=28  <span class="hljs-attribute">19h</span>=57  <span class="hljs-attribute">25h</span>=114 <span class="hljs-attribute">31h</span>=228 <span class="hljs-attribute">3Dh</span>=456
-<span class="hljs-attribute">02h</span>=15  <span class="hljs-attribute">0Eh</span>=30  <span class="hljs-attribute">1Ah</span>=60  <span class="hljs-attribute">26h</span>=120 <span class="hljs-attribute">32h</span>=241 <span class="hljs-attribute">3Eh</span>=483
-<span class="hljs-attribute">03h</span>=16  <span class="hljs-attribute">0Fh</span>=32  <span class="hljs-attribute">1Bh</span>=64  <span class="hljs-attribute">27h</span>=128 <span class="hljs-attribute">33h</span>=256 <span class="hljs-attribute">3Fh</span>=512</code></pre><p>NOTE: All values can be approximated as 0.5 dB steps.</p>
+<span class="hljs-attribute">01h</span>=4   <span class="hljs-attribute">0Dh</span>=28  <span class="hljs-attribute">19h</span>=57  <span class="hljs-attribute">25h</span>=114 <span class="hljs-attribute">31h</span>=228 <span class="hljs-attribute">3Dh</span>=456
+<span class="hljs-attribute">02h</span>=8   <span class="hljs-attribute">0Eh</span>=30  <span class="hljs-attribute">1Ah</span>=60  <span class="hljs-attribute">26h</span>=120 <span class="hljs-attribute">32h</span>=241 <span class="hljs-attribute">3Eh</span>=483
+<span class="hljs-attribute">03h</span>=12  <span class="hljs-attribute">0Fh</span>=32  <span class="hljs-attribute">1Bh</span>=64  <span class="hljs-attribute">27h</span>=128 <span class="hljs-attribute">33h</span>=256 <span class="hljs-attribute">3Fh</span>=512</code></pre><p>NOTE: All values can be approximated as 0.5 dB steps.</p>
 <h3 id="waveform"><a class="header-link" href="#waveform"></a>Waveform</h3>
 <p>For pulse waveform, an additional pulse width value w is used as a duty cycle.
 A value of 63 will give an exact square wave with a 50% duty cycle. A value of
@@ -1219,12 +1357,12 @@ It contains an 8-byte entry for each of 128 sprites:</p>
   <span class="hljs-attribute">Bit</span> <span class="hljs-number">7</span>-<span class="hljs-number">6</span>   Sprite Height (<span class="hljs-number">0</span>=<span class="hljs-number">8</span>, <span class="hljs-number">1</span>=<span class="hljs-number">16</span>, <span class="hljs-number">2</span>=<span class="hljs-number">32</span>, <span class="hljs-number">3</span>=<span class="hljs-number">64</span> pixels)
   <span class="hljs-attribute">Bit</span> <span class="hljs-number">5</span>-<span class="hljs-number">4</span>   Sprite Width (<span class="hljs-number">0</span>=<span class="hljs-number">8</span>, <span class="hljs-number">1</span>=<span class="hljs-number">16</span>, <span class="hljs-number">2</span>=<span class="hljs-number">32</span>, <span class="hljs-number">3</span>=<span class="hljs-number">64</span> pixels)
   <span class="hljs-attribute">Bit</span> <span class="hljs-number">3</span>-<span class="hljs-number">0</span>   Palette Number (<span class="hljs-number">0</span>-<span class="hljs-number">15</span>)</code></pre><h3 id="sprite-collision"><a class="header-link" href="#sprite-collision"></a>Sprite Collision</h3>
-<p>VERA has a feature where sprite collisions can be detected automatically on
-hardware while rendering. It does this by having a collision buffer in addition
-to a render buffer in a line. Each time a non-transparent pixel of a sprite is
-being drawn to the buffer, it will compare the collision mask bit field between
-of that sprite and the buffer. A collision is marked if one of bit positions
-match. The implementation pseudocode is as follows:</p>
+<p>VERA has a feature where sprite collisions to other sprites can be detected
+automatically by hardware while rendering. It does this by having a collision
+buffer in addition to a render buffer in a line. Each time a non-transparent
+pixel of a sprite is being drawn to the buffer, it will compare the collision
+mask bit field between of that sprite and the buffer. A collision is marked if
+one of bit positions match. The implementation pseudocode is as follows:</p>
 <pre class="hljs"><code><span class="hljs-keyword">For</span> each frame:
     cflag := <span class="hljs-number">0</span>
     Set <span class="hljs-keyword">all</span> Collision <span class="hljs-keyword">buffer</span> <span class="hljs-keyword">to</span> <span class="hljs-number">0</span>
@@ -1240,8 +1378,8 @@ per frame at the beginning of the VBlank.</p>
 can be problematic when sprites are off the 640-pixel line buffer or per-line
 limit is reached or the line it&#39;s being drawn is skipped from a V-Scale value
 of more than 1.0 or an interlaced mode. Also, priority settings have no effect
-on the collision detection which means that <em>disabled</em> sprites that are
-successfully &quot;drawn&quot; can still contribute to it.</p>
+on the collision detection except a setting where the sprite is disabled as it
+will not be drawn at all.</p>
 <h3 id="sprite-priority-to-other-sprites"><a class="header-link" href="#sprite-priority-to-other-sprites"></a>Sprite Priority to Other Sprites</h3>
 <p>When sprites are on the same priority (byte 6 bits 2-3 in attribute), the
 sprite attribute memory location dictates the order in which sprites to be
@@ -1428,13 +1566,21 @@ complex piece of hardware.</p>
 <span class="hljs-number">01</span><span class="hljs-built_in">h</span>     <span class="hljs-number">01</span><span class="hljs-built_in">h</span>     Hard Reset
 <span class="hljs-number">02</span><span class="hljs-built_in">h</span>     <span class="hljs-number">00</span><span class="hljs-built_in">h</span>     Soft Reset
 <span class="hljs-number">03</span><span class="hljs-built_in">h</span>     <span class="hljs-number">00</span><span class="hljs-built_in">h</span>     NMI
-<span class="hljs-number">05</span><span class="hljs-built_in">h</span>     nnh     Activity LED Brightness (<span class="hljs-number">0</span><span class="hljs-literal">-255</span>)
-<span class="hljs-number">07</span><span class="hljs-built_in">h</span>             Read Keybord <span class="hljs-keyword">Data</span>
+<span class="hljs-number">05</span><span class="hljs-built_in">h</span>     nnh     <span class="hljs-built_in">Write</span> Activity LED Brightness (<span class="hljs-number">0</span><span class="hljs-literal">-255</span>)
+<span class="hljs-number">07</span><span class="hljs-built_in">h</span>             Read Keyboard <span class="hljs-keyword">Data</span>
 <span class="hljs-number">08</span><span class="hljs-built_in">h</span>     nnh     Read/<span class="hljs-built_in">Write</span> Dummy Register
+<span class="hljs-number">09</span><span class="hljs-built_in">h</span>     nnh     <span class="hljs-built_in">Write</span> Debug Output
 <span class="hljs-number">18</span><span class="hljs-built_in">h</span>             Read Keyboard Status
-<span class="hljs-number">19</span><span class="hljs-built_in">h</span>     nnh     <span class="hljs-built_in">Write</span> Keybord <span class="hljs-keyword">Data</span>
-<span class="hljs-number">1</span>Ah     nnh nnh <span class="hljs-built_in">Write</span> Keybord <span class="hljs-keyword">Data</span>
-<span class="hljs-number">21</span><span class="hljs-built_in">h</span>             Read Mouse <span class="hljs-keyword">Data</span></code></pre><h2 id="x16-smc-ps2-interface-keyboardmouse"><a class="header-link" href="#x16-smc-ps2-interface-keyboardmouse"></a>X16 SMC PS/2 Interface (Keyboard/Mouse)</h2>
+<span class="hljs-number">19</span><span class="hljs-built_in">h</span>     nnh     <span class="hljs-built_in">Write</span> Keyboard <span class="hljs-keyword">Data</span>
+<span class="hljs-number">1</span>Ah     nnh nnh <span class="hljs-built_in">Write</span> Keyboard <span class="hljs-keyword">Data</span>
+<span class="hljs-number">20</span><span class="hljs-built_in">h</span>             <span class="hljs-built_in">Write</span> Requested Mouse <span class="hljs-built_in">Type</span>
+<span class="hljs-number">21</span><span class="hljs-built_in">h</span>             Read Mouse <span class="hljs-keyword">Data</span>
+<span class="hljs-number">22</span><span class="hljs-built_in">h</span>             Read Mouse <span class="hljs-built_in">Type</span>
+<span class="hljs-number">30</span><span class="hljs-built_in">h</span>             Read Major Version Number
+<span class="hljs-number">31</span><span class="hljs-built_in">h</span>             Read Minor Version Number
+<span class="hljs-number">32</span><span class="hljs-built_in">h</span>             Read Patch Version Number
+<span class="hljs-number">8</span>Eh             Read bootloader signature
+<span class="hljs-number">8</span>Fh     <span class="hljs-number">31</span><span class="hljs-built_in">h</span>     Enable bootloader <span class="hljs-keyword">for</span> programming</code></pre><h2 id="x16-smc-ps2-interface-keyboardmouse"><a class="header-link" href="#x16-smc-ps2-interface-keyboardmouse"></a>X16 SMC PS/2 Interface (Keyboard/Mouse)</h2>
 <p>X16 uses PS/2 connectors for each keyboard and mouse input. It is a two-wire
 serial interface similar to I2C, but the transfer protocol is incompatible,
 slower and has +5V logic. The connector itself doesn&#39;t differentiate between
@@ -1530,6 +1676,15 @@ sending the Read Data (EBh) command.</li>
 <li>Wrap Mode - The mouse echoes any written commands back and does nothing,
 except ECh (Wrap Mode Disable) and FFh (Reset).</li>
 </ul>
+<h3 id="mouse-type"><a class="header-link" href="#mouse-type"></a>Mouse Type</h3>
+<p>Starting with SMC version 45.1.0, mouse connection and type can be detected by
+sending read command 22h. The SMC will return these possible values:</p>
+<pre class="hljs"><code><span class="hljs-number">00</span>h         A mouse <span class="hljs-keyword">with</span> <span class="hljs-keyword">no</span> scroll wheel support <span class="hljs-keyword">is</span> connected
+<span class="hljs-number">03</span>h         A mouse <span class="hljs-keyword">with</span> scroll wheel support <span class="hljs-keyword">is</span> connected
+<span class="hljs-number">04</span>h         A mouse <span class="hljs-keyword">with</span> scroll wheel <span class="hljs-keyword">and</span> extra buttons support <span class="hljs-keyword">is</span> connected
+FCh         <span class="hljs-keyword">No</span> mouse connected <span class="hljs-keyword">or</span> initialization failed
+FFh         <span class="hljs-type">Unknown</span>. SMC has an older firmware</code></pre><p>It is also possible to manually set the mouse type and limit the functionality
+by sending write command 20h.</p>
 <h3 id="mouse-data"><a class="header-link" href="#mouse-data"></a>Mouse Data</h3>
 <p>The standard PS/2 mouse (which doesn&#39;t have scroll wheels) sends the following
 3-byte data:</p>
@@ -1708,10 +1863,9 @@ chip to stop accepting data bits and prepare for data read process instead.
 Then, send I2C read and start reading data bytes. Once finish, send NoAck
 instead of Ack bit to end the transfer.</p>
 <h3 id="multi-function-pin"><a class="header-link" href="#multi-function-pin"></a>Multi-function Pin</h3>
-<blockquote>
-<p>Is this pin actually connected to anywhere in X16? The current hardware seems
-to not doing so. Not going to document this here until it&#39;s actually used...</p>
-</blockquote>
+<p>This pin can be used to output an alarm or square wave signal. It can also be
+configured as a general-purpose output port. It is connected to the I2C header
+in the Developer Board.</p>
 <h3 id="power-down-and-power-up-timestamps"><a class="header-link" href="#power-down-and-power-up-timestamps"></a>Power-down and Power-up Timestamps</h3>
 <p>This real-time clock chip also has a feature where it can detect when the
 primary power going to it has went down or went back up again. And store
@@ -1750,8 +1904,8 @@ lost and a power-down timestamp has been loaded (see registers 18h-1Bh).
 Writing to this register will reset this bit and the entire power-down
 timestamp registers. Allowing any new power-down events to be recorded again
 (any newer power-down events will not overwrite the old timestamp).</p>
-<p>Day of Week value meanings are user-defined. For X16 System, a value of 1
-means Sunday (?)</p>
+<p>Day of Week value meanings are user-defined. For X16 system, a value of 1 means
+Monday.</p>
 <h3 id="04h---rtcdate---timekeeping-date-rw"><a class="header-link" href="#04h---rtcdate---timekeeping-date-rw"></a>04h - RTCDATE - Timekeeping Date (R/W)</h3>
 <pre class="hljs"><code><span class="hljs-attribute">Bit</span>
 <span class="hljs-attribute">7</span>-<span class="hljs-number">6</span>     Not Used
@@ -2006,39 +2160,6 @@ The following pinouts are viewed from the component side.</p>
      GND -- |<span class="hljs-type">28</span>   <span class="hljs-number">58</span>| <span class="hljs-type">&lt;&gt; SCL</span>
      +<span class="hljs-number">5</span>V -- |<span class="hljs-type">29</span>   <span class="hljs-number">59</span>| <span class="hljs-type">-- GND</span>
     +<span class="hljs-number">12</span>V -- |<span class="hljs-type">30</span>   <span class="hljs-number">60</span>| <span class="hljs-type">-- -12V</span>
-             -------</code></pre><h3 id="x16p-prototype-3-expansion-port-pinouts"><a class="header-link" href="#x16p-prototype-3-expansion-port-pinouts"></a>X16p &quot;Prototype #3&quot; Expansion Port Pinouts</h3>
-<pre class="hljs"><code>      ^^^ To I/O side ^^^
-             -------
-    <span class="hljs-number">-12</span>V -- |<span class="hljs-type">1</span>    <span class="hljs-number">31</span>| <span class="hljs-type">-- +12V</span>
-     GND -- |<span class="hljs-type">2</span>    <span class="hljs-number">32</span>| <span class="hljs-type">-- +5V</span>
-   +<span class="hljs-number">3.3</span>V -- |<span class="hljs-type">3</span>    <span class="hljs-number">33</span>| <span class="hljs-type">-- GND</span>
-     GND -- |<span class="hljs-type">4</span>    <span class="hljs-number">34</span>| <span class="hljs-type">&lt;- /IO4</span>
- AUDIO_L &lt;- |<span class="hljs-type">5</span>    <span class="hljs-number">35</span>| <span class="hljs-type">&lt;- /IO5</span>
-     GND -- |<span class="hljs-type">6</span>    <span class="hljs-number">36</span>| <span class="hljs-type">&lt;- /IO6</span>
- AUDIO_R &lt;- |<span class="hljs-type">7</span>    <span class="hljs-number">37</span>| <span class="hljs-type">&lt;- /IO7</span>
-     GND -- |<span class="hljs-type">8</span>    <span class="hljs-number">38</span>| <span class="hljs-type">&lt;- /IO8</span>
-     /VP -&gt; |<span class="hljs-type">9</span>    <span class="hljs-number">39</span>| <span class="hljs-type">&lt;- /RES</span>
-     RDY &lt;&gt; |<span class="hljs-type">10</span>   <span class="hljs-number">40</span>| <span class="hljs-type">-- GND</span>
-    /IRQ &lt;- |<span class="hljs-type">11</span>   <span class="hljs-number">41</span>| <span class="hljs-type">&lt;- PHI2</span>
-      BE &lt;- |<span class="hljs-type">12</span>   <span class="hljs-number">42</span>| <span class="hljs-type">&lt;- /ML</span>
-    /NMI &lt;- |<span class="hljs-type">13</span>   <span class="hljs-number">43</span>| <span class="hljs-type">-- GND</span>
-    SYNC -&gt; |<span class="hljs-type">14</span>   <span class="hljs-number">44</span>| <span class="hljs-type">&lt;&gt; R</span>/W
-     GND -- |<span class="hljs-type">15</span>   <span class="hljs-number">45</span>| <span class="hljs-type">&lt;&gt; D0</span>
-      A0 &lt;&gt; |<span class="hljs-type">16</span>   <span class="hljs-number">46</span>| <span class="hljs-type">&lt;&gt; D1</span>
-      A1 &lt;&gt; |<span class="hljs-type">17</span>   <span class="hljs-number">47</span>| <span class="hljs-type">&lt;&gt; D2</span>
-      A2 &lt;&gt; |<span class="hljs-type">18</span>   <span class="hljs-number">48</span>| <span class="hljs-type">&lt;&gt; D3</span>
-      A3 &lt;&gt; |<span class="hljs-type">19</span>   <span class="hljs-number">49</span>| <span class="hljs-type">&lt;&gt; D4</span>
-      A4 &lt;&gt; |<span class="hljs-type">20</span>   <span class="hljs-number">50</span>| <span class="hljs-type">&lt;&gt; D5</span>
-      A5 &lt;&gt; |<span class="hljs-type">21</span>   <span class="hljs-number">51</span>| <span class="hljs-type">&lt;&gt; D6</span>
-      A6 &lt;&gt; |<span class="hljs-type">22</span>   <span class="hljs-number">52</span>| <span class="hljs-type">&lt;&gt; D7</span>
-      A7 &lt;&gt; |<span class="hljs-type">23</span>   <span class="hljs-number">53</span>| <span class="hljs-type">&lt;&gt; A15</span>
-      A8 &lt;&gt; |<span class="hljs-type">24</span>   <span class="hljs-number">54</span>| <span class="hljs-type">&lt;&gt; A14</span>
-      A9 &lt;&gt; |<span class="hljs-type">25</span>   <span class="hljs-number">55</span>| <span class="hljs-type">&lt;&gt; A13</span>
-     A10 &lt;&gt; |<span class="hljs-type">26</span>   <span class="hljs-number">56</span>| <span class="hljs-type">&lt;&gt; A12</span>
-     A11 &lt;&gt; |<span class="hljs-type">27</span>   <span class="hljs-number">57</span>| <span class="hljs-type">-- GND</span>
-     GND -- |<span class="hljs-type">28</span>   <span class="hljs-number">58</span>| <span class="hljs-type">-- +3</span><span class="hljs-number">.3</span>V
-     +<span class="hljs-number">5</span>V -- |<span class="hljs-type">29</span>   <span class="hljs-number">59</span>| <span class="hljs-type">-- GND</span>
-    +<span class="hljs-number">12</span>V -- |<span class="hljs-type">30</span>   <span class="hljs-number">60</span>| <span class="hljs-type">-- -12V</span>
              -------</code></pre><h2 id="x16-pinouts-vera-module"><a class="header-link" href="#x16-pinouts-vera-module"></a>X16 Pinouts VERA Module</h2>
 <p>Viewed from component side, the connector is a 2x12 pin header with a 2.54mm
 pitch.</p>
@@ -2068,19 +2189,7 @@ pitch.</p>
     MOUSE_DAT |<span class="hljs-type">8</span>  <span class="hljs-number">1</span> <span class="hljs-number">13</span>| <span class="hljs-type">/PWR_ON</span>
     MOUSE_CLK |<span class="hljs-type">9</span>    <span class="hljs-number">12</span>| <span class="hljs-type">HDD_LED</span>
    /SMC_RESET |<span class="hljs-type">10</span>   <span class="hljs-number">11</span>| <span class="hljs-type">NMI_BTN</span>
-              &#x27;-------&#x27;</code></pre><p>Prototype #3</p>
-<pre class="hljs"><code>              .---_---.
-      I2C_SDA |<span class="hljs-string">1    20</span>|<span class="hljs-string"> /RES
-      HDD_LED </span>|<span class="hljs-string">2  T 19</span>|<span class="hljs-string"> /NMI
-      I2C_SCL </span>|<span class="hljs-string">3  I 18</span>|<span class="hljs-string"> RESET_BTN
-   KB_DAT (?) </span>|<span class="hljs-string">4  N 17</span>|<span class="hljs-string"> NMI_BTN
-          VCC </span>|<span class="hljs-string">5  Y 16</span>|<span class="hljs-string"> AGND
-          GND </span>|<span class="hljs-string">6  8 15</span>|<span class="hljs-string"> AVCC
-   KB_CLK (?) </span>|<span class="hljs-string">7  6 14</span>|<span class="hljs-string"> PWR_BTN
-MOUSE_DAT (?) </span>|<span class="hljs-string">8  1 13</span>|<span class="hljs-string"> /PWR_ON
-MOUSE_CLK (?) </span>|<span class="hljs-string">9    12</span>|<span class="hljs-string"> PWR_OK
-   /SMC_RESET </span>|<span class="hljs-string">10   11</span>|<span class="hljs-string"> (?)
-              &#x27;-------&#x27;</span></code></pre><h2 id="x16-pinouts-vera-chips"><a class="header-link" href="#x16-pinouts-vera-chips"></a>X16 Pinouts VERA Chips</h2>
+              &#x27;-------&#x27;</code></pre><h2 id="x16-pinouts-vera-chips"><a class="header-link" href="#x16-pinouts-vera-chips"></a>X16 Pinouts VERA Chips</h2>
 <h3 id="module-rev4"><a class="header-link" href="#module-rev4"></a>Module (rev4)</h3>
 <pre class="hljs"><code><span class="hljs-attribute">Board</span>:      COMMANDER X<span class="hljs-number">16</span>p VERA module rev<span class="hljs-number">4</span> by Frank van den Hoef (c) <span class="hljs-number">2020</span>
 <span class="hljs-attribute">U1</span>  <span class="hljs-number">48</span>-pin  ICE<span class="hljs-number">40</span>UP<span class="hljs-number">5</span>K-SG<span class="hljs-number">48</span>ITR<span class="hljs-number">50</span>         ; VERA FPGA
@@ -3221,6 +3330,9 @@ Base+<span class="hljs-number">0</span>C <span class="hljs-keyword">nn</span> <s
 <span class="hljs-number">89</span> <span class="hljs-keyword">nn</span>       ----<span class="hljs-keyword">z</span>-  <span class="hljs-number">2</span>   BIT #nn</code></pre><p><small>* Add one cycle if indexing crosses a page boundary</small></p>
 <p>Flags are set as follows: <code>Z=((A AND op)==0)</code>, <code>N=op.Bit(7)</code> and <code>V=op.Bit(6)</code>.
 Note that N and V rely only on op&#39;s value instead of the result.</p>
+<p>CAUTION: N and V flags result of <code>BIT #nn</code> is different across various 65C02
+implementations and should not be relied upon. Listed above is WDC 65C02&#39;s
+behavior which will <em>not</em> affect these flags.</p>
 <h3 id="increment-by-one"><a class="header-link" href="#increment-by-one"></a>Increment by one</h3>
 <pre class="hljs"><code>Opcode      Flags Clks  Syntax      Effect
 <span class="hljs-number">1</span>A          n---z-  <span class="hljs-number">2</span>   <span class="hljs-keyword">INC</span> A       A=A+<span class="hljs-number">1</span>
@@ -3293,7 +3405,7 @@ x7+80       <span class="hljs-params">------</span>  5   SMBx nn     [nn]<span c
 50 dd       ------  2** BVC rr      <span class="hljs-attribute">V</span>=0 (<span class="hljs-literal">no</span> overflow)
 70 dd       ------  2** BVS rr      <span class="hljs-attribute">V</span>=1 (overflow)
 90 dd       ------  2** BCC rr      <span class="hljs-attribute">C</span>=0 (<span class="hljs-literal">no</span> carry/less than)
-B0 dd       ------  2** BCS rr      <span class="hljs-attribute">C</span>=1 (carry/greater then/equal)
+B0 dd       ------  2** BCS rr      <span class="hljs-attribute">C</span>=1 (carry/greater than/equal)
 D0 dd       ------  2** BNE rr      <span class="hljs-attribute">Z</span>=0 (<span class="hljs-keyword">not</span> zero/<span class="hljs-keyword">not</span> equal)
 F0 dd       ------  2** BEQ rr      <span class="hljs-attribute">Z</span>=1 (zero/equal)
 xF+00 nn rr ------  5** BBRx nn,rr^ [nn].<span class="hljs-attribute">bit_x</span>=0
@@ -3419,10 +3531,9 @@ Fxh|<span class="hljs-string">rel</span>|<span class="hljs-string">(zy</span>|<s
 <h3 id="about-1"><a class="header-link" href="#about-1"></a>About</h3>
 <p>This document is written as an alternative to the official reference and aims
 to document Commander X16 hardware in detail as much as possible. While still
-being easy to follow in programmer&#39;s perspective. There are still lots of
-missing and uncomfirmed details based on speculation and emulator source codes
-(marked by (?)). Keep in mind that the hardware is currently in development and
-it (and this specs too) can change anytime!</p>
+being easy to follow in programmer&#39;s perspective. Keep in mind that the
+hardware is currently in development and it (and this specs too) can change
+anytime!</p>
 <p>This document is released under
 <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0 license</a>. Everyone is
 welcome to contribute, add missing bits and provide feedbacks through the
@@ -3436,8 +3547,10 @@ website repository linked below.</p>
 <li>Martin Korth (nocash) (SNES/65xx CPU reference)</li>
 <li>Aaron Giles, Nuke.YKT (YM2151 core and test register details)</li>
 <li>Adam Chapweske (PS/2 interface articles)</li>
-<li>Jonathan Burks (Wavicle) (X16-compatible board tests)</li>
+<li>Jonathan Burks (Wavicle) (X16 board tests)</li>
 <li>Kevin Williams (TexElec) (X16 Developer Board schematics)</li>
+<li>Jeffrey Hullekes (VERA FX Helper source code and reference)</li>
+<li>Stephen Jakobsson (SMC source code and reference)</li>
 </ul>
 <h3 id="homepage"><a class="header-link" href="#homepage"></a>Homepage</h3>
 <p><a href="https://ayce.dev/emptyx16.html">https://ayce.dev/emptyx16.html</a> - X16 specs updates (html version)<br><a href="https://ayce.dev/emptyx16.txt">https://ayce.dev/emptyx16.txt</a> - X16 specs updates (text version)<br><a href="https://github.com/AYCEdemo/emptyx16">https://github.com/AYCEdemo/emptyx16</a> - X16 specs repository  </p>
